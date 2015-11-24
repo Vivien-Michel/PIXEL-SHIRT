@@ -31,12 +31,6 @@
         <p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
      </fieldset>
 </form>
-<form method="POST" action="Inscription">
-	<fieldset>
-	<legend>Nouveau client</legend>
-		<input type="submit" id="inscription" name="inscription" value="Inscription" />
-	</fieldset>
-</form>
 
 </body>
 </html>
