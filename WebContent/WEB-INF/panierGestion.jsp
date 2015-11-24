@@ -11,7 +11,7 @@
 <body>
 <%@ include file="menu.jsp" %>
 <p>Recapitulatif des articles dans le panier + possibilité de valider</p>
-<p>Bonjour ${client.nom} ${client.prenom} voici le panier</p>
+<p>Bonjour ${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom} voici le panier</p>
 <table class="Tableau">
 		 <tr class="legende">
 	      <td><c:out value="Id" /></td>
@@ -23,7 +23,7 @@
 	      <td><c:out value="Quantite" /></td>
 	      <td><c:out value="Bouton" /></td>	      
 	   	</tr>
-	   <c:forEach var="article" items="${listeArticles}">
+	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
 	      <td><c:out value="${article.key.id_article}" /></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
@@ -49,11 +49,23 @@
 	</table>
 <p>Total : ${total} €</p>
 <form name="commanderarticleform" method="POST" action="Commander" id="form">
+<p>Total : ${sessionScope.panier.total} €</p> <span>
+							<c:choose>
+								<c:when test="${not empty sessionScope.panier.client}">
+								<form name="supprimercompteform" method="POST" action="Gestion" id="formSupprCompte">
+								<input type="submit" id="supprimerCompte" name="supprimerCompte" value="Supprimer son Compte" class="sansLabel" />
+								</form>
+								<form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
+								<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
+								</form>
+								</c:when>
+							</c:choose>
+						</span>
+<form name="commanderarticleform" method="POST" action="/Pixel_Shirt/Connexion" id="formCommander">
 	<input type="submit" id="commander" name="commander" value="Commander" class="sansLabel" />
 </form>
 <form name="transactinoarticleform" method="POST" action="/Pixel_Shirt/Transaction" id="form">
 	<input type="submit" id="transaction" name="transaction" value="Transaction" class="sansLabel" />
 </form>
-
 </body>
 </html>
