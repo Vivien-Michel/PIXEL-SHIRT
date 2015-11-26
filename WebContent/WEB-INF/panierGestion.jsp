@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="/Pixel_Shirt/tab.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/tab.css" />
 <title>Gestion Panier</title>
 </head>
 <body>
@@ -15,6 +15,7 @@
 <table class="Tableau">
 		 <tr class="legende">
 	      <td><c:out value="Id" /></td>
+	      <td><c:out value="Image"></c:out></td>
 	      <td><c:out value="Couleur" /></td>
 	      <td><c:out value="Taille" /></td>
 	      <td><c:out value="Modele" /></td>
@@ -26,6 +27,7 @@
 	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
 	      <td><c:out value="${article.key.id_article}" /></td>
+	      <td><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
@@ -59,7 +61,7 @@
 								</c:when>
 							</c:choose>
 						</span>
-<form name="commanderarticleform" method="POST" action="/Pixel_Shirt/Connexion" id="formCommander">
+<form name="commanderarticleform" method="POST" action="${pageContext.request.contextPath}/Connexion" id="formCommander">
 	<input type="submit" id="commander" name="commander" value="Commander" class="sansLabel" />
 </form>
 </body>

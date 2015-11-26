@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inscription</title>
-<link type="text/css" rel="stylesheet" href="form.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/form.css" />
 </head>
 <body>
 <%@ include file="menu.jsp" %>

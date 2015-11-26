@@ -1,5 +1,6 @@
 package com.pixel.sessions;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import com.pixel.entities.Article;
 import com.pixel.exceptions.DAOException;
@@ -103,4 +106,13 @@ public class ArticleDAO {
 		return em.merge(article);
 	}
 
+	public void getImage(String id_article, HttpServletResponse response) throws IOException {
+		response.setContentType("image/jpeg");
+		Article article = findById(id_article);
+		response.setContentLength(article.getImage().length);
+        ServletOutputStream outputStream = response.getOutputStream();
+        outputStream.write(article.getImage(),0,article.getImage().length);
+        outputStream.flush();
+        outputStream.close();
+	}
 }

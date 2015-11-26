@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Connexion</title>
-<link type="text/css" rel="stylesheet" href="form.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/form.css" />
 </head>
 <body>
 <%@ include file="menu.jsp" %>
@@ -31,7 +31,7 @@
         <p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
      </fieldset>
 </form>
-<form method="GET" action="Inscription">
+<form method="GET" action="${pageContext.request.contextPath}/Inscription">
 	<fieldset>
 	<legend>Nouveau client</legend>
 		<input type="submit" id="inscription" name="inscription" value="Inscription" />

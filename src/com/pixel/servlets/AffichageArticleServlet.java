@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pixel.entities.Article;
+import com.pixel.form.PanierForm;
 import com.pixel.sessions.ArticleDAO;
 import com.pixel.sessions.PanierBean;
 
@@ -49,19 +49,8 @@ public class AffichageArticleServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		
-		//TODO Verification des valeurs recupérées et levé d'exception en cas d'erreur
-		String quantites = (String) request.getParameter("quantite");
-		int quantite = Integer.parseInt(quantites);
-		
-		String articleid = request.getParameter("article_id");
-		Article article = articleDao.findById(articleid);
-		
-		if(article.getQuantite()-quantite>=0){
-			article.setQuantite(article.getQuantite()-quantite);
-			articleDao.update(article);
-			panier.addArticle(article, quantite);
-		}
-		
+		PanierForm form = new PanierForm(articleDao);
+		form.addArticle(request, panier);
 		List<?> articles = articleDao.findAll();
 		request.setAttribute( ATT_ART, articles );
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
