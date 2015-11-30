@@ -1,5 +1,12 @@
 package com.pixel.tools;
 
+import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
+@Stateful
 public class Banque {
 	
 	// Solde
@@ -16,14 +23,14 @@ public class Banque {
 	public Banque (String nom, String prenom ) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.solde = (float) (Math.random() * (maximum - minimum)) ;
+		this.solde = (float) (minimum + (Math.random() * (maximum - minimum))) ;
 	}
 	
 	/*
 	 * this.Banque crédite un montant m au client de la banque b
 	 */
 	public synchronized void credit(Banque b, float m) {
-		this.solde =- m;
+		this.solde = this.solde - m;
 		b.setSolde(b.getSolde() + m);
 	}
 
@@ -31,7 +38,7 @@ public class Banque {
 	 * this.Banque débite un montant m au client de la banque b
 	 */
 	public synchronized void debit(Banque b, float m) {
-		this.solde =+ m;
+		this.solde = this.solde + m;
 		b.setSolde(b.getSolde() - m);
 	}
 
