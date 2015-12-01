@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.pixel.entities.Utilisateur;
 import com.pixel.filtres.AdminFilter;
 import com.pixel.form.ConnexionForm;
-import com.pixel.sessions.ClientDAO;
+import com.pixel.sessions.ClientDAORemote;
 
 /**
  * Servlet implementation class ConnexionAdminServlet
@@ -25,7 +25,7 @@ public class ConnexionAdminServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/connexion.jsp";
 	
 	@EJB
-    ClientDAO user;
+    ClientDAORemote user;
     /**
      * @see HttpServlet#HttpServlet()
      */

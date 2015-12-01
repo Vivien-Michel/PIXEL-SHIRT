@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pixel.form.PanierForm;
-import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.PanierBeanLocal;
 
 /**
  * Servlet implementation class Panier
@@ -24,7 +24,7 @@ public class PanierServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/panierGestion.jsp";
 	
 	@EJB
-    ClientDAO user;
+    ClientDAORemote user;
 	
 	/**
      * @see HttpServlet#HttpServlet()
@@ -45,7 +45,7 @@ public class PanierServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+		PanierBeanLocal panier = (PanierBeanLocal) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		
 		PanierForm form = new PanierForm(user);
 		form.update(request,panier);

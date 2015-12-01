@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.pixel.entities.Article;
 import com.pixel.exceptions.FormValidationException;
-import com.pixel.sessions.ArticleDAO;
-import com.pixel.sessions.ClientDAO;
+import com.pixel.sessions.ArticleDAORemote;
+import com.pixel.sessions.ClientDAORemote;
 
 public class Form {
 	
-	protected ClientDAO user;
-	protected ArticleDAO articleDao;
+	protected ClientDAORemote user;
+	protected ArticleDAORemote articleDao;
 	protected String resultat;
 	protected Map<String, String> erreurs      = new HashMap<String, String>();
 	protected static final int TAILLE_MIN_MDP = 3;

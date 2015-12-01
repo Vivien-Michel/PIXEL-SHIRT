@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.pixel.entities.Utilisateur;
 import com.pixel.form.InscriptionForm;
-import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.PanierBeanLocal;
 
 /**
  * Servlet implementation class Inscription
@@ -27,7 +27,7 @@ public class InscriptionServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/inscription.jsp";
 	
 	@EJB
-    private ClientDAO user;
+    private ClientDAORemote user;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,9 +48,9 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(true);
-		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+		PanierBeanLocal panier = (PanierBeanLocal) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		
-		InscriptionForm form = new InscriptionForm( user );
+		InscriptionForm form = new InscriptionForm(user);
         /* Traitement de la requête et récupération du bean en résultant */
 		
         Utilisateur utilisateur = form.inscrireUtilisateur( request, panier);

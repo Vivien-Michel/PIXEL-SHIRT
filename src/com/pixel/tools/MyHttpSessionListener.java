@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 import com.pixel.servlets.AccueilServlet;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.PanierBeanLocal;
 
 @WebListener
 public class MyHttpSessionListener implements HttpSessionListener{
@@ -17,7 +17,7 @@ public class MyHttpSessionListener implements HttpSessionListener{
 	public void sessionCreated(HttpSessionEvent event) {
 		HttpSession session =event.getSession();
 		try {
-			PanierBean panier = (PanierBean) new InitialContext().lookup("java:global/Pixel_Shirt/PanierBean");
+			PanierBeanLocal panier = (PanierBeanLocal) new InitialContext().lookup("java:global/Pixel_Shirt/PanierBean");
 			session.setAttribute(AccueilServlet.KEY_SESSION_BEAN, panier);
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -28,7 +28,7 @@ public class MyHttpSessionListener implements HttpSessionListener{
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {
 		System.out.println("session destroy");
-		PanierBean panier=(PanierBean) event.getSession().getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+		PanierBeanLocal panier= (PanierBeanLocal) event.getSession().getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		if(panier != null){
 			panier.update();
 			panier.remove();

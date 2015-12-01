@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
@@ -22,7 +23,7 @@ import com.pixel.exceptions.DAOException;
  * Session Bean implementation class Panier
  */
 @Stateful
-public class PanierBean{
+public class PanierBean implements PanierBeanLocal{
 	
 	private Panier panier;
 	private float total=0;
@@ -31,20 +32,20 @@ public class PanierBean{
 	
 	@PersistenceContext(unitName= "bdd_pixel_shirt")
 	private EntityManager em;
-	
-	public Panier getPanier() {
-		return panier;
+		
+	@PostConstruct
+	public void init(){
+		panier=new Panier();
+		System.out.println("Panier: "+ panier);
+    	Commande commande = new Commande();
+    	commande.setValide(false);
+    	panier.setCommande(commande);
 	}
-
 	
     /**
      * Default constructor. 
      */
     public PanierBean() {
-    	panier=new Panier();
-    	Commande commande = new Commande();
-    	commande.setValide(false);
-    	panier.setCommande(commande);
     }
     
     public void addArticle(Article article, int quantite){
@@ -69,8 +70,17 @@ public class PanierBean{
     }
     
     public Client getClient(){
+    	System.out.println("Getclient: "+panier);
+    	if(panier.getClient() != null){
+    		System.out.println(panier.getClient().getNom());
+    	}
     	return panier.getClient();
     }
+    
+    public Panier getPanier() {
+    	System.out.println("getPanier: "+panier);
+		return panier;
+	}
     
     public Map<Article, Integer> getArticles(){
     	return panier.getCommande().getArticles();

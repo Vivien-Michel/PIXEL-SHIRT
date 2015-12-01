@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.pixel.entities.Client;
 import com.pixel.entities.Utilisateur;
 import com.pixel.form.ConnexionForm;
-import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.PanierBeanLocal;
 
 /**
  * Servlet implementation class Connexion
@@ -27,7 +27,7 @@ public class ConnexionServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/connexion.jsp";
 	
 	@EJB
-    ClientDAO user;
+    ClientDAORemote user;
 	
     public ConnexionServlet() {
         super();
@@ -49,7 +49,7 @@ public class ConnexionServlet extends HttpServlet {
 		
 		if(connexion.getErreurs().isEmpty()){
 	        HttpSession session = request.getSession(true);
-	    	PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+	    	PanierBeanLocal panier = (PanierBeanLocal) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 	        panier.fusion(((Client) utilisateur).getPanier());
 	        response.sendRedirect("Articles");
         }else{
@@ -58,5 +58,4 @@ public class ConnexionServlet extends HttpServlet {
         	this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 		}
 	}
-
 }

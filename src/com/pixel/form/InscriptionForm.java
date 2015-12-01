@@ -10,17 +10,17 @@ import com.pixel.entities.Utilisateur;
 import com.pixel.entities.Client;
 import com.pixel.exceptions.FormValidationException;
 import com.pixel.filtres.AdminFilter;
-import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.PanierBeanLocal;
 
 public class InscriptionForm extends Form{
 	
     
-	public InscriptionForm(ClientDAO user) {
+	public InscriptionForm(ClientDAORemote user) {
 		this.user=user;
 	}
 
-	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBean panier) {
+	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBeanLocal panier) {
 		 	String email = getValeurChamp( request, CHAMP_EMAIL );
 		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
@@ -30,6 +30,7 @@ public class InscriptionForm extends Form{
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
+		    System.out.println("user Panier: "+utilisateur.getPanier());
 		    utilisateur.setDate(new DateTime());
 		    
 		    traiterEmail(email, utilisateur);
@@ -48,6 +49,7 @@ public class InscriptionForm extends Form{
 		    utilisateur.setPrenom(prenom);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
+		    	//System.out.println(panier.getClient());
 		    	panier.setFusion(true);
 		    	user.creer(utilisateur);
 		        resultat = "Succès de l'inscription.";

@@ -3,23 +3,23 @@ package com.pixel.form;
 import javax.servlet.http.HttpServletRequest;
 
 import com.pixel.entities.Article;
-import com.pixel.sessions.ArticleDAO;
-import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.ArticleDAORemote;
+import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.PanierBeanLocal;
 
 public class PanierForm extends Form {
 	
 	private boolean suppr=false;
 
-	public PanierForm(ClientDAO client){
+	public PanierForm(ClientDAORemote client){
 		this.user=client;
 	}
 	
-	public PanierForm(ArticleDAO article){
+	public PanierForm(ArticleDAORemote article){
 		this.articleDao=article;
 	}
 	
-	public void update(HttpServletRequest request, PanierBean panier){
+	public void update(HttpServletRequest request, PanierBeanLocal panier){
 		suppr=false;
 		// Recupération du paramètre article_id dans la balise input de type "hidden" du fichier panierGestion.jsp
 		String article_id = request.getParameter(CHAMP_ART_ID);
@@ -42,7 +42,7 @@ public class PanierForm extends Form {
 	
 	}
 	
-	public void addArticle(HttpServletRequest request, PanierBean panier){
+	public void addArticle(HttpServletRequest request, PanierBeanLocal panier){
 		
 		
 		String quantites = (String) request.getParameter("quantite");

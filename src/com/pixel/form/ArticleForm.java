@@ -13,10 +13,11 @@ import javax.servlet.http.Part;
 
 import com.pixel.entities.Article;
 import com.pixel.exceptions.FormValidationException;
-import com.pixel.sessions.ArticleDAO;
+import com.pixel.sessions.ArticleDAORemote;
 
 public class ArticleForm extends Form {
-	public ArticleForm(ArticleDAO articleDao){
+	
+	public ArticleForm(ArticleDAORemote articleDao){
 		this.articleDao=articleDao;
 	}
 	

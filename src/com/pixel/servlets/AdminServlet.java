@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pixel.entities.Utilisateur;
 import com.pixel.form.InscriptionForm;
-import com.pixel.sessions.ClientDAO;
+import com.pixel.sessions.ClientDAORemote;
 
 /**
  * Servlet implementation class AdminServlet
@@ -24,7 +24,7 @@ public class AdminServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/inscription.jsp";
 	
 	@EJB
-    private ClientDAO user;
+    private ClientDAORemote user;
     /**
      * @see HttpServlet#HttpServlet()
      */
