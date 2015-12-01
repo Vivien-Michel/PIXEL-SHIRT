@@ -21,7 +21,7 @@ public class AccueilServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/accueil.jsp";
 	public static final String KEY_SESSION_BEAN = "panier";
 	// Initialisation (instance sur server)unique de la banque de l'entreprise pour tout les clients
-	public static final Banque banque = new Banque("Pixel_Shirt","Pixel_Shirt");
+	public static Banque entreprise = new Banque("Pixel_Shirt","Pixel_Shirt");
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

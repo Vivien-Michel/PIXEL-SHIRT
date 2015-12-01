@@ -69,11 +69,15 @@ public class TransactionServlet extends HttpServlet {
 		
 		if (request.getParameter(ATT_TRANSACTION) != null) {
 			Banque client = new Banque(panier.getClient().getNom(),panier.getClient().getPrenom());
-			Banque entreprise = AccueilServlet.banque;
-			transaction.transaction(panier, client);
-			System.out.println("MONTANT :"+panier.getTotal());
-			System.out.println("Client fin :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
-			System.out.println("Entreprise fin :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
+			try {
+				transaction.transaction(client,Float.parseFloat(panier.getTotal()),AccueilServlet.entreprise);
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}

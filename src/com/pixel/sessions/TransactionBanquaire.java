@@ -18,6 +18,8 @@ import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 import com.pixel.entities.Utilisateur;
+import com.pixel.exceptions.InsufficientFundException;
+import com.pixel.exceptions.PaymentException;
 import com.pixel.servlets.AccueilServlet;
 import com.pixel.tools.Banque;
 
@@ -29,68 +31,61 @@ import com.pixel.tools.Banque;
  */
 
 @Stateless
+@TransactionManagement(value=TransactionManagementType.BEAN)
 public class TransactionBanquaire  {
 	
 	@Resource
-    private EJBContext context;
+    private UserTransaction userTransaction;
 	
-	
-	public void transaction(PanierBean p, Banque client){
-	        try {
-	            // Do something with the EntityManager
-	            // such as persist(), merge() or remove()
-	        	
-	        	Banque entreprise = AccueilServlet.banque;
-	    		System.out.println("MONTANT :"+p.getTotal());
-	    		System.out.println("Client début :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
-	    		System.out.println("Entreprise début :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
-	    		
-	    		entreprise.debit(client, Float.parseFloat(p.getTotal()));
-	    		
-	    		throw new SystemException("test rollback");	        	
-	        }
-	        catch(SystemException t) {
-	            /**
-	             * What error occurs in the try{} clause,
-	             * the data will not be persisted if
-	             * context.setRollbackOnly() is invoked here.
-	             **/
-	        	t.printStackTrace();
-	            context.setRollbackOnly();
-	        }
-	    }
-	
-	// Require connexion . méthode de transaction banquaire
-	/*public void transaction(PanierBean p, Banque client) {
-		Banque entreprise = AccueilServlet.banque;
-		System.out.println("MONTANT :"+p.getTotal());
+	public void transaction(Banque client, float somme, Banque entreprise) throws Exception {
+		System.out.println("MONTANT :"+somme);
 		System.out.println("Client début :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
 		System.out.println("Entreprise début :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
-		entreprise.debit(client, Float.parseFloat(p.getTotal()));
 		
-		try {
-			throw new SystemException("test rollback");
-		} catch ( SystemException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		 try{
+	         userTransaction.begin();
+	         System.out.println("a");
+	         withdrawAmount(client,somme);
+	         System.out.println("b");
+	         depositAmount(entreprise,somme);
+	         System.out.println("c");
+	         userTransaction.commit();
+	         System.out.println("MONTANT :"+somme);
+	 		 System.out.println("Client fin after commit :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
+	 		 System.out.println("Entreprise fin after commit :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
+	         
+	    }catch (InsufficientFundException e1){
+	         userTransaction.rollback();
+	         System.out.println("MONTANT :"+somme);
+	 		System.out.println("Client fin insufficient :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
+	 		System.out.println("Entreprise fin insufficient :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
+	      }catch (PaymentException e2){
+	         userTransaction.rollback();
+	         System.out.println("MONTANT :"+somme);
+	 		System.out.println("Client fin payment:"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
+	 		System.out.println("Entreprise fin payement :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
+	      }
+   }
+
+   private void withdrawAmount(Banque b, float somme) throws InsufficientFundException, PaymentException {
+	   if (b.getSolde()-somme < 0){
+		   throw new InsufficientFundException("[InsufficientFundException] Solde négatif");		   
+	   }else{
+			try {
+				b.setSolde(b.getSolde()-somme);
+			} catch (Throwable e) {
+				throw new PaymentException("[PaymentException] Erreur lors du versement withdraw");
 		}
-	}*/
-	
+	   }
+   }
 
-	
-	
-    @AfterBegin
-    private void afterBegin(){
-        System.out.println("A new transaction has started.");
-    }
-
-    @BeforeCompletion
-    private void beforeCompletion(){
-        System.out.println("A transaction is about to be committed.");
-    }
-
-    @AfterCompletion
-    private void afterCompletion(boolean committed) {
-        System.out.println("a transaction commit protocol has completed, and tells the instance whether the transaction has been committed or rolled back , based on committed value : " + committed);
-    }
+   private void depositAmount(Banque b, float somme) throws PaymentException{
+	   try {
+		   b.setSolde(b.getSolde()+somme);
+	   }catch(Throwable e){
+		   throw new PaymentException("[PaymentException] Erreur lors du versement");
+	   }	   
+   }
+	   
 }
+
