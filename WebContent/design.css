@@ -134,8 +134,7 @@ select {
 }
 button,
 html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"]{
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -6603,6 +6602,7 @@ body {
   min-width: 100%;
 }
 .section {
+  padding-top: 100px;
   position: relative;
   padding: 35px 0;
 }

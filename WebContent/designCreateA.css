@@ -134,8 +134,7 @@ select {
 }
 button,
 html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"]{
   -webkit-appearance: button;
   cursor: pointer;
 }
