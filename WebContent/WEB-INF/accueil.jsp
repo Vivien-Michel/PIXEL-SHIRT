@@ -4,7 +4,8 @@
 
 
 
-<html><head>
+<html>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -12,7 +13,9 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="bs_leftnavi.js"></script>
     <link href="design.css" rel="stylesheet" type="text/css">
-  </head><body>
+    <title>Pixel Shirt</title>
+  </head>
+ <body>
 
 
 	<%@ include file="menu.jsp"%>
@@ -52,11 +55,10 @@
 						class="caret"></b></a>
 					<div class="dropdown-menu">
 						<form style="margin: 0px" accept-charset="UTF-8"
-							action="/sessions" method="post">
+							action="${pageContext.request.contextPath}/Connexion" method="post">
 							<div style="margin: 0; padding: 0; display: inline">
-								<input name="utf8" type="hidden" value="✓"> <input
-									name="authenticity_token" type="hidden"
-									value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=">
+								<input name="utf8" type="hidden" value="✓"> 
+								<input name="authenticity_token" type="hidden" value="">
 							</div>
 							
 <!-- 							A METTRE DANS UN TRUC A PART
@@ -76,7 +78,7 @@
 								<span class="erreur">${form.erreurs['motdepasse']}</span>
 								
 								<input class="btn-primary" name="commit" type="submit" value="Connexion">
-								<a href="createA.html">Create</a>	
+								<a href="${pageContext.request.contextPath}/Inscription">Create</a>	
 									
 								
 							</fieldset>
@@ -89,10 +91,11 @@
 							
 							</c:choose>
 							</form>
-					</div></li>
-				<li class="active"><a href="indexPanier.html">
+					</div>
+				</li>
+				<li class="active"><a href="${pageContext.request.contextPath}/Panier/Gestion">
 				<div style="text-align: center;">
-					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span>
+					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">${sessionScope.panier.size}</span>
 				</div></a></li>
 
           </ul>
@@ -168,38 +171,15 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-offset-3 col-md-6">
-                <form role="form">
+                <form role="form" method="post" action="Recherche">
                   <div class="form-group">
                     <div class="input-group">
-                    
-                    <form method="post" action="Recherche">
+                   
                       <input type="text" class="form-control" placeholder="Search" id="tags" name="tags">
                       <span class="input-group-btn">
-                        <a class="btn btn-success" type="submit">Go</a>
+                        <input type="submit" value="Go" class="btn btn-success" />
                       </span>
-                     </form>
-                     
-                     
-                      <form method="post" action="Recherche">
-						<input placeholder="Recherche ?" id="tags" name="tags" value="" size="20" maxlength="60" />
-						<input type="submit" value="Recherche Article" class="sansLabel" />
-					</form>
-					<table class="Tableau">
-					<c:forEach var="article" items="${listeArticles}">
-					    <tr>
-					      <td><c:out value="${article.id_article}" /></td>
-					      <td><c:out value="${article.couleur}" /></td>
-					      <td><c:out value="${article.taille}" /></td>
-					      <td><c:out value="${article.modele}" /></td>
-					      <td><c:out value="${article.prix} €" /></td>	      
-						</tr>
-					</c:forEach>
-					</table> 
-                      
-                      
-                      
-                      
-                      
+              
                     </div>
                   </div>
                 </form>
@@ -222,9 +202,9 @@
                 <div id="carousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="item active">
-                      <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png">
+                      <img src="${pageContext.request.contextPath}/images/${article.id_article}">
                       <div class="carousel-caption">
-                        <h2>Title</h2>
+                        <h2>${article.taille} ${article.couleur}</h2>
                         <p></p>
                       </div>
                     </div>

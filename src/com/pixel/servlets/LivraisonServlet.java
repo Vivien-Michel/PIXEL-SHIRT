@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/UnArticle")
-public class UnArticle extends HttpServlet{
+@WebServlet("/Panier/ModeLivraison")
+public class LivraisonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/unArticle.jsp";
+	private static final String VUE = "/WEB-INF/livraison.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UnArticle() {
+    public LivraisonServlet() {
         super();
     }
 
@@ -39,4 +39,5 @@ public class UnArticle extends HttpServlet{
 		    }
 		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
+
 }

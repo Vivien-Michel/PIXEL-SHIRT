@@ -24,7 +24,7 @@ public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
-	private static final String VUE = "/WEB-INF/connexion.jsp";
+	private static final String VUE = "/WEB-INF/accueil.jsp";
 	
 	@EJB
     ClientDAO user;
@@ -51,7 +51,7 @@ public class ConnexionServlet extends HttpServlet {
         	HttpSession session = request.getSession(true);
     		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
         	panier.fusion(((Client) utilisateur).getPanier());
-        	response.sendRedirect("Articles");
+        	response.sendRedirect("Accueil");
         }else{
         	request.setAttribute( ATT_FORM, connexion );
             request.setAttribute( ATT_USER, utilisateur );
