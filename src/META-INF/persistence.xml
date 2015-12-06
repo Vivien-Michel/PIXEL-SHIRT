@@ -16,6 +16,7 @@
     <class>com.pixel.entities.Motif</class>
     <class>com.pixel.entities.Panier</class>
     <class>com.pixel.entities.Utilisateur</class>
+    
     <properties>
   			<property name="eclipselink.ddl-generation" value="create-tables"/>
 	</properties>

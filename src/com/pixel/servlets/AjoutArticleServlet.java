@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pixel.entities.Article;
 import com.pixel.form.ArticleForm;
-import com.pixel.sessions.ArticleDAORemote;
+import com.pixel.sessions.ArticleDAO;
 
 /**
  * Servlet implementation class AjoutArticle
@@ -26,7 +26,7 @@ public class AjoutArticleServlet extends HttpServlet {
 	private static final String VUE = "/WEB-INF/ajout_article.jsp"; 
     
 	@EJB
-	private ArticleDAORemote articleDao;
+	private ArticleDAO articleDao;
 	/**
      * @see HttpServlet#HttpServlet()
      */

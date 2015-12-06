@@ -19,7 +19,7 @@ import com.pixel.exceptions.DAOException;
 import com.pixel.tools.SortMap;
 
 @Stateless
-public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
+public class ArticleDAO {
 	
 	@PersistenceContext( unitName = "bdd_pixel_shirt" )
     private EntityManager em;
@@ -27,7 +27,7 @@ public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
 	private static final String JPQL_SELECT_BASE = "SELECT a FROM Article a";
 	
 	
-	public void creer(Article article) throws DAOException{
+	public void creer(Article article){
 		try {
             em.persist( article );
         } catch ( Exception e ) {
@@ -35,7 +35,7 @@ public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
         }
 	}
 	
-	public List<?> findAll() throws DAOException{
+	public List<?> findAll(){
 		List<?> list=null;
 		Query query = em.createQuery(JPQL_SELECT_BASE + " ORDER BY a.id_article");
 		try {
@@ -48,7 +48,7 @@ public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
 		return list;	
 	}
 	
-	public List<?> findByOption(String option) throws DAOException{
+	public List<?> findByOption(String option){
 		List<?> list=null;
 		Query query = em.createQuery(JPQL_SELECT_BASE+" WHERE a."+option+":="+option);
 		query.setParameter(option, option);
@@ -62,7 +62,7 @@ public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
 		return list;	
 	}
 	
-	public Article findById(String Id) throws DAOException{
+	public Article findById(String Id){
 		Article article = null;
 		Long id = Long.parseLong(Id);
 		try {
@@ -75,7 +75,7 @@ public class ArticleDAO implements ArticleDAORemote, ArticleDAOLocal{
 		return article;
 	}
 	
-	public List<Article> findByTag(List<String> tags) throws DAOException{
+	public List<Article> findByTag(List<String> tags){
 		List<Article> articles = null;
 		Map<Article, Integer> articleMap = new HashMap<>();
 		TypedQuery<Article> query = em.createQuery(JPQL_SELECT_BASE+" WHERE :tag IN (a.tags)",Article.class);

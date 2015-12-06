@@ -10,8 +10,7 @@ import com.pixel.entities.Utilisateur;
 import com.pixel.exceptions.DAOException;
 
 @Stateless
-public class ClientDAO implements ClientDAORemote{
-	
+public class ClientDAO {
 	private static final String JPQL_SELECT_PAR_EMAIL = "SELECT u FROM Utilisateur u WHERE u.mail=:mail";
     private static final String PARAM_EMAIL = "mail";
    // private static final String PARAM_MDP = "mdp";

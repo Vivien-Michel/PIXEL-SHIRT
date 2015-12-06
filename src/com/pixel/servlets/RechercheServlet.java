@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pixel.entities.Article;
 import com.pixel.form.RechercheForm;
-import com.pixel.sessions.ArticleDAORemote;
+import com.pixel.sessions.ArticleDAO;
 
 /**
  * Servlet implementation class RechercheServlet
@@ -24,7 +24,7 @@ public class RechercheServlet extends HttpServlet {
 	private static final String ATT_ART= "listeArticles";
 	
 	@EJB
-	private ArticleDAORemote articleDao;
+	private ArticleDAO articleDao;
 	
     /**
      * @see HttpServlet#HttpServlet()

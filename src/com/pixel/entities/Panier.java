@@ -35,14 +35,12 @@ public class Panier implements Serializable{
 		this.id_panier = id;
 	}
 	public Client getClient() {
-		System.out.println("panier client: " + client);
 		return client;
 	}
 	public void setClient(Client client) {
 		this.client = client;
-		System.out.println("client: "+this.client);
 	}
-	
+
 	public Commande getCommande() {
 		return commande;
 	}

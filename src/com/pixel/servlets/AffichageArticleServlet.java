@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pixel.form.PanierForm;
-import com.pixel.sessions.ArticleDAORemote;
-import com.pixel.sessions.PanierBeanLocal;
+import com.pixel.sessions.ArticleDAO;
+import com.pixel.sessions.PanierBean;
 
 /**
  * Servlet implementation class AffichageArticleServlet
@@ -25,7 +25,7 @@ public class AffichageArticleServlet extends HttpServlet {
 	private static final String ATT_ART= "listeArticles";
 	
 	@EJB
-	private ArticleDAORemote articleDao;
+	private ArticleDAO articleDao;
 	/**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,7 +47,7 @@ public class AffichageArticleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		PanierBeanLocal panier = (PanierBeanLocal) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		
 		PanierForm form = new PanierForm(articleDao);
 		form.addArticle(request, panier);

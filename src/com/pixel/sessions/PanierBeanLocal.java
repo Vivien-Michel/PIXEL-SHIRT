@@ -3,7 +3,6 @@ package com.pixel.sessions;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.ejb.Local;
 import javax.ejb.Remove;
 
@@ -50,7 +49,6 @@ public interface PanierBeanLocal {
 	/**
 	 * Met à jour le panier dans la table
 	 * */
-	@PreDestroy
     public void update();
 	
 	/**

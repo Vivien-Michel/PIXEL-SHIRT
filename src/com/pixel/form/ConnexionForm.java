@@ -6,12 +6,12 @@ import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 
 import com.pixel.entities.Utilisateur;
 import com.pixel.exceptions.FormValidationException;
-import com.pixel.sessions.ClientDAORemote;
+import com.pixel.sessions.ClientDAO;
 
 public class ConnexionForm extends Form{
 
     
-    public ConnexionForm(ClientDAORemote user){
+    public ConnexionForm(ClientDAO user){
 		this.user=user;
 	}
 	

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pixel.sessions.ArticleDAOLocal;
+import com.pixel.sessions.ArticleDAO;
 
 @WebServlet(urlPatterns = "/images/*")
 public class ImageServlet extends HttpServlet {
@@ -17,9 +17,8 @@ public class ImageServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 179729273420052777L;
-	
 	@EJB
-	private ArticleDAOLocal articleDao;
+	private ArticleDAO articleDao;
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
