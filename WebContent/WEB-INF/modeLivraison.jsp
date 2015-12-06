@@ -10,12 +10,9 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
-<title>Mode de livraison</title>
+<title>Insert title here</title>
 </head>
 <body>
-<%@ include file="menu.jsp" %>
-<p>form qui demande l'adresse du client</p>
-
 
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
       <div class="container">
@@ -67,15 +64,15 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12">
-                    <ul class="breadcrumb">
+                    <ul class="breadcrumb" draggable="true">
                       <li>
-                        <a href="#"><span class="badge">1</span> Info. Facturation </a>
+                        <a href="#"><span class="badge">1</span> Info. Facturation</a>
+                      </li>
+                      <li>
+                        <a href="#"><span class="badge">2</span> Info. Livraison</a>
                       </li>
                       <li class="active">
-                        <span class="badge">2</span>Info. Livraison</li>
-                      <li>
-                        <a href="#"><span class="badge">3</span> Mode Livraison</a>
-                      </li>
+                        <span class="badge">3</span>Mode Livraison</li>
                       <li>
                         <a href="#"><span class="badge">4</span> Info. Paiement</a>
                       </li>
@@ -83,107 +80,47 @@
                         <a href="#"><span class="badge">5</span> Verif. Paiement</a>
                       </li>
                     </ul>
+                    <p class="lead text-primary">SoColissimo - Livraison gratuite – Livraison chez vous Colissimo 0,00€</p>
                     <form role="form" class="text-left">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group has-feedback">
-                            <label class="control-label" for="exampleInputEmail1">Civilité*:</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Nom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Prénom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
-                          </div>
-                        </div>
+                      <div class="btn-group">
+                        <input type="radio" name="livraison" value="meme">&nbsp;
+                        <b>Livraison chez vous sans signature.</b>
+                        <i>A l'adresse de votre choix, en mains propres ou en boîte aux lettres.</i>
+                        <br>
+                        <input type="radio" name="livraison" value="differente">&nbsp;
+                        <b>Livraison chez vous avec signature (frais supplémentaires de 2,00 €)</b>
+                        <i>A l'adresse de votre choix, en mains propres ou en boîte aux lettres.</i>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label" for="exampleInputPassword1">Adresse email* :</label>
-                        <input class="form-control" id="exampleInputPassword1" type="email">
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label" for="exampleInputEmail1">Code Postal*:</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Ville*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label" for="exampleInputPassword1">Téléphone:</label>
-                        <input class="form-control" id="exampleInputPassword1" type="text">
-                      </div>
-                    </form>
-                    <p class="text-justify text-muted"></p>
+                      </form>
+                      <p class="text-justify text-muted"></p>
                   </div>
                   <div class="row text-center">
-                    <button type="submit" class="btn btn-danger btn-lg">
-                      <a href="InfoAdresseFacturation.html" style="color:#FFF">Retour Info. Facturation</a>
+                    <button class="btn btn-danger btn-lg" type="button">
+                      <a href="Info_Livraison.html" style="color:#FFF">Retour Info. Livraison</a>
                     </button>
-                    <a href="">
                     <button type="submit" class="btn btn-lg btn-success">Suivant</button>
-                  </a>
                   </div>
-                  <a href="">
-                </a>
                 </div>
-                <a href="">
-              </a>
               </div>
-              <a href="">
-            </a>
             </div>
-            <a href="">
-          </a>
           </div>
-          <a href="">
-        </a>
         </div>
-        <a href="">
-      </a>
       </div>
-      <a href="">
-    </a>
     </div>
-    <a href="">
-    </a>
     <footer class="section section-primary">
-      <a href="">
-      </a>
       <div class="container">
-        <a href="">
-        </a>
         <div class="row">
-          <a href="">
           <div class="col-sm-6 text-left">
             <h1>Pixel-Shirt</h1>
             <p></p>
           </div>
-          </a>
           <div class="col-sm-6">
-            <a href="">
             <p class="text-info text-right">
               <br>
               <br>
             </p>
-            </a>
             <div class="row">
-              <a href="">
-              </a>
               <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="">
-                </a>
                 <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
                 <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
                 <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>

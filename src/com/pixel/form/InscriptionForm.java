@@ -24,7 +24,11 @@ public class InscriptionForm extends Form{
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
 		    String prenom = getValeurChamp(request, CHAMP_PRENOM);
-		    
+		    //MODIF
+		    String adresse = getValeurChamp(request, CHAMP_ADRESSE);		 
+		    String codePostal = getValeurChamp(request, CHAMP_CODE_POSTAL);
+		    String ville = getValeurChamp(request, CHAMP_VILLE);
+		    //FIN MODIF
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
@@ -52,7 +56,14 @@ public class InscriptionForm extends Form{
 		    } else {
 		        resultat = "Échec de l'inscription.";
 		    }
+		    //MODIF
+		    utilisateur.setAdresse(adresse);
+		    utilisateur.setVille(ville);;
+		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		    //FIN MODIF
+		    
 		    return utilisateur;
+		    
 	}
 	
 	private void traiterMotsDePasse( String motDePasse, String confirmation, Utilisateur utilisateur ) {

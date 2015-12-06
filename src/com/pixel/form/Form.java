@@ -38,6 +38,9 @@ public class Form {
     protected static final String CHAMP_TAGS = "tags";
     protected static final String CHAMP_IMAGE = "image";
     protected static final String CHAMP_ART_ID = "article_id";
+    //MODIF
+    protected static final String CHAMP_VILLE = "ville";
+    //FIN MODIF
     
     protected void setErreur(String champ, String message) {
 		erreurs.put( champ, message );
