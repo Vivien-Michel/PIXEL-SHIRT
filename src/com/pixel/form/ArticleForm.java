@@ -1,10 +1,12 @@
 package com.pixel.form;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
@@ -75,7 +77,6 @@ public class ArticleForm extends Form {
 			if(image != null && !image.isEmpty()){
 				image = image.substring(image.lastIndexOf('/') + 1).substring(image.lastIndexOf('\\') +1);
 				contenuImage = part.getInputStream();
-				contenuImage.read(new byte[15]);
 			}
 		}catch(IllegalStateException e){
 			e.printStackTrace();
@@ -91,10 +92,11 @@ public class ArticleForm extends Form {
 		
 		try{
 			validationImage(image, contenuImage);
+			BufferedImage buffer = ImageIO.read(contenuImage);
+			article.setImage(buffer);
 		}catch(Exception e){
 			setErreur(CHAMP_IMAGE, e.getMessage());
 		}
-		
 		if(erreurs.isEmpty()){
 			articleDao.creer(article);
 			resultat="Ajout correctement effectué";

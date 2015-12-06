@@ -72,10 +72,8 @@ public class TransactionServlet extends HttpServlet {
 			try {
 				transaction.transaction(client,Float.parseFloat(panier.getTotal()),AccueilServlet.entreprise);
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
 		}		
