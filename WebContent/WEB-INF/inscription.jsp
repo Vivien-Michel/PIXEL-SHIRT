@@ -3,9 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-
-
-<html><head>
+<html>
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -59,8 +58,6 @@
 <!--             </div> -->
 <!--         </div> -->
         
-        
-        <div class="section"></div>
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -76,7 +73,7 @@
                                     <div class="col-md-6 col-md-offset-3">
                                         <form role="form">
                                             <div class="form-group">
-                                                <label class="control-label">Age</label>
+                                                <label class="control-label">Civilité</label>
                                                 <select class="form-control">
                                                     <option>M</option>
                                                     <option>Mme</option>
@@ -223,8 +220,10 @@
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
 						                 </form>
-                                        <input type="submit" value="" class="fa fa-5x fa-check-circle fa-fw pull-right text-success" />
-                                        <a href="#"><i class="fa fa-5x fa-check-circle fa-fw pull-right text-success"></i></a>
+						                 
+                                        <input type="submit" value="" class="myButtonForm"/>
+                                        <!--  <i class="fa fa-5x fa-check-circle fa-fw pull-right text-success"></i>
+                                    	-->
                                     </div>
                                 </div>
                             </div>

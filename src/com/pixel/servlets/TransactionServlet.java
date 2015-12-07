@@ -1,7 +1,6 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,25 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pixel.form.PanierForm;
-import com.pixel.sessions.ArticleDAO;
 import com.pixel.sessions.PanierBean;
+import com.pixel.sessions.TransactionBanquaire;
+import com.pixel.tools.Banque;
 
 /**
- * Servlet implementation class AffichageArticleServlet
+ * Servlet implementation class TransactionServlet
  */
-@WebServlet("/Articles")
-public class AffichageArticleServlet extends HttpServlet {
+@WebServlet("/Transaction")
+public class TransactionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/afficherArticles.jsp";  
-	private static final String ATT_ART= "listeArticles";
-	
+	private static final String VUE = "/WEB-INF/transaction.jsp";
+	private static final String ATT_TRANSACTION = "transaction";
+    
 	@EJB
-	private ArticleDAO articleDao;
-	/**
+	private TransactionBanquaire transaction;
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public AffichageArticleServlet() {
+    public TransactionServlet() {
         super();
     }
 
@@ -37,9 +36,7 @@ public class AffichageArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
-		getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 
 	/**
@@ -49,11 +46,17 @@ public class AffichageArticleServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		
-		PanierForm form = new PanierForm(articleDao);
-		form.addArticle(request, panier);
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
-		getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		if (request.getParameter(ATT_TRANSACTION) != null) {
+			Banque client = new Banque(panier.getClient().getNom(),panier.getClient().getPrenom());
+			try {
+				transaction.transaction(client,Float.parseFloat(panier.getTotal()),AccueilServlet.entreprise);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}		
+		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 
 }

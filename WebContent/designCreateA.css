@@ -3372,6 +3372,11 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+
+.myButtonForm{
+	background-image: fa-check-circle;
+}
+
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;

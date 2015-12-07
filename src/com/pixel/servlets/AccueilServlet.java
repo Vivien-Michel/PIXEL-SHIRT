@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pixel.tools.Banque;
+
 import com.pixel.sessions.ArticleDAO;
 
 @WebServlet(urlPatterns = { "/Accueil" })
 public class AccueilServlet extends HttpServlet {
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2476044219517722019L;
 	private static final String VUE = "/WEB-INF/accueil.jsp";
 	public static final String KEY_SESSION_BEAN = "panier";  
 	private static final String ATT_ART= "listeArticles";
+	// Initialisation (instance sur server)unique de la banque de l'entreprise pour tout les clients
+	public static Banque entreprise = new Banque("Pixel_Shirt","Pixel_Shirt");
+	
 	@EJB
 	private ArticleDAO articleDao;
 	

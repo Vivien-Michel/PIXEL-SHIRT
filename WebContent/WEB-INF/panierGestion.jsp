@@ -43,6 +43,7 @@
 	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
 	      <td><c:out value="${article.key.id_article}" /></td>
+	      <td><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
@@ -86,7 +87,7 @@
           <div class="col-md-12">
             <h1 class="text-left">TOTAL :</h1>
             <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
-            <a href="Accueil"><i class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"></i></a>
+            <a href="${pageContext.request.contextPath}/Accueil"><i class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"></i></a>
           </div>
         </div>
       </div>
@@ -150,8 +151,6 @@
 <!--         </div> -->
 <!--       </div> -->
 <!--     </div> -->
-
-
 <%@ include file="footer.jsp"%>
 </body>
 </html>
