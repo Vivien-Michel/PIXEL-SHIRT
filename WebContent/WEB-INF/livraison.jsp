@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,9 +31,20 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
-            <li class="active">
-              <a href="#"><div style="text-align: center;"><font face="FontAwesome"><span style="line-height: 21px;">User</span></font></div></a>
-            </li>
+          
+          
+			<c:choose>
+				<c:when test="${not empty sessionScope.panier.client}">
+				<li class="active">
+             		 <a href="#"><div style="text-align: center;"><font face="FontAwesome"><span style="line-height: 21px;">${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom}</span></font></div></a>
+           		 </li>
+				
+					 
+				</c:when>
+			</c:choose>          
+          
+          
+            
             <li class="dropdown" id="menu1">
               <a href="#menu1" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
               <div class="dropdown-menu">
@@ -41,23 +53,59 @@
                     <input name="utf8" type="hidden" value="✓">
                     <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=">
                   </div>
-                  <fieldset class="textbox" style="padding:10px">
-                    <input style="margin-top: 8px" type="text" placeholder="Username">
-                    <input style="margin-top: 8px" type="password" placeholder="Passsword">
-                    <input class="btn-primary" name="commit" type="submit" value="Log In">
-                    <a href="createA.html">Create</a>
-                  </fieldset>
+                  
+                  
+<!--                   <fieldset class="textbox" style="padding:10px"> -->
+<!--                     <input style="margin-top: 8px" type="text" placeholder="Username"> -->
+<!--                     <input style="margin-top: 8px" type="password" placeholder="Passsword"> -->
+<!--                     <input class="btn-primary" name="commit" type="submit" value="Log In"> -->
+<!--                     <a href="createA.html">Create</a> -->
+<!--                   </fieldset> -->
+
+						<c:choose>
+							<c:when test="${empty sessionScope.panier.client}">
+							
+							<fieldset class="textbox" style="padding: 10px">
+								<input style="margin-top: 8px" type="email" placeholder="Mail"  id="email" name="email" value="<c:out value="${param.email}"/>"/>
+								<span class="erreur">${form.erreurs['email']}</span>					
+								
+								
+								<input type="password" style="margin-top: 8px" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20"  placeholder="Passsword"/>
+								<span class="erreur">${form.erreurs['motdepasse']}</span>
+								
+								
+								
+								<input class="btn-primary" name="commit" type="submit" value="Connexion">
+								<a href="/Pixel_Shirt/Inscription">Create</a>
+								<br/>	
+								<p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+									
+								
+							</fieldset>
+							</c:when>
+							</c:choose>
+
                 </form>
+                  
+                
               </div>
             </li>
             <li class="active">
-              <a href="indexPanier.html"><div style="text-align: center;"><font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span></div></a>
+              <a href="/Pixel_Shirt/Panier/Gestion""><div style="text-align: center;"><font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">${sessionScope.panier.size}</span></div></a>
             </li>
+          
+          
+          
           </ul>
+          
+          
           <ul class="nav navbar-nav navbar-right"></ul>
         </div>
       </div>
     </div>
+    
+    
+    
     <div class="section"></div>
     <div class="section">
       <div class="container">

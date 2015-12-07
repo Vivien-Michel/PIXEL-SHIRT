@@ -232,9 +232,9 @@
 							</c:choose>
 							</form>
 					</div></li>
-				<li class="active"><a href="indexPanier.html">
+				<li class="active"><a href="/Pixel_Shirt/Panier/Gestion"">
 				<div style="text-align: center;">
-					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span>
+					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">${sessionScope.panier.size}</span>
 				</div></a></li>
 
           </ul>

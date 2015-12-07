@@ -52,7 +52,7 @@
 						class="caret"></b></a>
 					<div class="dropdown-menu">
 						<form style="margin: 0px" accept-charset="UTF-8"
-							action="/sessions" method="post">
+							action="Connexion" method="post">
 							<div style="margin: 0; padding: 0; display: inline">
 								<input name="utf8" type="hidden" value="✓"> <input
 									name="authenticity_token" type="hidden"
@@ -75,8 +75,12 @@
 								<input type="password" style="margin-top: 8px" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20"  placeholder="Passsword"/>
 								<span class="erreur">${form.erreurs['motdepasse']}</span>
 								
+								
+								
 								<input class="btn-primary" name="commit" type="submit" value="Connexion">
-								<a href="createA.html">Create</a>	
+								<a href="/Pixel_Shirt/Inscription">Create</a>
+								<br/>	
+								<p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 									
 								
 							</fieldset>
@@ -90,9 +94,9 @@
 							</c:choose>
 							</form>
 					</div></li>
-				<li class="active"><a href="indexPanier.html">
+				<li class="active"><a href="/Pixel_Shirt/Panier/Gestion">
 				<div style="text-align: center;">
-					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span>
+					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">${sessionScope.panier.size}</span>
 				</div></a></li>
 
           </ul>
