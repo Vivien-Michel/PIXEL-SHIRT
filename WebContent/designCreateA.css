@@ -3374,7 +3374,11 @@ input[type="button"].btn-block {
 }
 
 .myButtonForm{
-	background-image: fa-check-circle;
+	background:url(./check-153363_960_720.png) no-repeat;
+	cursor:pointer;
+    border:none;
+    width:90px;
+    height:90px;
 }
 
 .fade {

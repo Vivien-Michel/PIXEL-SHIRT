@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <form role="form">
+                                        <form role="form" method="Post">
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
                                                 <select class="form-control">
@@ -219,11 +219,8 @@
                                                 <span class="fa fa-check form-control-feedback"></span>
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
-						                 </form>
-						                 
-                                        <input type="submit" value="" class="myButtonForm"/>
-                                        <!--  <i class="fa fa-5x fa-check-circle fa-fw pull-right text-success"></i>
-                                    	-->
+                                             <input type="submit" value="" class="myButtonForm pull-right"/>  
+						                 </form>                                 	
                                     </div>
                                 </div>
                             </div>
