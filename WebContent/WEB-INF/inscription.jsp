@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <form role="form" method="Post">
+                                        <form role="form" method="POST">
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
                                                 <select class="form-control">
