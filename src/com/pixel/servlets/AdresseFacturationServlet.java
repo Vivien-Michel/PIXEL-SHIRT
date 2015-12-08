@@ -39,7 +39,7 @@ public class AdresseFacturationServlet extends HttpServlet{
 		 if(radioButton != null && radioButton.equals("meme")){
 			response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
 		}else if(radioButton !=null && radioButton.equals("differente")){
-			response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
+			response.sendRedirect("/Pixel_Shirt/Panier/AdresseLivraison");
 		} else{
 			getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		}

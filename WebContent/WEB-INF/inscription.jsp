@@ -132,21 +132,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <form role="form" method="POST">
+                                        <form role="form" method="POST" action="Inscription">
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="civilite">
                                                     <option>M</option>
                                                     <option>Mme</option>
                                                 </select>
                                             </div>
-
-
-
-
-
-						<form method="post" action="Inscription">
-
                                              <div class="form-group has-feedback">                                             	 
                                                 <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
                                                 <span class="erreur">${form.erreurs['nom']}</span>
@@ -163,9 +156,6 @@
                                                 <input class="form-control" type="text" placeholder="Email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" >
                                                 <span class="erreur">${form.erreurs['email']}</span>
                                             </div>
-                                            
-                                            
-                                            
                                             <div class="form-group">
                                                 <label class="control-label">Age</label>
                                                 <select class="form-control">
@@ -271,9 +261,6 @@
 <!--                                                  <span class="fa fa-check form-control-feedback"></span>  -->
                                                                                         
 												<span class="erreur">${form.erreurs['motdepasse']}</span>
-                                                
-
-
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <input class="form-control" type="password" placeholder="Confirmation Mot de passe" id="confirmation" name="confirmation" value="">
@@ -281,7 +268,7 @@
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
 <!--                                              <input type="submit" value="" class="myButtonForm pull-right"/>   -->
-                                             <input type="submit" value="Inscription" class="btn-primary" src="check-153363_960_720.png" />
+                                             <input type="submit" value="Inscription" class="btn-primary" />
 						                 </form>                                 	
                                     </div>
                                 </div>

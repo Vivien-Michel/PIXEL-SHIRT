@@ -25,7 +25,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <%@ include file="barre_commande.jsp" %>
-                    <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
+                    <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/AdresseLivraison">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group has-feedback">

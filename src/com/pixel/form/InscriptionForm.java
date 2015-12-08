@@ -21,7 +21,9 @@ public class InscriptionForm extends Form{
 	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBean panier) {
-		 	String email = getValeurChamp( request, CHAMP_EMAIL );
+		 	
+			String civilite = getValeurChamp(request, CHAMP_CIV);
+			String email = getValeurChamp( request, CHAMP_EMAIL );
 		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
@@ -49,35 +51,29 @@ public class InscriptionForm extends Form{
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_PRENOM, e.getMessage() );
 		    }
-		    
+		    utilisateur.setPrenom(prenom);
 		    
 		    try {
 		        validationVille( ville );
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_VILLE, e.getMessage() );
 		    }
+		    utilisateur.setVille(ville);
 		    
 		    try {
 		        validationAdresse( adresse );
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_ADRESSE, e.getMessage() );
 		    }
-		    
+		    utilisateur.setAdresse(adresse);
 		    
 		    try {
 		    	validationCodePostal( codePostal );
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
 		    }
-		    
-		    
-
-		    
-		    utilisateur.setPrenom(prenom);
-		    
-		    utilisateur.setAdresse(adresse);
-		    utilisateur.setVille(ville);
 		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		    utilisateur.setCivilite(civilite);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
 		    	panier.setFusion(true);

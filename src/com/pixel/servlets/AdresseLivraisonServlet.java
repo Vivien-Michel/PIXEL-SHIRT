@@ -33,7 +33,7 @@ public class AdresseLivraisonServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
 	}
 
 }
