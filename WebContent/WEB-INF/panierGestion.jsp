@@ -12,7 +12,7 @@
 <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="dropit.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<script src="bs_leftnavi.js"></script>
+<script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
 <link href="${pageContext.request.contextPath}/designArticle.css" rel="stylesheet" type="text/css">
 <title>Gestion Panier</title>
 
@@ -24,7 +24,7 @@
 <p>Bonjour ${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom} voici le panier</p>-->
 
 
-
+<div class="section"></div>
  <div class="section">
       <div class="container">
         <div class="row">
@@ -55,7 +55,7 @@
 		      	
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
 		      	<!-- <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">-->
-		      	<select class="dropdown">
+		      	<select class="dropdown" id="quantite" name="quantite">
 <!--                   <option value="0" class="label">0</option> -->
                   <option value="1" ${"1"== article.value ? 'selected="selected"' : ''}>1</option>
                   <option value="2" ${"2"== article.value ? 'selected="selected"' : ''}>2</option>

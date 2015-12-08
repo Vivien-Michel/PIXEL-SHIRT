@@ -33,11 +33,17 @@ public class AdresseFacturationServlet extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 if (request.getParameter("commander") != null) {
-				System.out.println("hello");
-		    }
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		 String radioButton = request.getParameter("livraison");
+		//Formulaire
+		 request.getSession();
+		 if(radioButton != null && radioButton.equals("meme")){
+			response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
+		}else if(radioButton !=null && radioButton.equals("differente")){
+			response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
+		} else{
+			getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}
+
 	}
 
 }

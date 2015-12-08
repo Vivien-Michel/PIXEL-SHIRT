@@ -69,6 +69,8 @@ public class Form {
     protected void validationNom(String nom) throws FormValidationException {
 		if ( nom != null && nom.length() < 3 ) {
 	        throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+	    }else if(nom == null){
+	    	throw new FormValidationException( "Veuillez remplir ce champ" );
 	    }
 	}
     

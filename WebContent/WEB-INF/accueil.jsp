@@ -115,17 +115,18 @@
                 <div id="carousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="item active">
-                      <img src="${pageContext.request.contextPath}/images/${article.id_article}">
+                      <a href="${pageContext.request.contextPath}/Detail"><img src="${pageContext.request.contextPath}/images/${article.id_article}"></a>
                       <div class="carousel-caption">
                         <h2>${article.taille} ${article.couleur}</h2>
                         <p></p>
                       </div>
                     </div>
                   </div>
-                  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+                  <!--  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
                   <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+                	-->
                 </div>
-                <a href="/Pixel_Shirt/UnArticle"><i class="fa fa-2x fa-fw fa-plus"></i></a>
+                <a href="${pageContext.request.contextPath}/Ajout"><i class="fa fa-2x fa-fw fa-plus"></i></a>
                 <a href="indexArticlePerso.html"><i class="fa fa-2x fa-fw fa-edit"></i></a>
                 <i class="fa fa-2x pull-right text-danger"><c:out value="${article.prix} €" /></i>
                 <h2><c:out value="${article.modele}" /></h2>

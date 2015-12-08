@@ -33,10 +33,6 @@ public class ModePaiementServlet extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 if (request.getParameter("commander") != null) {
-				System.out.println("hello");
-		    }
 		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 

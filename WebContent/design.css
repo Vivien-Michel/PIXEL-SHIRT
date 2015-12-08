@@ -1103,6 +1103,9 @@ a {
   color: #337cbb;
   text-decoration: none;
 }
+a.active{
+ color:#777777;
+}
 a:hover,
 a:focus {
   color: #23547f;

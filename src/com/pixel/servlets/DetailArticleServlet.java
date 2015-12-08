@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/UnArticle")
+@WebServlet("/Detail")
 public class DetailArticleServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private static final String VUE = "/WEB-INF/unArticle.jsp";

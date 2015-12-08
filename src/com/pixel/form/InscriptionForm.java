@@ -50,6 +50,11 @@ public class InscriptionForm extends Form{
 		        setErreur( CHAMP_PRENOM, e.getMessage() );
 		    }
 		    utilisateur.setPrenom(prenom);
+		    
+		    utilisateur.setAdresse(adresse);
+		    utilisateur.setVille(ville);
+		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		    
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
 		    	panier.setFusion(true);
@@ -59,10 +64,7 @@ public class InscriptionForm extends Form{
 		        resultat = "Échec de l'inscription.";
 		    }
 		    //MODIF
-		    //FUCKING RETARD INUTILE DE PLACER CECI SANS VERIF ET SURTOUT APRES LA CREATION IL SUFFIT DE LIRE CE PUTAIN DE CODE
-		    utilisateur.setAdresse(adresse);
-		    utilisateur.setVille(ville);
-		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		   
 		    //FIN MODIF
 		    
 		    return utilisateur;
