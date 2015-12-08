@@ -25,57 +25,56 @@
                 <div class="row">
                   <div class="col-md-12">
                     <%@ include file="barre_commande.jsp" %>
-                    <form role="form" class="text-left">
+                    <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group has-feedback">
                             <label class="control-label" for="exampleInputEmail1">Civilité*:</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text">
+                           <select class="form-control">
+                                                    <option>M</option>
+                                                    <option>Mme</option>
+                           </select>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Nom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.nom}">
                           </div>
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Prénom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.prenom}">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label" for="exampleInputPassword1">Adresse email* :</label>
-                        <input class="form-control" id="exampleInputPassword1" type="email">
+                        <input class="form-control" id="exampleInputPassword1" type="email" value="${sessionScope.panier.client.mail}">
                       </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputEmail1">Code Postal*:</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text">
+                            <input class="form-control" id="exampleInputEmail1" type="text" value="${sessionScope.panier.client.codePostal}">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Ville*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.ville}">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label" for="exampleInputPassword1">Téléphone:</label>
-                        <input class="form-control" id="exampleInputPassword1" type="text">
+                        <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.telephone}">
                       </div>
                     </form>
                     <p class="text-justify text-muted"></p>
                   </div>
                   <div class="row text-center">
-                    <button type="submit" class="btn btn-danger btn-lg">
-                      <a href="InfoAdresseFacturation.html" style="color:#FFF">Retour Info. Facturation</a>
-                    </button>
-                    <a href="">
-                    <button type="submit" class="btn btn-lg btn-success">Suivant</button>
-                  </a>
+                    <button type="submit" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/Panier/AdresseFacturation" style="color:#FFF">Retour Info. Facturation</a></button>
+                    <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>
               </div>
