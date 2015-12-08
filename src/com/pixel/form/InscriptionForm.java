@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 import org.joda.time.DateTime;
 
+import com.pixel.entities.Administrateur;
 import com.pixel.entities.Utilisateur;
 import com.pixel.entities.Client;
 import com.pixel.exceptions.FormValidationException;
+import com.pixel.filtres.AdminFilter;
 import com.pixel.sessions.ClientDAO;
 import com.pixel.sessions.PanierBean;
 
@@ -56,14 +58,56 @@ public class InscriptionForm extends Form{
 		    } else {
 		        resultat = "Échec de l'inscription.";
 		    }
+//<<<<<<< HEAD
 //		    //MODIF
 //		    utilisateur.setAdresse(adresse);
 //		    utilisateur.setVille(ville);;
 //		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
 //		    //FIN MODIF
-		    
+//=======
+		    //MODIF
+		    //FUCKING RETARD INUTILE DE PLACER CECI SANS VERIF ET SURTOUT APRES LA CREATION IL SUFFIT DE LIRE CE PUTAIN DE CODE
+//		    utilisateur.setAdresse(adresse);
+//		    utilisateur.setVille(ville);
+//		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
+//		    //FIN MODIF
+//>>>>>>> 87ae768ad67792b014fc3512fe7f86028f1587f2
+//		    
 		    return utilisateur;
 		    
+	}
+	
+	public Utilisateur inscrireAdmin(HttpServletRequest request){
+			Administrateur admin = new Administrateur();
+			String email = getValeurChamp( request, CHAMP_EMAIL );
+		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
+		    String confirmation = getValeurChamp( request, CHAMP_CONF );
+		    String nom = getValeurChamp( request, CHAMP_NOM );
+		    String prenom = getValeurChamp(request, CHAMP_PRENOM);
+			
+		    traiterEmail(email, admin);
+		    traiterMotsDePasse(motDePasse, confirmation, admin);
+		    try {
+		        validationNom( nom );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_NOM, e.getMessage() );
+		    }
+		    admin.setNom(nom);
+		    try {
+		        validationNom( prenom );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_PRENOM, e.getMessage() );
+		    }
+		    admin.setPrenom(prenom);
+		    if ( erreurs.isEmpty() ) {
+		    	user.creer(admin);
+		    	request.getSession().setAttribute(AdminFilter.ATT_SESSION_USER, admin);
+		        resultat = "Succès de l'inscription.";
+		    } else {
+		        resultat = "Échec de l'inscription.";
+		    }
+		    
+			return admin; 
 	}
 	
 	private void traiterMotsDePasse( String motDePasse, String confirmation, Utilisateur utilisateur ) {

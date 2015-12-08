@@ -1,5 +1,4 @@
 package com.pixel.servlets;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -11,14 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/ModeLivraison")
-public class LivraisonServelet extends HttpServlet {
+@WebServlet("/Panier/ModePaiement")
+public class ModePaiementServlet extends HttpServlet{
+	
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/livraison.jsp";
+	private static final String VUE = "/WEB-INF/modePaiement.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LivraisonServelet() {
+    public ModePaiementServlet() {
         super();
     }
 

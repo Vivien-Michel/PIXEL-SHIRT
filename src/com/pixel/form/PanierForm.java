@@ -2,6 +2,8 @@ package com.pixel.form;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.pixel.entities.Article;
+import com.pixel.sessions.ArticleDAO;
 import com.pixel.sessions.ClientDAO;
 import com.pixel.sessions.PanierBean;
 
@@ -11,6 +13,10 @@ public class PanierForm extends Form {
 
 	public PanierForm(ClientDAO client){
 		this.user=client;
+	}
+	
+	public PanierForm(ArticleDAO article){
+		this.articleDao=article;
 	}
 	
 	public void update(HttpServletRequest request, PanierBean panier){
@@ -28,13 +34,29 @@ public class PanierForm extends Form {
 	          panier.supprimer(article_id);
 	    } else if (request.getParameter("deconnexion") != null){
 	    	  panier.getPanier().setClient(null);
-	    }
-		if(request.getParameter("supprimerCompte") != null){
+	    }else if(request.getParameter("supprimerCompte") != null){
 	    	user.supprimer(panier.getClient());
 	    	panier.getPanier().setClient(null);
 	    	suppr=true;
 		}
 	
+	}
+	
+	public void addArticle(HttpServletRequest request, PanierBean panier){
+		
+		
+		String quantites = (String) request.getParameter("quantite");
+		
+		int quantite = Integer.parseInt(quantites);
+		
+		String articleid = request.getParameter(CHAMP_ART_ID);
+		Article article = articleDao.findById(articleid);
+		
+		if(article.getQuantite()-quantite>=0){
+			article.setQuantite(article.getQuantite()-quantite);
+			articleDao.update(article);
+			panier.addArticle(article, quantite);
+		}
 	}
 
 	public boolean supprimerCompte(){

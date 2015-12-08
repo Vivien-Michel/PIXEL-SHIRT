@@ -3,9 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-
-
-<html><head>
+<html>
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -120,110 +119,29 @@
 
 
         
-        
-<!--         <div class="navbar navbar-default navbar-fixed-top navbar-inverse"> -->
-<!--       <div class="container"> -->
-<!--         <div class="navbar-header"> -->
-<!--           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse"> -->
-<!--             <span class="sr-only">Toggle navigation</span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--           </button> -->
-<!--           <a class="navbar-brand" href="index.html"><span>Pixel-Shirt</span></a> -->
-<!--         </div> -->
-<!--         <div class="collapse navbar-collapse" id="navbar-ex-collapse"> -->
-<!--           <ul class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right"> -->
-          
-          
-          
-          
-<%--           <c:choose> --%>
-<%-- 				<c:when test="${not empty sessionScope.panier.client}"> --%>
-<!-- 					<li class="active"> -->
-<!-- 						<a href="#"> -->
-<!-- 							<div style="text-align: center;"> -->
-<%-- 								<font face="FontAwesome"><span style="line-height: 21px;">${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom}</span></font>	 --%>
-										
-<!-- 							</div> -->
-<!-- 						</a> -->
-<!-- 					</li> -->
-<%-- 				</c:when> --%>
-<%-- 			</c:choose> --%>
-<!-- 				<li class="dropdown" id="menu1"><a href="#menu1" -->
-<!-- 					class="dropdown-toggle" data-toggle="dropdown">Login<b -->
-<!-- 						class="caret"></b></a> -->
-<!-- 					<div class="dropdown-menu"> -->
-<!-- 						<form style="margin: 0px" accept-charset="UTF-8" -->
-<!-- 							action="/sessions" method="post"> -->
-<!-- 							<div style="margin: 0; padding: 0; display: inline"> -->
-<!-- 								<input name="utf8" type="hidden" value="✓"> <input -->
-<!-- 									name="authenticity_token" type="hidden" -->
-<!-- 									value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40="> -->
-<!-- 							</div> -->
-							
-
-							 
-<%-- 							<c:choose> --%>
-<%-- 							<c:when test="${empty sessionScope.panier.client}"> --%>
-							
-<!-- 							<fieldset class="textbox" style="padding: 10px"> -->
-<%-- 								<input style="margin-top: 8px" type="email" placeholder="Mail"  id="email" name="email" value="<c:out value="${param.email}"/>"/> --%>
-<%-- 								<span class="erreur">${form.erreurs['email']}</span>					 --%>
-								
-								
-<!-- 								<input type="password" style="margin-top: 8px" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20"  placeholder="Passsword"/> -->
-<%-- 								<span class="erreur">${form.erreurs['motdepasse']}</span> --%>
-								
-<!-- 								<input class="btn-primary" name="commit" type="submit" value="Connexion"> -->
-<!-- 								<a href="createA.html">Create</a>	 -->
-									
-								
-<!-- 							</fieldset> -->
-<%-- 							</c:when> --%>
-							
-<%-- 							<c:otherwise> --%>
-        						
-<%--     						</c:otherwise> --%>
-							
-							
-<%-- 							</c:choose> --%>
-<!-- 							</form> -->
-<!-- 					</div></li> -->
-<!-- 				<li class="active"><a href="indexPanier.html"> -->
-<!-- 				<div style="text-align: center;"> -->
-<!-- 					<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span> -->
-<!-- 				</div></a></li> -->
-
-<!--           </ul> -->
-<!--           <ul class="nav navbar-nav navbar-right"></ul> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </div> -->
-        
-        
-<!--         <div class="section"></div> -->
-<!--         <div class="section"> -->
-<!--             <div class="container"> -->
-<!--                 <div class="row"> -->
-<!--                     <div class="col-md-12"> -->
-<!--                         <div class="section"> -->
-<!--                             <div class="container"> -->
-<!--                                 <div class="row"> -->
-<!--                                     <div class="col-md-12"> -->
-<!--                                         <h1 class="text-center">Subscribe</h1> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <div class="row"> -->
-<!--                                     <div class="col-md-6 col-md-offset-3"> -->
-<!--                                         <form role="form"> -->
-<!--                                             <div class="form-group"> -->
-<!--                                                 <label class="control-label">Age</label> -->
-<!--                                                 <select class="form-control"> -->
-<!--                                                     <option>M</option> -->
-<!--                                                     <option>Mme</option> -->
-<!--                                                 </select> -->
-<!--                                             </div> -->
+=======
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="text-center">Inscription</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <form role="form" method="POST">
+                                            <div class="form-group">
+                                                <label class="control-label">Civilité</label>
+                                                <select class="form-control">
+                                                    <option>M</option>
+                                                    <option>Mme</option>
+                                                </select>
+                                            </div>
+>>>>>>> 87ae768ad67792b014fc3512fe7f86028f1587f2
                                             
 <!--                                              <div class="form-group has-feedback">                                             	  -->
 <%--                                                 <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom"> --%>
@@ -358,65 +276,57 @@
                                                                                         
 <%-- 												<span class="erreur">${form.erreurs['motdepasse']}</span> --%>
                                                 
-<!--                                             </div><div class="form-group has-feedback"> -->
-<!--                                                 <input class="form-control" type="password" placeholder="Confirmation Mot de passe" id="confirmation" name="confirmation" value=""> -->
-<!-- <!--                                                 <span class="fa fa-check form-control-feedback"></span> --> -->
-
-<%--                                                 <span class="erreur">${form.erreurs['confirmation']}</span> --%>
-                                                
-												
-                                                
-                                                
-<!--                                             </div> -->
 
 
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <input class="form-control" type="password" placeholder="Confirmation Mot de passe" id="confirmation" name="confirmation" value="">
+                                                <span class="fa fa-check form-control-feedback"></span>
+                                                <span class="erreur">${form.erreurs['confirmation']}</span>
+                                            </div>
+                                             <input type="submit" value="" class="myButtonForm pull-right"/>  
+						                 </form>                                 	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="section section-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <h1>Pixel-Shirt</h1>
+                        <p></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="text-info text-right">
+                            <br>
+                            <br>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 hidden-xs text-right">
+                                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-<!--                                         </form> -->
-<!--                                         <input type="submit" value="Inscription" class="sansLabel" /> -->
-<!--                                         <a href="#"><i class="fa fa-5x fa-check-circle fa-fw pull-right text-success"></i></a> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-        
-<%--          <p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p> --%>
-        
-<!--         <footer class="section section-primary"> -->
-<!--             <div class="container"> -->
-<!--                 <div class="row"> -->
-<!--                     <div class="col-sm-6 text-left"> -->
-<!--                         <h1>Pixel-Shirt</h1> -->
-<!--                         <p></p> -->
-<!--                     </div> -->
-<!--                     <div class="col-sm-6"> -->
-<!--                         <p class="text-info text-right"> -->
-<!--                             <br> -->
-<!--                             <br> -->
-<!--                         </p> -->
-<!--                         <div class="row"> -->
-<!--                             <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left"> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="row"> -->
-<!--                             <div class="col-md-12 hidden-xs text-right"> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> -->
-<!--                                 <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </footer> -->
     
 
 </body></html>

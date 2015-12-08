@@ -11,15 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/VerifPaiement")
-public class VerifPaiementServelet extends HttpServlet{
-	
+@WebServlet("/Panier/ModeDeLivraison")
+public class ModeDeLivraisonServlet  extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/verifPaiement.jsp";
+	private static final String VUE = "/WEB-INF/modeLivraison.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VerifPaiementServelet() {
+    public ModeDeLivraisonServlet() {
         super();
     }
 

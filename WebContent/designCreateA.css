@@ -134,8 +134,7 @@ select {
 }
 button,
 html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"]{
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -3373,6 +3372,15 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+
+.myButtonForm{
+	background:url(./check-153363_960_720.png) no-repeat;
+	cursor:pointer;
+    border:none;
+    width:90px;
+    height:90px;
+}
+
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
