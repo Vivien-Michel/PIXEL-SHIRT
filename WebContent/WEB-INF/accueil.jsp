@@ -19,7 +19,8 @@
 
 
 	<%@ include file="menu.jsp"%>
-	<div class="section"></div>
+
+<div class="section"></div>
     <div class="section">
       <div class="container">
         <div class="row">

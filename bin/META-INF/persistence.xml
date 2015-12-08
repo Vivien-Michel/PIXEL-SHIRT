@@ -5,6 +5,7 @@
  http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd">
 
 <persistence-unit name="bdd_pixel_shirt" transaction-type="JTA">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/bonecp_resource</jta-data-source>
     <class>com.pixel.entities.Administrateur</class>
     <class>com.pixel.entities.Article</class>
@@ -15,8 +16,9 @@
     <class>com.pixel.entities.Motif</class>
     <class>com.pixel.entities.Panier</class>
     <class>com.pixel.entities.Utilisateur</class>
+    
     <properties>
-  			<property name="eclipselink.ddl-generation" value="create-tables"/>
+  			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 	</properties>
 </persistence-unit>
 	

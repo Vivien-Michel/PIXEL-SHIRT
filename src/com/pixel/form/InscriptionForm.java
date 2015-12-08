@@ -26,11 +26,11 @@ public class InscriptionForm extends Form{
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
 		    String prenom = getValeurChamp(request, CHAMP_PRENOM);
-		    //MODIF
+//		    //MODIF
 		    String adresse = getValeurChamp(request, CHAMP_ADRESSE);		 
 		    String codePostal = getValeurChamp(request, CHAMP_CODE_POSTAL);
 		    String ville = getValeurChamp(request, CHAMP_VILLE);
-		    //FIN MODIF
+//		    //FIN MODIF
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
@@ -54,7 +54,6 @@ public class InscriptionForm extends Form{
 		    utilisateur.setAdresse(adresse);
 		    utilisateur.setVille(ville);
 		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
-		    
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
 		    	panier.setFusion(true);
@@ -63,10 +62,7 @@ public class InscriptionForm extends Form{
 		    } else {
 		        resultat = "Échec de l'inscription.";
 		    }
-		    //MODIF
-		   
-		    //FIN MODIF
-		    
+
 		    return utilisateur;
 		    
 	}

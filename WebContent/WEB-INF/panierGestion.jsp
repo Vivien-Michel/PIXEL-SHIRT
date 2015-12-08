@@ -20,10 +20,6 @@
 <body>
 
 <%@ include file="menu.jsp" %>
-<!--<p>Recapitulatif des articles dans le panier + possibilité de valider</p>
-<p>Bonjour ${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom} voici le panier</p>-->
-
-
 <div class="section"></div>
  <div class="section">
       <div class="container">
@@ -110,47 +106,7 @@
 	<input type="submit" id="commander" name="commander" value="Commander" class="sansLabel" />
 </form>
 
-<!-- <div class="navbar navbar-default navbar-fixed-top navbar-inverse"> -->
-<!--       <div class="container"> -->
-<!--         <div class="navbar-header"> -->
-<!--           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse"> -->
-<!--             <span class="sr-only">Toggle navigation</span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--             <span class="icon-bar"></span> -->
-<!--           </button> -->
-<!--           <a class="navbar-brand" href="index.html"><span>Pixel-Shirt</span></a> -->
-<!--         </div> -->
-<!--         <div class="collapse navbar-collapse" id="navbar-ex-collapse"> -->
-<!--           <ul class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right"> -->
-<!--             <li class="active"> -->
-<!--               <a href="#"><div style="text-align: center;"><font face="FontAwesome"><span style="line-height: 21px;">User</span></font></div></a> -->
-<!--             </li> -->
-<!--             <li class="dropdown" id="menu1"> -->
-<!--               <a href="#menu1" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a> -->
-<!--               <div class="dropdown-menu"> -->
-<!--                 <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
-<!--                   <div style="margin:0;padding:0;display:inline"> -->
-<!--                     <input name="utf8" type="hidden" value="✓"> -->
-<!--                     <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40="> -->
-<!--                   </div> -->
-<!--                   <fieldset class="textbox" style="padding:10px"> -->
-<!--                     <input style="margin-top: 8px" type="text" placeholder="Username"> -->
-<!--                     <input style="margin-top: 8px" type="password" placeholder="Passsword"> -->
-<!--                     <input class="btn-primary" name="commit" type="submit" value="Log In"> -->
-<!--                     <input class="btn-success" name="commit" type="submit" value="Create"> -->
-<!--                   </fieldset> -->
-<!--                 </form> -->
-<!--               </div> -->
-<!--             </li> -->
-<!--             <li class="active"> -->
-<!--               <a href="#"><div style="text-align: center;"><font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">0</span></div></a> -->
-<!--             </li> -->
-<!--           </ul> -->
-<!--           <ul class="nav navbar-nav navbar-right"></ul> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </div> -->
+
 <%@ include file="footer.jsp"%>
 </body>
 </html>
