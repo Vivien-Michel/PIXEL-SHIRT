@@ -50,7 +50,7 @@
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
 		      	<!-- <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">-->
-		      	<select class="dropdown" id="quantite" name="quantite">
+		      	<select class="dropdown" id="quantite" name="quantite" onchange="this.form.submit()">
 <!--                   <option value="0" class="label">0</option> -->
                   <option value="1" ${"1"== article.value ? 'selected="selected"' : ''}>1</option>
                   <option value="2" ${"2"== article.value ? 'selected="selected"' : ''}>2</option>
@@ -107,14 +107,6 @@
 
 
 <%@ include file="footer.jsp"%>
-
-<script type="text/javascript">
-$(function(){
-	$(".dropdown").change(function(){
-		$("quantitearticleform'${article.key.id_article}'").submit();
-	});
-});
-
 </script>
 </body>
 </html>
