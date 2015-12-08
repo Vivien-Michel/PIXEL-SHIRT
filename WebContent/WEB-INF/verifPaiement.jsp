@@ -101,7 +101,7 @@
                   <form id="transaction" method="POST" action="${pageContext.request.contextPath}/Transaction">
                   </form>
                     <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Paiement</a></button>
-                    <button type="submit" form = "transaction" class="btn btn-lg btn-success">Transaction</button>
+                    <button type="submit" name=transaction form = "transaction" class="btn btn-lg btn-success">Transaction</button>
                   </div>
                 </div>
               </div>

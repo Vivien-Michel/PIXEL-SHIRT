@@ -136,8 +136,8 @@
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
                                                 <select class="form-control" name="civilite">
-                                                    <option>M</option>
-                                                    <option>Mme</option>
+                                                    <option value="M" ${"M"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>M</option>
+                              						 <option value="Mme" ${"Mme"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>Mme</option>
                                                 </select>
                                             </div>
                                              <div class="form-group has-feedback">                                             	 

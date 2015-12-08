@@ -102,8 +102,8 @@
 			</c:when>								
 		</c:choose>
 						<!-- c:otherwhise -->
-<form name="commanderarticleform" method="POST" action="/Pixel_Shirt/Connexion" id="formCommander">
-	<input type="submit" id="commander" name="commander" value="Commander" class="sansLabel" />
+<form name="commanderarticleform" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation" id="formCommander">
+	<button type="submit" class="btn btn-lg btn-success">Commander</button>
 </form>
 
 

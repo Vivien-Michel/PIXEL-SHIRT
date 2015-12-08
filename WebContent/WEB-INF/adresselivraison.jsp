@@ -31,43 +31,43 @@
                           <div class="form-group has-feedback">
                             <label class="control-label" for="exampleInputEmail1">Civilité*:</label>
                            <select class="form-control">
-                                                    <option>M</option>
-                                                    <option>Mme</option>
+                               <option value="M" ${"M"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>M</option>
+                               <option value="Mme" ${"Mme"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>Mme</option>
                            </select>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Nom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.nom}">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.nom}"/>">
                           </div>
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Prénom*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.prenom}">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.prenom}"/>">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label" for="exampleInputPassword1">Adresse email* :</label>
-                        <input class="form-control" id="exampleInputPassword1" type="email" value="${sessionScope.panier.client.mail}">
+                        <input class="form-control" id="exampleInputPassword1" type="email" value="<c:out value="${sessionScope.panier.client.mail}"/>">
                       </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputEmail1">Code Postal*:</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text" value="${sessionScope.panier.client.codePostal}">
+                            <input class="form-control" id="exampleInputEmail1" type="text" value="<c:out value="${sessionScope.panier.client.codePostal}"/>">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="control-label" for="exampleInputPassword1">Ville*:</label>
-                            <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.ville}">
+                            <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.ville}"/>">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label" for="exampleInputPassword1">Téléphone:</label>
-                        <input class="form-control" id="exampleInputPassword1" type="text" value="${sessionScope.panier.client.telephone}">
+                        <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.telephone}"/>">
                       </div>
                     </form>
                     <p class="text-justify text-muted"></p>
