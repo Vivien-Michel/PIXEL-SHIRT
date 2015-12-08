@@ -133,7 +133,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-                                        <form role="form" method="POST">
+<!--                                         <form role="form" method="POST"> -->
+							<form method="post" action="Inscription">
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
                                                 <select class="form-control">
@@ -146,7 +147,7 @@
 
 
 
-						<form method="post" action="Inscription">
+<!-- 						<form method="post" action="Inscription"> -->
 
                                              <div class="form-group has-feedback">                                             	 
                                                 <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
