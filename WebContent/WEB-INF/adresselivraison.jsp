@@ -77,29 +77,13 @@
                     <button type="submit" class="btn btn-lg btn-success">Suivant</button>
                   </a>
                   </div>
-                  <a href="">
-                </a>
                 </div>
-                <a href="">
-              </a>
               </div>
-              <a href="">
-            </a>
             </div>
-            <a href="">
-          </a>
           </div>
-          <a href="">
-        </a>
         </div>
-        <a href="">
-      </a>
       </div>
-      <a href="">
-    </a>
     </div>
-    <a href="">
-    </a>
    <%@ include file="footer.jsp" %>
 </body>
 </html>
