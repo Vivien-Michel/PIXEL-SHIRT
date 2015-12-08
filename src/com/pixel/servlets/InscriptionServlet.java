@@ -56,10 +56,13 @@ public class InscriptionServlet extends HttpServlet {
         Utilisateur utilisateur = form.inscrireUtilisateur( request, panier);
 
         /* Stockage du formulaire et du bean dans l'objet request */
-
-        request.setAttribute( ATT_FORM, form );
-        request.setAttribute( ATT_USER, utilisateur );
-        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+        if(form.getErreurs().isEmpty()){
+        	response.sendRedirect("Accueil");
+        }else{
+        	request.setAttribute( ATT_FORM, form );
+        	request.setAttribute( ATT_USER, utilisateur );
+        	this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+        }
 	}
 
 }

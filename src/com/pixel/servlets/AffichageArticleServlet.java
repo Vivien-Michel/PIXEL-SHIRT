@@ -1,7 +1,6 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -22,7 +21,6 @@ import com.pixel.sessions.PanierBean;
 public class AffichageArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE = "/WEB-INF/afficherArticles.jsp";  
-	private static final String ATT_ART= "listeArticles";
 	
 	@EJB
 	private ArticleDAO articleDao;
@@ -37,8 +35,6 @@ public class AffichageArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
@@ -48,12 +44,9 @@ public class AffichageArticleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
-		
 		PanierForm form = new PanierForm(articleDao);
 		form.addArticle(request, panier);
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
-		getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		response.sendRedirect("Accueil");
 	}
 
 }

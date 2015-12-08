@@ -127,7 +127,10 @@
                   <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
                 	-->
                 </div>
-                <a href="${pageContext.request.contextPath}/Ajout"><i class="fa fa-2x fa-fw fa-plus"></i></a>
+                <form name="addarticleform${article.id_article}" method = "POST" action="Articles" id="form${article.id_article}">
+                <input type="hidden" id="quantite" name="quantite" form="form${article.id_article}" value="1"/></td>
+                </form>
+                <button form="form${article.id_article}" name="article_id" value="${article.id_article}"><i class="fa fa-2x fa-fw fa-plus"></i></button>
                 <a href="indexArticlePerso.html"><i class="fa fa-2x fa-fw fa-edit"></i></a>
                 <i class="fa fa-2x pull-right text-danger"><c:out value="${article.prix} €" /></i>
                 <h2><c:out value="${article.modele}" /></h2>
@@ -167,38 +170,7 @@
     </div>
     
     	
-    <footer class="section section-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 text-left">
-            <h1>Pixel-Shirt</h1>
-            <p></p>
-          </div>
-          <div class="col-sm-6">
-            <p class="text-info text-right">
-              <br>
-              <br>
-            </p>
-            <div class="row">
-              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 hidden-xs text-right">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%@ include file="footer.jsp"%>
   
 
 </body></html>

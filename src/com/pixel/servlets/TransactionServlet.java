@@ -49,7 +49,7 @@ public class TransactionServlet extends HttpServlet {
 		if (request.getParameter(ATT_TRANSACTION) != null) {
 			Banque client = new Banque(panier.getClient().getNom(),panier.getClient().getPrenom());
 			try {
-				transaction.transaction(client,Float.parseFloat(panier.getTotal()),AccueilServlet.entreprise);
+				transaction.transaction(client,Float.parseFloat(panier.getTotal().replaceAll(",", ".")),AccueilServlet.entreprise);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
