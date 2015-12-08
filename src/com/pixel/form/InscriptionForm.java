@@ -49,6 +49,30 @@ public class InscriptionForm extends Form{
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_PRENOM, e.getMessage() );
 		    }
+		    
+		    
+		    try {
+		        validationVille( ville );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_VILLE, e.getMessage() );
+		    }
+		    
+		    try {
+		        validationAdresse( adresse );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_ADRESSE, e.getMessage() );
+		    }
+		    
+		    
+		    try {
+		    	validationCodePostal( codePostal );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
+		    }
+		    
+		    
+
+		    
 		    utilisateur.setPrenom(prenom);
 		    
 		    utilisateur.setAdresse(adresse);

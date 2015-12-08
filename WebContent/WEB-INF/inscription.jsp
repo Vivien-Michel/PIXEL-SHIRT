@@ -62,55 +62,55 @@
 
 
 
-<form method="post" action="Inscription">
+<!-- <form method="post" action="Inscription"> -->
 
-            <fieldset>
+<!--             <fieldset> -->
 
-                <legend>Inscription</legend>
+<!--                 <legend>Inscription</legend> -->
 
-                <p>Vous pouvez vous inscrire via ce formulaire.</p>
-
-
-                <label for="email">Adresse email <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" size="20" maxlength="60" />
-				<span class="erreur">${form.erreurs['email']}</span>
-                <br/>
+<!--                 <p>Vous pouvez vous inscrire via ce formulaire.</p> -->
 
 
-                <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-
-                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" />
-				<span class="erreur">${form.erreurs['motdepasse']}</span>
-                <br/>
-
-
-                <label for="confirmation">Confirmation du mot de passe <span class="requis">*</span></label>
-
-                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
-				<span class="erreur">${form.erreurs['confirmation']}</span>
-                <br/>
+<!--                 <label for="email">Adresse email <span class="requis">*</span></label> -->
+<%--                 <input type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" size="20" maxlength="60" /> --%>
+<%-- 				<span class="erreur">${form.erreurs['email']}</span> --%>
+<!--                 <br/> -->
 
 
-                <label for="nom">Nom d'utilisateur</label>
+<!--                 <label for="motdepasse">Mot de passe <span class="requis">*</span></label> -->
 
-                <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20" maxlength="20" />
-				<span class="erreur">${form.erreurs['nom']}</span>
-                <br/>
+<!--                 <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" /> -->
+<%-- 				<span class="erreur">${form.erreurs['motdepasse']}</span> --%>
+<!--                 <br/> -->
+
+
+<!--                 <label for="confirmation">Confirmation du mot de passe <span class="requis">*</span></label> -->
+
+<!--                 <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" /> -->
+<%-- 				<span class="erreur">${form.erreurs['confirmation']}</span> --%>
+<!--                 <br/> -->
+
+
+<!--                 <label for="nom">Nom d'utilisateur</label> -->
+
+<%--                 <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20" maxlength="20" /> --%>
+<%-- 				<span class="erreur">${form.erreurs['nom']}</span> --%>
+<!--                 <br/> -->
                 
-                 <label for="nom">Prenom d'utilisateur</label>
+<!--                  <label for="nom">Prenom d'utilisateur</label> -->
 
-                <input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="20" maxlength="20" />
-				<span class="erreur">${form.erreurs['prenom']}</span>
-                <br/>
+<%--                 <input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="20" maxlength="20" /> --%>
+<%-- 				<span class="erreur">${form.erreurs['prenom']}</span> --%>
+<!--                 <br/> -->
 
 
-                <input type="submit" value="Inscription" class="sansLabel" />
+<!--                 <input type="submit" value="Inscription" class="sansLabel" /> -->
 
-                <br/>
-                 <p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
-            </fieldset>
+<!--                 <br/> -->
+<%--                  <p class="${empty erreurs ? 'succes' : 'erreur'}">${form.resultat}</p> --%>
+<!--             </fieldset> -->
 
-        </form>
+<!--         </form> -->
 
 
 
@@ -119,7 +119,7 @@
 
 
         
-=======
+
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -141,140 +141,137 @@
                                                     <option>Mme</option>
                                                 </select>
                                             </div>
->>>>>>> 87ae768ad67792b014fc3512fe7f86028f1587f2
-                                            
-<!--                                              <div class="form-group has-feedback">                                             	  -->
-<%--                                                 <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom"> --%>
-<%--                                                 <span class="erreur">${form.erreurs['nom']}</span> --%>
-<!-- <!--                                                 <span class="fa fa-check form-control-feedback"></span>                                                --> -->
-                                                
-<!--                                             </div> -->
-<!--                                             <div class="form-group has-feedback"> -->
-<%--                                                 <input class="form-control" type="text" placeholder="Prénom" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>"> --%>
-<!-- <!--                                                  <span class="fa fa-check form-control-feedback"></span>                         --> -->
-<%--                                                 <span class="erreur">${form.erreurs['prenom']}</span> --%>
-                                                
-<!--                                             </div> -->
-<!--                                             <div class="form-group has-feedback"> -->
-<%--                                                 <input class="form-control" type="text" placeholder="Email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" > --%>
-<%--                                                 <span class="erreur">${form.erreurs['email']}</span> --%>
-<!--                                             </div> -->
-                                            
-                                            
-                                            
-<!--                                             <div class="form-group"> -->
-<!--                                                 <label class="control-label">Age</label> -->
-<!--                                                 <select class="form-control"> -->
-<%--                                                 	<option value="13" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>13</option> --%>
-<!--                                                     <option>13</option> -->
-<!--                                                     <option>14</option> -->
-<!--                                                     <option>15</option> -->
-<!--                                                     <option>16</option> -->
-<!--                                                     <option>17</option> -->
-<!--                                                     <option>18</option> -->
-<!--                                                     <option>19</option> -->
-<!--                                                     <option>20</option> -->
-<!--                                                     <option>21</option> -->
-<!--                                                     <option>22</option> -->
-<!--                                                     <option>23</option> -->
-<!--                                                     <option>24</option> -->
-<!--                                                     <option>25</option> -->
-<!--                                                     <option>26</option> -->
-<!--                                                     <option>27</option> -->
-<!--                                                     <option>28</option> -->
-<!--                                                     <option>29</option> -->
-<!--                                                     <option>30</option> -->
-<!--                                                     <option>31</option> -->
-<!--                                                     <option>32</option> -->
-<!--                                                     <option>33</option> -->
-<!--                                                     <option>34</option> -->
-<!--                                                     <option>35</option> -->
-<!--                                                     <option>36</option> -->
-<!--                                                     <option>37</option> -->
-<!--                                                     <option>38</option> -->
-<!--                                                     <option>39</option> -->
-<!--                                                     <option>40</option> -->
-<!--                                                     <option>41</option> -->
-<!--                                                     <option>42</option> -->
-<!--                                                     <option>43</option> -->
-<!--                                                     <option>44</option> -->
-<!--                                                     <option>45</option> -->
-<!--                                                     <option>46</option> -->
-<!--                                                     <option>47</option> -->
-<!--                                                     <option>48</option> -->
-<!--                                                     <option>49</option> -->
-<!--                                                     <option>50</option> -->
-<!--                                                     <option>51</option> -->
-<!--                                                     <option>52</option> -->
-<!--                                                     <option>53</option> -->
-<!--                                                     <option>54</option> -->
-<!--                                                     <option>55</option> -->
-<!--                                                     <option>56</option> -->
-<!--                                                     <option>57</option> -->
-<!--                                                     <option>58</option> -->
-<!--                                                     <option>59</option> -->
-<!--                                                     <option>60</option> -->
-<!--                                                     <option>61</option> -->
-<!--                                                     <option>62</option> -->
-<!--                                                     <option>63</option> -->
-<!--                                                     <option>64</option> -->
-<!--                                                     <option>65</option> -->
-<!--                                                     <option>66</option> -->
-<!--                                                     <option>67</option> -->
-<!--                                                     <option>68</option> -->
-<!--                                                     <option>69</option> -->
-<!--                                                     <option>70</option> -->
-<!--                                                     <option>71</option> -->
-<!--                                                     <option>72</option> -->
-<!--                                                     <option>73</option> -->
-<!--                                                     <option>74</option> -->
-<!--                                                     <option>75</option> -->
-<!--                                                     <option>76</option> -->
-<!--                                                     <option>77</option> -->
-<!--                                                     <option>78</option> -->
-<!--                                                     <option>79</option> -->
-<!--                                                     <option>80</option> -->
-<!--                                                     <option>81</option> -->
-<!--                                                     <option>82</option> -->
-<!--                                                     <option>83</option> -->
-<!--                                                     <option>84</option> -->
-<!--                                                     <option>85</option> -->
-<!--                                                     <option>86</option> -->
-<!--                                                     <option>87</option> -->
-<!--                                                     <option>88</option> -->
-<!--                                                     <option>89</option> -->
-<!--                                                     <option>90</option> -->
-<!--                                                     <option>91</option> -->
-<!--                                                     <option>92</option> -->
-<!--                                                     <option>93</option> -->
-<!--                                                     <option>94</option> -->
-<!--                                                     <option>95</option> -->
-<!--                                                     <option>96</option> -->
-<!--                                                     <option>97</option> -->
-<!--                                                     <option>98</option> -->
-<!--                                                 </select> -->
-<!--                                             </div> -->
 
-<!--                                             <div class="form-group has-feedback"> -->
-<%--                                             	<input class="form-control" type="text" placeholder="Adresse" value="<c:out value="${utilisateur.adresse}"/>" id="adresse" name="adresse"> --%>
-<!-- <!--                                                 <input class="form-control" type="text" placeholder="Adresse"> --> -->
-<!-- <!--                                                 <span class="fa fa-check form-control-feedback"></span> --> -->
-<!--                                             </div> -->
-<!--                                             <div class="form-group has-feedback"> -->
-<%--                                             	<input class="form-control" type="text" placeholder="Code Postal" value="<c:out value="${utilisateur.codePostal}"/>" id="codePostal" name="codePostal"> --%>
-<!-- <!--                                                 <input class="form-control" type="text" placeholder="Code Postal"> --> -->
-<!-- <!--                                                 <span class="fa fa-check form-control-feedback"></span> --> -->
-<!--                                             </div> -->
-<!--                                             <div class="form-group has-feedback"> -->
-<%--                                             	<input class="form-control" type="text" placeholder="Ville" value="<c:out value="${utilisateur.ville}"/>" id="adresse" name="ville"> --%>
-<!-- <!--                                                 <input class="form-control" type="text" placeholder="Ville"> --> -->
-<!-- <!--                                                 <span class="fa fa-check form-control-feedback"></span> --> -->
-<!--                                             </div>                                             -->
-<!--                                             <div class="form-group has-feedback"> -->
-<!--                                                 <input class="form-control" type="password" placeholder="Mot de passe" id="motdepasse" name="motdepasse" value=""> -->
-<!-- <!--                                                  <span class="fa fa-check form-control-feedback"></span>  --> -->
+
+
+
+
+						<form method="post" action="Inscription">
+
+                                             <div class="form-group has-feedback">                                             	 
+                                                <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
+                                                <span class="erreur">${form.erreurs['nom']}</span>
+<!--                                                 <span class="fa fa-check form-control-feedback"></span>                                                -->
+                                                
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <input class="form-control" type="text" placeholder="Prénom" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>">
+<!--                                                  <span class="fa fa-check form-control-feedback"></span>                         -->
+                                                <span class="erreur">${form.erreurs['prenom']}</span>
+                                                
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <input class="form-control" type="text" placeholder="Email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" >
+                                                <span class="erreur">${form.erreurs['email']}</span>
+                                            </div>
+                                            
+                                            
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Age</label>
+                                                <select class="form-control">
+                                                	<option value="18" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>18</option> 
+                                                    <option value="19" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>19</option>
+                                                    <option value="20" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>20</option>
+                                                    <option value="21" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>21</option>
+                                                    <option value="22" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>22</option>
+                                                    <option value="23" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>23</option>
+                                                    <option value="24" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>24</option>
+                                                    <option value="25" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>25</option>
+                                                    <option value="26" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>26</option>
+                                                    <option value="27" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>27</option>
+                                                    <option value="28" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>28</option>
+                                                    <option value="29" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>29</option>
+                                                    <option value="30" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>30</option>
+                                                    <option value="31" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>31</option>
+                                                    <option value="32" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>32</option>
+                                                    <option value="33" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>33</option>
+                                                    <option value="34" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>34</option>
+                                                    <option value="35" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>35</option>
+                                                    <option value="36" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>36</option>
+                                                    <option value="37" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>37</option>
+                                                    <option value="38" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>38</option>
+                                                    <option value="39" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>39</option>
+                                                    <option value="40" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>40</option>
+                                                    <option value="41" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>41</option>
+                                                    <option value="42" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>42</option>
+                                                    <option value="43" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>43</option>
+                                                    <option value="44" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>44</option>
+                                                    <option value="45" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>45</option>
+                                                    <option value="46" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>46</option>
+                                                    <option value="47" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>47</option>
+                                                    <option value="48" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>48</option>
+                                                    <option value="49" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>49</option>
+                                                    <option value="50" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>50</option>
+                                                    <option value="51" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>51</option>
+                                                    <option value="52" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>52</option>
+                                                    <option value="53" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>53</option>
+                                                    <option value="54" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>54</option>
+                                                    <option value="55" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>55</option>
+                                                    <option value="56" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>56</option>
+                                                    <option value="57" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>57</option>
+                                                    <option value="58" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>58</option>
+                                                    <option value="59" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>59</option>
+                                                    <option value="60" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>60</option>
+                                                    <option value="61" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>61</option>
+                                                    <option value="62" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>62</option>
+                                                    <option value="63" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>63</option>
+                                                    <option value="64" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>64</option>
+                                                    <option value="65" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>65</option>
+                                                    <option value="66" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>66</option>
+                                                    <option value="67" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>67</option>
+                                                    <option value="68" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>68</option>
+                                                    <option value="69" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>69</option>
+                                                    <option value="70" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>70</option>
+                                                    <option value="71" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>71</option>
+                                                    <option value="72" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>72</option>
+                                                    <option value="73" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>73</option>
+                                                    <option value="74" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>74</option>
+                                                    <option value="75" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>75</option>
+                                                    <option value="76" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>76</option>
+                                                    <option value="77" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>77</option>
+                                                    <option value="78" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>78</option>
+                                                    <option value="79" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>79</option>
+                                                    <option value="80" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>80</option>
+                                                    <option value="81" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>81</option>
+                                                    <option value="82" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>82</option>
+                                                    <option value="83" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>83</option>
+                                                    <option value="84" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>84</option>
+                                                    <option value="85" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>85</option>
+                                                    <option value="86" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>86</option>
+                                                    <option value="87" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>87</option>
+                                                    <option value="88" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>88</option>
+                                                    <option value="89" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>89</option>
+                                                    <option value="90" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>90</option>
+                                                    <option value="91" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>91</option>
+                                                    <option value="92" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>92</option>
+                                                    <option value="93" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>93</option>
+                                                    <option value="94" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>94</option>
+                                                    <option value="95" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>95</option>
+                                                    <option value="96" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>96</option>
+                                                    <option value="97" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>97</option>
+                                                    <option value="98" ${"1"== utilisateur.age ? 'selected="selected"' : ''}>98</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group has-feedback">
+                                            	<input class="form-control" type="text" placeholder="Adresse" value="<c:out value="${utilisateur.adresse}"/>" id="adresse" name="adresse">
+													<span class="erreur">${form.erreurs['adresse']}</span>
+														
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                            	<input class="form-control" type="text" placeholder="Code Postal" value="<c:out value="${utilisateur.codePostal}"/>" id="codePostal" name="codePostal">
+													  <span class="erreur">${form.erreurs['codePostal']}</span>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                            	<input class="form-control" type="text" placeholder="Ville" value="<c:out value="${utilisateur.ville}"/>" id="ville" name="ville">
+													<span class="erreur">${form.erreurs['ville']}</span>
+                                            </div>                                            
+                                            <div class="form-group has-feedback">
+                                                <input class="form-control" type="password" placeholder="Mot de passe" id="motdepasse" name="motdepasse" value="">
+<!--                                                  <span class="fa fa-check form-control-feedback"></span>  -->
                                                                                         
-<%-- 												<span class="erreur">${form.erreurs['motdepasse']}</span> --%>
+												<span class="erreur">${form.erreurs['motdepasse']}</span>
                                                 
 
 
@@ -284,7 +281,8 @@
                                                 <span class="fa fa-check form-control-feedback"></span>
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
-                                             <input type="submit" value="" class="myButtonForm pull-right"/>  
+<!--                                              <input type="submit" value="" class="myButtonForm pull-right"/>   -->
+                                             <input type="submit" value="Inscription" class="btn-primary" src="check-153363_960_720.png" />
 						                 </form>                                 	
                                     </div>
                                 </div>
@@ -294,6 +292,9 @@
                 </div>
             </div>
         </div>
+        
+        
+        
         <footer class="section section-primary">
             <div class="container">
                 <div class="row">

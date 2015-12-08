@@ -129,5 +129,31 @@ public class Form {
 			throw new FormValidationException("Veuillez renseigner ce champ");
 		}
 	}
+    
+    
+    protected void validationVille(String ville) throws FormValidationException {
+		if ( ville != null && ville.length() < 2) {
+	        throw new FormValidationException( "Veuillez renseigner ce champ" );
+	    }
+	}
+    
+    protected void validationAdresse(String adresse) throws FormValidationException {
+		if ( adresse != null && adresse.length() < 2) {
+	        throw new FormValidationException( "Veuillez renseigner ce champ" );
+	    }
+	}
+    
+    protected void validationCodePostal(String codePostal) throws FormValidationException {
+    	if(codePostal != null){
+			try{
+				Integer.parseInt(codePostal);
+				
+			}catch(NumberFormatException e){
+				throw new FormValidationException("Ceci n'est pas un nombre valide");
+			}
+		}else{
+			throw new FormValidationException("Veuillez renseigner ce champ");
+		}
+	}
 
 }

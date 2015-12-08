@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,6 +31,36 @@
 						</li>
 					</c:when>
 				</c:choose>
+				
+				
+				
+				<c:choose>
+					<c:when test="${not empty sessionScope.panier.client}">
+					
+					
+					<li class="dropdown" id="menu1"><a href="#menu1"
+						class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
+							class="caret"></b></a>
+							<div class="dropdown-menu">
+								<form name="deconnexionform" method="POST" action="${pageContext.request.contextPath}/Panier/Gestion"
+									id="formdeconnexion" style="margin: 0px" accept-charset="UTF-8">
+<!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
+<!-- 										value="Déconnexion" class="sansLabel" /> -->
+									<input class="btn-primary" name="deconnexion" type="submit" value="Déconnexion">
+								</form>
+						</div>
+						
+					</li>
+					</c:when>
+				</c:choose>
+				
+				
+				
+				
+				
+				
+					<c:choose>
+					<c:when test="${empty sessionScope.panier.client}">
 					<li class="dropdown" id="menu1"><a href="#menu1"
 						class="dropdown-toggle" data-toggle="dropdown">Login<b
 							class="caret"></b></a>
@@ -70,9 +101,15 @@
 								
 								
 								</c:choose>
+								
 								</form>
 						</div>
 					</li>
+					
+					</c:when>
+					</c:choose>
+					
+					
 					<li class="active"><a href="${pageContext.request.contextPath}/Panier/Gestion">
 					<div style="text-align: center;">
 						<font face="FontAwesome" style="line-height: 21px; display: inline !important;">Panier : </font><span class="badge">${sessionScope.panier.size}</span>
