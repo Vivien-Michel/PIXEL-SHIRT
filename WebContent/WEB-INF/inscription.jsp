@@ -9,8 +9,11 @@
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="bs_leftnavi.js"></script>
-        <link href="designCreateA.css" rel="stylesheet" type="text/css">
+        <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
+        <link href="${pageContext.request.contextPath}/designCreateA.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+        <title>Inscription</title>
     </head><body>
     
     	<%@ include file="menu.jsp"%>
@@ -268,7 +271,7 @@
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
 <!--                                              <input type="submit" value="" class="myButtonForm pull-right"/>   -->
-                                             <input type="submit" value="Inscription" class="btn-primary" />
+                                             <button type="submit" class="pull-right transparent-button"><i class="fa fa-5x fa-check-circle fa-fw text-success"></i></button>
 						                 </form>                                 	
                                     </div>
                                 </div>

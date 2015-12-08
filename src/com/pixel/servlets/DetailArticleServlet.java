@@ -1,12 +1,18 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.pixel.entities.Article;
+import com.pixel.sessions.ArticleDAO;
 
 /**
  * Servlet implementation class Livraison
@@ -14,8 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Detail")
 public class DetailArticleServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/unArticle.jsp";
-    /**
+	private static final String VUE = "/WEB-INF/DetailArticle.jsp";
+    
+	@EJB
+	private ArticleDAO articleDao;
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public DetailArticleServlet() {
@@ -26,17 +35,26 @@ public class DetailArticleServlet extends HttpServlet{
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+		String id = request.getParameter("id");
+		if(id !=null){
+			Pattern intOnly = Pattern.compile("\\d{1,10}");
+			Matcher matcher = intOnly.matcher(id);
+			if(matcher.find()){
+				Article article = articleDao.findById(id);
+				request.setAttribute("article", article);
+				this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+			}else{
+				response.sendRedirect("Accueil");
+			}
+		}else{
+			response.sendRedirect("Accueil");
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 if (request.getParameter("commander") != null) {
-				System.out.println("hello");
-		    }
 		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 }

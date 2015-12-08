@@ -69,10 +69,10 @@ public class InscriptionForm extends Form{
 		    
 		    try {
 		    	validationCodePostal( codePostal );
+		    	utilisateur.setCodePostal(Integer.parseInt(codePostal));
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
 		    }
-		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
 		    utilisateur.setCivilite(civilite);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);

@@ -148,7 +148,6 @@ public class Form {
     	if(codePostal != null){
 			try{
 				Integer.parseInt(codePostal);
-				
 			}catch(NumberFormatException e){
 				throw new FormValidationException("Ceci n'est pas un nombre valide");
 			}

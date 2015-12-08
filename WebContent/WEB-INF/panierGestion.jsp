@@ -14,6 +14,7 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
 <link href="${pageContext.request.contextPath}/designArticle.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Gestion Panier</title>
 
 </head>
@@ -39,7 +40,7 @@
 	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
 	      <td><c:out value="${article.key.id_article}" /></td>
-	      <td><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></td>
+	      <td><a href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></a></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
@@ -47,8 +48,6 @@
 	      <td><c:out value="${article.value}" /></td>
 	      <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
-		      	
-		      	
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
 		      	<!-- <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">-->
 		      	<select class="dropdown" id="quantite" name="quantite">
@@ -70,7 +69,7 @@
 	      <td>
 	      	<form name="supprimerarticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}">
-		      	<input type="submit" id="supprimer" name="supprimer" value="Supprimer" class="fa fa-2x fa-fw fa-remove pull-left text-danger" />
+		      	<button type="submit" id="supprimer" name="supprimer" value="Supprimer" class="transparent-button fa fa-2x fa-fw fa-remove pull-left text-danger"></button>
 		    </form>
 	      </td>
 	   </tr>
@@ -108,5 +107,14 @@
 
 
 <%@ include file="footer.jsp"%>
+
+<script type="text/javascript">
+$(function(){
+	$(".dropdown").change(function(){
+		$("quantitearticleform'${article.key.id_article}'").submit();
+	});
+});
+
+</script>
 </body>
 </html>
