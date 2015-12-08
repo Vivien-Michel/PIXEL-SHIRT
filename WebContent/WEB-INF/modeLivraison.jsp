@@ -28,7 +28,7 @@
                   <div class="col-md-12">
                      <%@ include file="barre_commande.jsp" %>
                     <p class="lead text-primary">SoColissimo - Livraison gratuite – Livraison chez vous Colissimo 0,00€</p>
-                    <form role="form" class="text-left">
+                    <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/ModeDeLivraison">
                       <div class="btn-group">
                         <input type="radio" name="livraison" value="meme">&nbsp;
                         <b>Livraison chez vous sans signature.</b>
@@ -42,10 +42,10 @@
                       <p class="text-justify text-muted"></p>
                   </div>
                   <div class="row text-center">
-                    <button class="btn btn-danger btn-lg" type="button">
-                      <a href="Info_Livraison.html" style="color:#FFF">Retour Info. Livraison</a>
-                    </button>
-                    <button type="submit" class="btn btn-lg btn-success">Suivant</button>
+                  <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseLivraison">
+                  </form>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Livraison</a></button>
+                    <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>
               </div>

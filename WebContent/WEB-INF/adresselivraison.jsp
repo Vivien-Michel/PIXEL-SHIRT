@@ -73,7 +73,9 @@
                     <p class="text-justify text-muted"></p>
                   </div>
                   <div class="row text-center">
-                    <button type="submit" class="btn btn-danger btn-lg"><a href="${pageContext.request.contextPath}/Panier/AdresseFacturation" style="color:#FFF">Retour Info. Facturation</a></button>
+                  <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
+                  </form>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Facturation</a></button>
                     <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>

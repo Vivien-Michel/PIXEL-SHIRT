@@ -28,7 +28,7 @@
                     <%@ include file="barre_commande.jsp" %>
                     <p class="lead text-center text-primary">Informations de Paiement</p>
                     <p class="text-left text-primary">Carte Bancaire :</p>
-                    <form role="form" class="text-left">
+                    <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/ModePaiement">
                       <div class="btn-group">&nbsp;
                         <input type="radio" name="cb" value="visa">&nbsp;
                         <b>VISA</b>
@@ -46,10 +46,10 @@
                     <p class="text-justify text-muted"></p>
                   </div>
                   <div class="row text-center">
-                    <button class="btn btn-danger btn-lg" type="button">
-                      <a href="modeLivraison.html" style="color:#FFF">Retour Mode Livraison</a>
-                    </button>
-                    <button type="submit" class="btn btn-lg btn-success">Suivant</button>
+                  <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/ModeDeLivraison">
+                  </form>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Mode Livraison</a></button>
+                    <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>
               </div>
@@ -58,38 +58,6 @@
         </div>
       </div>
     </div>
-    <footer class="section section-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 text-left">
-            <h1>Pixel-Shirt</h1>
-            <p></p>
-          </div>
-          <div class="col-sm-6">
-            <p class="text-info text-right">
-              <br>
-              <br>
-            </p>
-            <div class="row">
-              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 hidden-xs text-right">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+     <%@ include file="footer.jsp"%>
 </body>
 </html>

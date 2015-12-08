@@ -9,9 +9,9 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="bs_leftnavi.js"></script>
+    <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<title>Recapitulatif</title>
 </head>
 <body>
 <%@ include file="menu.jsp"%>
@@ -86,12 +86,6 @@
 	      </td>
 	   </tr>
 	  </c:forEach>
-                          
-                          
-                          
-                          
-                          
-            
                         </tbody>
                       </table>
                       <hr>
@@ -102,10 +96,12 @@
                     <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
                   </div>
                   <div class="row text-center">
-                    <button class="btn btn-danger btn-lg" type="button">
-                      <a href="infoPaiement.html" style="color:#FFF">Retour Info. Paiement</a>
-                    </button>
-                    <button type="submit" class="btn btn-lg btn-success">Transaction</button>
+                  <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/ModePaiement">
+                  </form>
+                  <form id="transaction" method="POST" action="${pageContext.request.contextPath}/Transaction">
+                  </form>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Paiement</a></button>
+                    <button type="submit" form = "transaction" class="btn btn-lg btn-success">Transaction</button>
                   </div>
                 </div>
               </div>
@@ -114,37 +110,6 @@
         </div>
       </div>
     </div>
-    <footer class="section section-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 text-left">
-            <h1>Pixel-Shirt</h1>
-            <p></p>
-          </div>
-          <div class="col-sm-6">
-            <p class="text-info text-right">
-              <br>
-              <br>
-            </p>
-            <div class="row">
-              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 hidden-xs text-right">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+      <%@ include file="footer.jsp"%>
 </body>
 </html>
