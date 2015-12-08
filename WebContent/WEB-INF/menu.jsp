@@ -25,28 +25,17 @@
 							<a href="#">
 								<div style="text-align: center;">
 									<font face="FontAwesome"><span style="line-height: 21px;">${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom}</span></font>	
-											
 								</div>
 							</a>
 						</li>
-					</c:when>
-				</c:choose>
-				
-				
-				
-				<c:choose>
-					<c:when test="${not empty sessionScope.panier.client}">
-					
-					
-					<li class="dropdown" id="menu1"><a href="#menu1"
-						class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
-							class="caret"></b></a>
+					<li class="dropdown" id="menu1">
+						<a href="#menu1" class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b class="caret"></b></a>
 							<div class="dropdown-menu">
 								<form name="deconnexionform" method="POST" action="${pageContext.request.contextPath}/Panier/Gestion"
 									id="formdeconnexion" style="margin: 0px" accept-charset="UTF-8">
 <!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
 <!-- 										value="Déconnexion" class="sansLabel" /> -->
-									<input class="btn-primary" name="deconnexion" type="submit" value="Déconnexion">
+									<button class="btn-primary" name="deconnexion" type="submit">Déconnexion</button>
 								</form>
 						</div>
 						

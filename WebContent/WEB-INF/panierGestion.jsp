@@ -63,7 +63,7 @@
                   <option value="9" ${"9"== article.value ? 'selected="selected"' : ''}>9</option>
                   <option value="10" ${"10"== article.value ? 'selected="selected"' : ''}>10</option>
                 </select>
-		      	<input type="submit" id="quantite2" name="quantite2" value="ok" />
+		      	<!-- <input type="submit" id="quantite2" name="quantite2" value="ok" /> -->
 		    </form>
 	      </td>
 	      <td>
@@ -95,9 +95,9 @@
 				<form name="supprimercompteform" method="POST" action="Gestion" id="formSupprCompte">
 					<input type="submit" id="supprimerCompte" name="supprimerCompte" value="Supprimer son Compte" class="sansLabel" />
 				</form>
-				<form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
+				<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
 					<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
-				</form>
+				</form>-->
 			</c:when>								
 		</c:choose>
 						<!-- c:otherwhise -->
@@ -107,6 +107,5 @@
 
 
 <%@ include file="footer.jsp"%>
-</script>
 </body>
 </html>
