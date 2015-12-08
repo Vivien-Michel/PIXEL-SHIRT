@@ -100,50 +100,6 @@
     </div>
     <a href="">
     </a>
-    <footer class="section section-primary">
-      <a href="">
-      </a>
-      <div class="container">
-        <a href="">
-        </a>
-        <div class="row">
-          <a href="">
-          <div class="col-sm-6 text-left">
-            <h1>Pixel-Shirt</h1>
-            <p></p>
-          </div>
-          </a>
-          <div class="col-sm-6">
-            <a href="">
-            <p class="text-info text-right">
-              <br>
-              <br>
-            </p>
-            </a>
-            <div class="row">
-              <a href="">
-              </a>
-              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="">
-                </a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 hidden-xs text-right">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+   <%@ include file="footer.jsp" %>
 </body>
 </html>
