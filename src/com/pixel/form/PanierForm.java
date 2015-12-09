@@ -32,7 +32,6 @@ public class PanierForm extends Form {
 			}catch(NumberFormatException e){
 				setErreur(CHAMP_QUANT, "La quantité doit être un entier");
 			}
-			
 			// Update panier (ID,TOTAL,QUANTITE)
 			panier.update(article_id,quantite);
 
@@ -50,11 +49,13 @@ public class PanierForm extends Form {
 	
 	public void addArticle(HttpServletRequest request, PanierBean panier){
 		
-		
+		int quantite=0;
 		String quantites = (String) request.getParameter("quantite");
-		
-		int quantite = Integer.parseInt(quantites);
-		
+		try{
+			quantite = Integer.parseInt(quantites);
+		}catch(NumberFormatException e){
+			setErreur(CHAMP_QUANT, "La quantité doit être un entier");
+		}
 		String articleid = request.getParameter(CHAMP_ART_ID);
 		Article article = articleDao.findById(articleid);
 		

@@ -23,6 +23,7 @@ import com.pixel.sessions.PanierBean;
  */
 @WebServlet("/Connexion")
 public class ConnexionServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 	public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";

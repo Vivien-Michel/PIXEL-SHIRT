@@ -36,8 +36,8 @@
                   <label for="inputPassword3" class="control-label">Taille</label>
                 </div>
                 <div class="col-sm-10">
-                  <select class="dropdown" id="taille" name="taille">
-                    <option value="xl" class="label">XS</option>
+                  <select class="dropdown" id="taille" name="taille" onchange="this.form.submit()">
+                    <option value="xl">XS</option>
                     <option value="s">S</option>
                     <option value="m">M</option>
                     <option value="l">L</option>
@@ -51,10 +51,10 @@
                   <label for="inputPassword3" class="control-label">Modèle</label>
                 </div>
                 <div class="col-sm-10">
-                  <select class="dropdown" id="modele" name="modele">
-                    <option value="" class="label">Simple</option>
-                    <option value="Col rond">Col rond</option>
-                    <option value="Col V">Col V</option>
+                  <select class="dropdown" id="modele" name="modele" onchange="this.form.submit()">
+                    <option value="homme">Simple</option>
+                    <option value="femme">Col rond</option>
+                    <option value="enfant">Col V</option>
                   </select>
                 </div>
               </div>
@@ -63,7 +63,7 @@
                   <label for="inputPassword3" class="control-label">Couleur</label>
                 </div>
                 <div class="col-sm-10">
-                  <select class="dropdown" id="couleur" name="couleur">
+                  <select class="dropdown" id="couleur" name="couleur" onchange="this.form.submit()">
                     <option ${"Blanc"== article.couleur ? 'selected="selected"' : ''} value="blanc">Blanc</option>
                     <option ${"Noir"== article.couleur ? 'selected="selected"' : ''} value="noir">Noir</option>
                     <option ${"Vert"== article.couleur ? 'selected="selected"' : ''} value="vert">Vert</option>
@@ -75,13 +75,16 @@
                   </select>
                 </div>
               </div>
+              </form>
+              <form id="addArticle" action="${pageContext.request.contextPath}/Detail" method="POST">
               <div class="form-group has-feedback">
                 <div class="col-sm-2">
                   <label for="inputPassword3" class="control-label">Quantité</label>
                 </div>
                 <div class="col-sm-10">
-                  <select class="dropdown" id="quantite" name="quantite">
-                    <option value="0">0</option>
+                
+                  <select class="dropdown" id="quantite" name="quantite" form="addArticle">
+                    <!--  <option value="0">0</option> -->
                   <option value="1" >1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -97,10 +100,11 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">
+                  <button type="submit" "class="btn btn-block btn-lg btn-primary">
                     <i class="fa fa-fw fa-plus-square"></i>Ajouter</button>
                 </div>
               </div>
+            	<input type="hidden" name="article_id" value="${article.id_article}">
             </form>
             <h3>Description :</h3>
             <p class="text-left">adz dzadzadzzaddadza zadzaazeadzadzadzadzdzadzazeazjhezbrze
