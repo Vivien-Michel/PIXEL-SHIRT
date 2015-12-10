@@ -75,14 +75,12 @@
                   </select>
                 </div>
               </div>
-              </form>
-              <form id="addArticle" action="${pageContext.request.contextPath}/Detail" method="POST">
+              
               <div class="form-group has-feedback">
                 <div class="col-sm-2">
                   <label for="inputPassword3" class="control-label">Quantité</label>
                 </div>
-                <div class="col-sm-10">
-                
+                <div class="col-sm-10">                
                   <select class="dropdown" id="quantite" name="quantite" form="addArticle">
                     <!--  <option value="0">0</option> -->
                   <option value="1" >1</option>
@@ -100,10 +98,12 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" "class="btn btn-block btn-lg btn-primary">
+                  <button form="addArticle" type="submit" class="btn btn-block btn-lg btn-primary">
                     <i class="fa fa-fw fa-plus-square"></i>Ajouter</button>
                 </div>
               </div>
+              </form>
+              <form id="addArticle" action="${pageContext.request.contextPath}/Detail" method="POST">
             	<input type="hidden" name="article_id" value="${article.id_article}">
             </form>
             <h3>Description :</h3>
