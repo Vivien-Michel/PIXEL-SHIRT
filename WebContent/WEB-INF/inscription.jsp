@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -10,8 +9,11 @@
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="bs_leftnavi.js"></script>
-        <link href="designCreateA.css" rel="stylesheet" type="text/css">
+        <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
+        <link href="${pageContext.request.contextPath}/designCreateA.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+        <title>Inscription</title>
     </head><body>
     
     	<%@ include file="menu.jsp"%>
@@ -111,15 +113,6 @@
 <!--             </fieldset> -->
 
 <!--         </form> -->
-
-
-
-
-
-
-
-        
-
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -133,21 +126,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3">
-<!--                                         <form role="form" method="POST"> -->
-							<form method="post" action="Inscription">
+
+                                        <form role="form" method="POST" action="Inscription">
+
                                             <div class="form-group">
                                                 <label class="control-label">Civilité</label>
-                                                <select class="form-control">
-                                                    <option>M</option>
-                                                    <option>Mme</option>
+                                                <select class="form-control" name="civilite">
+                                                    <option value="M" ${"M" == utilisateur.civilite ? 'selected="selected"' : ''}>M</option>
+                              						 <option value="Mme" ${"Mme" == utilisateur.civilite ? 'selected="selected"' : ''}>Mme</option>
                                                 </select>
                                             </div>
-
-
-
-
-
-<!-- 						<form method="post" action="Inscription"> -->
 
                                              <div class="form-group has-feedback">                                             	 
                                                 <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
@@ -165,9 +153,6 @@
                                                 <input class="form-control" type="text" placeholder="Email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" >
                                                 <span class="erreur">${form.erreurs['email']}</span>
                                             </div>
-                                            
-                                            
-                                            
                                             <div class="form-group">
                                                 <label class="control-label">Age</label>
                                                 <select class="form-control">
@@ -273,9 +258,6 @@
 <!--                                                  <span class="fa fa-check form-control-feedback"></span>  -->
                                                                                         
 												<span class="erreur">${form.erreurs['motdepasse']}</span>
-                                                
-
-
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <input class="form-control" type="password" placeholder="Confirmation Mot de passe" id="confirmation" name="confirmation" value="">
@@ -283,7 +265,7 @@
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
 <!--                                              <input type="submit" value="" class="myButtonForm pull-right"/>   -->
-                                             <input type="submit" value="Inscription" class="btn-primary" src="check-153363_960_720.png" />
+                                             <button type="submit" class="pull-right transparent-button"><i class="fa fa-5x fa-check-circle fa-fw text-success"></i></button>
 						                 </form>                                 	
                                     </div>
                                 </div>
@@ -293,42 +275,8 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        <footer class="section section-primary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 text-left">
-                        <h1>Pixel-Shirt</h1>
-                        <p></p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="text-info text-right">
-                            <br>
-                            <br>
-                        </p>
-                        <div class="row">
-                            <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 hidden-xs text-right">
-                                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
+        <%@ include file="footer.jsp" %>
     
 
 </body></html>

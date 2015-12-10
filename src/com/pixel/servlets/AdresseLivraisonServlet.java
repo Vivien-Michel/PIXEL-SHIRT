@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/ModeLivraison")
-public class LivraisonServlet extends HttpServlet {
+@WebServlet("/Panier/AdresseLivraison")
+public class AdresseLivraisonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/livraison.jsp";
-    /**
+	private static final String VUE = "/WEB-INF/adresselivraison.jsp";
+    
+	/**
      * @see HttpServlet#HttpServlet()
      */
-    public LivraisonServlet() {
+    public AdresseLivraisonServlet() {
         super();
     }
 
@@ -33,11 +34,7 @@ public class LivraisonServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 if (request.getParameter("commander") != null) {
-				System.out.println("hello");
-		    }
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		response.sendRedirect("/Pixel_Shirt/Panier/ModeDeLivraison");
 	}
 
 }

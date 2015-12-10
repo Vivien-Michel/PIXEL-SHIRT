@@ -21,12 +21,17 @@ public class PanierForm extends Form {
 	
 	public void update(HttpServletRequest request, PanierBean panier){
 		suppr=false;
+		int quantite=0;
 		// Recupération du paramètre article_id dans la balise input de type "hidden" du fichier panierGestion.jsp
 		String article_id = request.getParameter(CHAMP_ART_ID);
 		if (request.getParameter(CHAMP_QUANT) != null) {
 			// Recupération du paramètre quantite dans le fichier panierGestion.jsp
 			String q = request.getParameter(CHAMP_QUANT);
-			int quantite = Integer.parseInt(q);
+			try{
+				quantite = Integer.parseInt(q);
+			}catch(NumberFormatException e){
+				setErreur(CHAMP_QUANT, "La quantité doit être un entier");
+			}
 			// Update panier (ID,TOTAL,QUANTITE)
 			panier.update(article_id,quantite);
 
@@ -44,11 +49,13 @@ public class PanierForm extends Form {
 	
 	public void addArticle(HttpServletRequest request, PanierBean panier){
 		
-		
+		int quantite=0;
 		String quantites = (String) request.getParameter("quantite");
-		
-		int quantite = Integer.parseInt(quantites);
-		
+		try{
+			quantite = Integer.parseInt(quantites);
+		}catch(NumberFormatException e){
+			setErreur(CHAMP_QUANT, "La quantité doit être un entier");
+		}
 		String articleid = request.getParameter(CHAMP_ART_ID);
 		Article article = articleDao.findById(articleid);
 		

@@ -27,6 +27,7 @@ public class Client extends Utilisateur implements Serializable{
 	private int codePostal;
 	private String ville;
 	private String pays;
+	private String telephone;
 	@Column( name = "date_inscription", columnDefinition = "TIMESTAMP" )
     @Convert( "dateTimeConverter" )
 	private DateTime date;
@@ -47,6 +48,14 @@ public class Client extends Utilisateur implements Serializable{
 		commentaires = new ArrayList<>();
 	}
 	
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 	public Panier getPanier() {
 		return panier;
 	}

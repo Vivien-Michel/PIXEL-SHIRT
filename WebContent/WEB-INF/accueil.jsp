@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,15 +8,14 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="bs_leftnavi.js"></script>
-    <link href="design.css" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
+    <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
     <title>Pixel Shirt</title>
   </head>
  <body>
 
-
 	<%@ include file="menu.jsp"%>
-
 <div class="section"></div>
     <div class="section">
       <div class="container">
@@ -116,19 +112,22 @@
                 <div id="carousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="item active">
-                      <img src="${pageContext.request.contextPath}/images/${article.id_article}">
+                      <a href="${pageContext.request.contextPath}/Detail?id=${article.id_article}"><img src="${pageContext.request.contextPath}/images/${article.id_article}"></a>
                       <div class="carousel-caption">
                         <h2>${article.taille} ${article.couleur}</h2>
-                        <p></p>
                       </div>
                     </div>
                   </div>
-                  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+                  <!--  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
                   <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+                	-->
                 </div>
-                <a href="/Pixel_Shirt/UnArticle"><i class="fa fa-2x fa-fw fa-plus"></i></a>
-                <a href="indexArticlePerso.html"><i class="fa fa-2x fa-fw fa-edit"></i></a>
-                <i class="fa fa-2x pull-right text-danger"><c:out value="${article.prix} €" /></i>
+                <form name="addarticleform${article.id_article}" method = "POST" action="Articles" id="form${article.id_article}">
+                <input type="hidden" id="quantite" name="quantite" form="form${article.id_article}" value="1"/></td>
+                </form>
+                <button class="btn-add" form="form${article.id_article}" name="article_id" value="${article.id_article}"><i class="fa fa-2x fa-fw fa-plus"></i></button>
+                <a href="${pageContext.request.contextPath}/Personnalisation?id=${article.id_article}"><i class="fa fa-2x fa-fw fa-edit"></i></a>
+                <i class="fa fa-3x pull-right text-danger"><c:out value="${article.prix} €" /></i>
                 <h2><c:out value="${article.modele}" /></h2>
               </div>    
 	</c:forEach>
@@ -166,38 +165,7 @@
     </div>
     
     	
-    <footer class="section section-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 text-left">
-            <h1>Pixel-Shirt</h1>
-            <p></p>
-          </div>
-          <div class="col-sm-6">
-            <p class="text-info text-right">
-              <br>
-              <br>
-            </p>
-            <div class="row">
-              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 hidden-xs text-right">
-                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%@ include file="footer.jsp"%>
   
 
 </body></html>

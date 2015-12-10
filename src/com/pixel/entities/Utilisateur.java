@@ -21,6 +21,7 @@ public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long id_user;
+	private String civilite;
 	private String nom;
 	private String prenom;
 	private String mail;
@@ -36,6 +37,14 @@ public class Utilisateur implements Serializable{
 		this.id_user = id_user;
 	}
 	
+	public String getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
 	public boolean isAdmin() {
 		return admin;
 	}

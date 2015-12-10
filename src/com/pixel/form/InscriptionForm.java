@@ -21,7 +21,9 @@ public class InscriptionForm extends Form{
 	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBean panier) {
-		 	String email = getValeurChamp( request, CHAMP_EMAIL );
+		 	
+			String civilite = getValeurChamp(request, CHAMP_CIV);
+			String email = getValeurChamp( request, CHAMP_EMAIL );
 		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
@@ -49,31 +51,29 @@ public class InscriptionForm extends Form{
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_PRENOM, e.getMessage() );
 		    }
-		    
+		    utilisateur.setPrenom(prenom);
 		    
 		    try {
 		        validationVille( ville );
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_VILLE, e.getMessage() );
 		    }
+		    utilisateur.setVille(ville);
 		    
 		    try {
 		        validationAdresse( adresse );
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_ADRESSE, e.getMessage() );
 		    }
-		    
+		    utilisateur.setAdresse(adresse);
 		    
 		    try {
 		    	validationCodePostal( codePostal );
+		    	utilisateur.setCodePostal(Integer.parseInt(codePostal));
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
 		    }
-		    
-		    
-
-		    
-		    utilisateur.setPrenom(prenom);
+		    utilisateur.setCivilite(civilite);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
 		    	panier.setFusion(true);
@@ -82,21 +82,7 @@ public class InscriptionForm extends Form{
 		    } else {
 		        resultat = "Échec de l'inscription.";
 		    }
-//<<<<<<< HEAD
-//		    //MODIF
-//		    utilisateur.setAdresse(adresse);
-//		    utilisateur.setVille(ville);;
-//		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
-//		    //FIN MODIF
-//=======
-		    //MODIF
-		    //FUCKING RETARD INUTILE DE PLACER CECI SANS VERIF ET SURTOUT APRES LA CREATION IL SUFFIT DE LIRE CE PUTAIN DE CODE
-//		    utilisateur.setAdresse(adresse);
-//		    utilisateur.setVille(ville);
-//		    utilisateur.setCodePostal(Integer.parseInt(codePostal));
-//		    //FIN MODIF
-//>>>>>>> 87ae768ad67792b014fc3512fe7f86028f1587f2
-//		    
+
 		    return utilisateur;
 		    
 	}
