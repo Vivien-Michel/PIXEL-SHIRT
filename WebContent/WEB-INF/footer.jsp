@@ -17,7 +17,9 @@
 		</div>
 		<div class="col-sm-6">
 			<p class="text-info text-right">
-				<br> <br>
+
+			 <a href="cgv.jsp" style="color: white">Conditions Générales de Vente</a>
+<!-- 				<br> <br> -->
 			</p>
 			<div class="row">
 				<div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
