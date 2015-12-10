@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.pixel.sessions.PanierBean;
 
 /**
  * Servlet implementation class Livraison
@@ -33,7 +36,20 @@ public class ModeDeLivraisonServlet  extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		HttpSession session = request.getSession();
+		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN); 
+		String frais = request.getParameter("livraison");
+		panier.rollBackFrais();
+		
+		if(request.getParameter("livraison") !=null){
+			panier.setFraisLivraison(Float.parseFloat(frais));
+			response.sendRedirect("/Pixel_Shirt/Panier/ModePaiement");
+		}else{
+			String erreur = "Veuillez choisir un mode de livraison";
+			request.setAttribute("erreur", erreur);
+			getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}
+		
 	}
 
 }

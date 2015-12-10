@@ -1,17 +1,18 @@
 package com.pixel.sessions;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Remove;
 
 import com.pixel.entities.Article;
 import com.pixel.entities.Client;
 import com.pixel.entities.Panier;
 
-@Local
-public interface PanierBeanLocal {
+@Remote
+public interface PanierBeanLocal extends Serializable{
 	
 	@PostConstruct
 	public void init();

@@ -1,12 +1,14 @@
 package com.pixel.sessions;
 
+import java.io.Serializable;
+
 import javax.ejb.Remote;
 
 import com.pixel.entities.Utilisateur;
 import com.pixel.exceptions.DAOException;
 
 @Remote
-public interface ClientDAORemote {
+public interface ClientDAORemote extends Serializable{
 	
 	public void creer( Utilisateur utilisateur ) throws DAOException;
 	

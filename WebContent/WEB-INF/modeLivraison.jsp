@@ -11,10 +11,10 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
 <title>Mode de Livraison</title>
 </head>
 <body>
-
 
 	<%@ include file="menu.jsp"%>
     <div class="section"></div>
@@ -30,14 +30,15 @@
                     <p class="lead text-primary">SoColissimo - Livraison gratuite – Livraison chez vous Colissimo 0,00€</p>
                     <form role="form" class="text-left" id="factform" method="POST" action="${pageContext.request.contextPath}/Panier/ModeDeLivraison">
                       <div class="btn-group">
-                        <input type="radio" name="livraison" value="meme">&nbsp;
+                        <input type="radio" name="livraison" value="0">&nbsp;
                         <b>Livraison chez vous sans signature.</b>
                         <i>A l'adresse de votre choix, en mains propres ou en boîte aux lettres.</i>
                         <br>
-                        <input type="radio" name="livraison" value="differente">&nbsp;
+                        <input type="radio" name="livraison" value="2">&nbsp;
                         <b>Livraison chez vous avec signature (frais supplémentaires de 2,00 €)</b>
                         <i>A l'adresse de votre choix, en mains propres ou en boîte aux lettres.</i>
                       </div>
+                      <span class="erreur">${erreur}</span>
                       </form>
                       <p class="text-justify text-muted"></p>
                   </div>

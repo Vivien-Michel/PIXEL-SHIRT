@@ -1,5 +1,6 @@
 package com.pixel.sessions;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -8,7 +9,7 @@ import com.pixel.entities.Article;
 import com.pixel.exceptions.DAOException;
 
 @Remote
-public interface ArticleDAORemote {
+public interface ArticleDAORemote extends Serializable{
 	/**
 	 * Création d'un article dans la base de données
 	 * */

@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.pixel.sessions.MailGeneratorRemote;
 import com.pixel.sessions.PanierBean;
 import com.pixel.sessions.TransactionBanquaire;
 import com.pixel.tools.Banque;
+import com.pixel.tools.TypeMail;
 
 /**
  * Servlet implementation class TransactionServlet
@@ -25,6 +27,9 @@ public class TransactionServlet extends HttpServlet {
     
 	@EJB
 	private TransactionBanquaire transaction;
+	
+	@EJB
+	private MailGeneratorRemote mailGenerator;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -50,6 +55,7 @@ public class TransactionServlet extends HttpServlet {
 			Banque client = new Banque(panier.getClient().getNom(),panier.getClient().getPrenom());
 			try {
 				transaction.transaction(client,Float.parseFloat(panier.getTotal().replaceAll(",", ".")),AccueilServlet.entreprise);
+				mailGenerator.sendMail(panier, TypeMail.Confirmation);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (Exception e) {

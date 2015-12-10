@@ -33,7 +33,13 @@ public class ModePaiementServlet extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		 String paiement = request.getParameter("cb");
+		if(paiement !=  null){
+			
+			
+		}else{
+			getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}
 	}
 
 }
