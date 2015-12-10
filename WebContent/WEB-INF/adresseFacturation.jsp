@@ -48,8 +48,13 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label" for="exampleInputPassword1">Adresse email* :</label>
+                        <label class="control-label" for="exampleInputPassword1">Email* :</label>
                         <input class="form-control" id="exampleInputPassword1" type="email" value="<c:out value="${sessionScope.panier.client.mail}"/>">
+                      </div>
+                    
+                      <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword1">Adresse postale* :</label>
+                        <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.adresse}"/>">
                       </div>
                       <div class="row">
                         <div class="col-md-6">
