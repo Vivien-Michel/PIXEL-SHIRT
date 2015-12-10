@@ -72,10 +72,7 @@
 									<input name="authenticity_token" type="hidden" value="">
 								</div>
 								
-	<!-- 							A METTRE DANS UN TRUC A PART
-	<!-- 							Faire si connecter accessible  -->
-	<!-- 							sinon pas accessible -->
-	<!-- 							 --> 
+	 
 								 
 								<c:choose>
 								<c:when test="${empty sessionScope.panier.client}">
