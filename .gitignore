@@ -3,4 +3,4 @@ build/*
 bin/*
 login.properties
 .classpath~
-/bin/
+
