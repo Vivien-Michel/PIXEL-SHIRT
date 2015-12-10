@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="design.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <footer class="section section-primary">

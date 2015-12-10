@@ -9,7 +9,7 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="bs_leftnavi.js"></script>
+    <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
 <title>Adresse de livraison</title>
 </head>
@@ -48,8 +48,13 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label" for="exampleInputPassword1">Adresse email* :</label>
+                        <label class="control-label" for="exampleInputPassword1">Email* :</label>
                         <input class="form-control" id="exampleInputPassword1" type="email" value="<c:out value="${sessionScope.panier.client.mail}"/>">
+                      </div>
+                    
+                      <div class="form-group">
+                        <label class="control-label" for="exampleInputPassword1">Adresse postale* :</label>
+                        <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.adresse}"/>">
                       </div>
                       <div class="row">
                         <div class="col-md-6">

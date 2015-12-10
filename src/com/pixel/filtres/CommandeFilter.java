@@ -11,7 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -23,7 +22,7 @@ import com.pixel.sessions.PanierBean;
 
 @WebFilter(urlPatterns = "/Panier/*")
 public class CommandeFilter implements Filter{
-	public static final String ACCES_CONNECT   = "/WEB-INF/connnetOuInscription.jsp";
+	public static final String ACCES_CONNECT   = "/ConnnexionOrInscription";
 	public static final String ATT_SESSION_USER = "sessionScope.panier.client";
 
 	@Override
@@ -36,7 +35,7 @@ public class CommandeFilter implements Filter{
 			FilterChain chain) throws IOException, ServletException {
 
 		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse resp = (HttpServletResponse) response;
+		//HttpServletResponse resp = (HttpServletResponse) response;
 
 		HttpSession session = req.getSession();
 		PanierBean panier = (PanierBean) session.getAttribute( AccueilServlet.KEY_SESSION_BEAN );
@@ -48,13 +47,10 @@ public class CommandeFilter implements Filter{
 			chain.doFilter( request, response );
 		}
 		else{
-			//			req.getRequestDispatcher( ACCES_CONNECT ).forward( request, response );
+			//req.getRequestDispatcher( ACCES_CONNECT ).forward( request, response );
 			if ( panier.getClient() == null ) {
 				/* Redirection vers la page publique */
-
 				req.getRequestDispatcher( ACCES_CONNECT ).forward( request, response );
-
-
 			} else {
 				/* Affichage de la page restreinte */
 				chain.doFilter( request, response );
