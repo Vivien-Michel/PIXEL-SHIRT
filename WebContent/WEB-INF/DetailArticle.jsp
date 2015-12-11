@@ -107,13 +107,13 @@
             	<input type="hidden" name="article_id" value="${article.id_article}">
             </form>
             <h3>Description :</h3>
-            <p class="text-left">adz dzadzadzzaddadza zadzaazeadzadzadzadzdzadzazeazjhezbrze
-              <br>rdzadzdzaadz
-              <br>zezdzaadadzadzazdddazazdzadazdazda
-              <br>azddzadzadzazad azzda
-              <br>zeazzdaazazd&nbsp;
-              <br>fddazdzaazddzadza
-              <br>zeazaazdzazadadzazdzadzadzazadzadzadza
+            <p class="text-left">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
               <br>
             </p>
           </div>
@@ -132,12 +132,9 @@
           <div class="col-md-12">
             <ul class="list-group">
             <c:forEach var="commentaire" items="${article.commentaires}">
-              <li class="list-group-item">Machin : Bstarch le truc la</li>
-              <li class="list-group-item">Toto : ezjkzbrkjzebrkzjber zkjbrzkjebrkzjebrkjzebr zjzezerjbkzejjrzakbr
-                zeajkrbz kejrbzkjebrkjz erkjzb kjzbrkjzebrkjzebrkjbzerjbzbjer zejr zrjbzkjerb
-                ez f f ez fez ez fez zef z ef z ef ze f ze f ze f ez zef ze f ze f ze fze
-                f ze f ze f ze f ze fez f ze f ze fz e</li>
-              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item">${commentaire}</li>
+              <li class="list-group-item"></li>
               </c:forEach>
             </ul>
           </div>
