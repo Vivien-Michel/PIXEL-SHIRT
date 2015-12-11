@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pixel.sessions.MailGeneratorRemote;
+import com.pixel.sessions.MailGenerator;
 import com.pixel.sessions.PanierBean;
 import com.pixel.sessions.TransactionBanquaire;
 import com.pixel.tools.Banque;
@@ -29,7 +29,7 @@ public class TransactionServlet extends HttpServlet {
 	private TransactionBanquaire transaction;
 	
 	@EJB
-	private MailGeneratorRemote mailGenerator;
+	private MailGenerator mailGenerator;
     /**
      * @see HttpServlet#HttpServlet()
      */

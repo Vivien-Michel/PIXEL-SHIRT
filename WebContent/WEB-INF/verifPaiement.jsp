@@ -11,6 +11,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Recapitulatif</title>
 </head>
 <body>
@@ -30,14 +31,15 @@
                       <table class="table">
                         <thead>
                           <tr>
-                          <th><c:out value="Id" /></th>
-					      <th><c:out value="Couleur" /></th>
-					      <th><c:out value="Taille" /></th>
-					      <th><c:out value="Modele" /></th>
-					      <th><c:out value="Prix" /></th>
-					      <th><c:out value="QuantiteTest" /></th>
-					      <th><c:out value="Quantite" /></th>
-					      <th><c:out value="Bouton" /></th>	      
+                          <!--   <th><c:out value="Id" /></th>-->
+						     <th></th>
+						      <th><c:out value="Couleur" /></th>
+						      <th><c:out value="Taille" /></th>
+						      <th><c:out value="Modele" /></th>
+						      <th><c:out value="Prix" /></th>
+						     <!-- <th><c:out value="QuantiteTest" /></th> 
+						      <th><c:out value="Quantite" /></th>
+						      <th><c:out value="Suppression" /></th>	-->  
                             <th></th>
                           </tr>
                         </thead>
@@ -45,20 +47,19 @@
                           
                            <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
-	      <td><c:out value="${article.key.id_article}" /></td>
+	      <td><a href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></a></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
 	      <td><c:out value="${article.key.prix} €" /></td>
-	      <td><c:out value="${article.value}" /></td>
-	      <td>
+	     <!--   <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	
 		      	
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
-		      	<!-- <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">-->
+		      	 <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">
 		      	<select class="dropdown">
-<!--                   <option value="0" class="label">0</option> -->
+<!--                   <option value="0" class="label">0</option> 
                   <option value="1" ${"1"== article.value ? 'selected="selected"' : ''}>1</option>
                   <option value="2" ${"2"== article.value ? 'selected="selected"' : ''}>2</option>
                   <option value="3" ${"3"== article.value ? 'selected="selected"' : ''}>3</option>
@@ -70,22 +71,24 @@
                   <option value="9" ${"9"== article.value ? 'selected="selected"' : ''}>9</option>
                   <option value="10" ${"10"== article.value ? 'selected="selected"' : ''}>10</option>
                 </select>
-		      	<input type="submit" id="quantite2" name="quantite2" value="ok" />
-		      	
-		      	
-		    
-		      	
-		      	
+		      	<input type="submit" id="quantite2" name="quantite2" value="ok" />      	
 		    </form>
 	      </td>
 	      <td>
 	      	<form name="supprimerarticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}">
-		      	<input type="submit" id="supprimer" name="supprimer" value="Supprimer" class="fa fa-2x fa-fw fa-remove pull-left text-danger" />
+		      	<button type="submit" id="supprimer" name="supprimer" value="Supprimer" class="transparent-button fa fa-2x fa-fw fa-remove pull-left text-danger"></button>
 		    </form>
-	      </td>
+	      </td> -->
 	   </tr>
 	  </c:forEach>
+	  <tr>
+	  	<td>Frais de port</td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td>${sessionScope.panier.fraisLivraison} €</td>
+	  </tr>
                         </tbody>
                       </table>
                       <hr>

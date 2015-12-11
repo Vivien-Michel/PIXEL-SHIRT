@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.pixel.entities.Utilisateur;
 import com.pixel.form.InscriptionForm;
 import com.pixel.sessions.ClientDAO;
-import com.pixel.sessions.MailGeneratorRemote;
+import com.pixel.sessions.MailGenerator;
 import com.pixel.sessions.PanierBean;
 import com.pixel.tools.TypeMail;
 
@@ -32,7 +32,7 @@ public class InscriptionServlet extends HttpServlet {
     private ClientDAO user;
 	
 	@EJB
-	private MailGeneratorRemote mailGenerator;
+	private MailGenerator mailGenerator;
 	
     /**
      * @see HttpServlet#HttpServlet()

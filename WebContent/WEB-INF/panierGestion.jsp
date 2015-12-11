@@ -28,24 +28,25 @@
           <div class="col-md-12">
 <table class="table">
 		 <tr class="legende">
-	      <th><c:out value="Id" /></th>
+	     <!--   <th><c:out value="Id" /></th>-->
+	     <th></th>
 	      <th><c:out value="Couleur" /></th>
 	      <th><c:out value="Taille" /></th>
 	      <th><c:out value="Modele" /></th>
 	      <th><c:out value="Prix" /></th>
-	      <th><c:out value="QuantiteTest" /></th>
+	     <!-- <th><c:out value="QuantiteTest" /></th> -->
 	      <th><c:out value="Quantite" /></th>
-	      <th><c:out value="Bouton" /></th>	      
+	      <th><c:out value="Suppression" /></th>	      
 	   	</tr>
 	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
-	      <td><c:out value="${article.key.id_article}" /></td>
+	      <!--<td><c:out value="${article.key.id_article}" /></td> -->
 	      <td><a href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></a></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
 	      <td><c:out value="${article.key.prix} €" /></td>
-	      <td><c:out value="${article.value}" /></td>
+	     <!--  <td><c:out value="${article.value}" /></td> -->
 	      <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
@@ -80,7 +81,7 @@
     
      <div class="row">
           <div class="col-md-12">
-            <h1 class="text-left">TOTAL :</h1>
+            <h1 class="text-right">TOTAL :</h1>
             <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
             <a href="${pageContext.request.contextPath}/Accueil"><i class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"></i></a>
           </div>
@@ -89,8 +90,11 @@
     
     
     </div>
-	
-		<c:choose>
+						<!-- c:otherwhise -->
+<form name="commanderarticleform" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation" id="formCommander">
+	<button type="submit" class="btn btn-lg btn-success">Commander</button>
+</form>
+<c:choose>
 			<c:when test="${not empty sessionScope.panier.client}">
 				<form name="supprimercompteform" method="POST" action="Gestion" id="formSupprCompte">
 					<input type="submit" id="supprimerCompte" name="supprimerCompte" value="Supprimer son Compte" class="sansLabel" />
@@ -100,11 +104,6 @@
 				</form>-->
 			</c:when>								
 		</c:choose>
-						<!-- c:otherwhise -->
-<form name="commanderarticleform" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation" id="formCommander">
-	<button type="submit" class="btn btn-lg btn-success">Commander</button>
-</form>
-
 
 <%@ include file="footer.jsp"%>
 </body>

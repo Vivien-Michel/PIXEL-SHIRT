@@ -34,6 +34,7 @@ public class PanierBean implements Serializable{
 	@PersistenceContext(unitName= "bdd_pixel_shirt")
 	private EntityManager em;
 	private float fraisLivraison=0;
+	private String paiement="";
 	
 	public Panier getPanier() {
 		return panier;
@@ -170,4 +171,15 @@ public class PanierBean implements Serializable{
 		total-=fraisLivraison;
 		fraisLivraison=0;
 	}
+
+
+	public void setModePaiement(String paiement) {
+		this.paiement=paiement;
+		
+	}
+
+	public String getPaiement() {
+		return paiement;
+	}
+
 }

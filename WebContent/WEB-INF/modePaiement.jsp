@@ -11,6 +11,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
 <title>Choix du Paiement</title>
 </head>
 <body>
@@ -42,6 +43,7 @@
                         <input type="radio" name="cb" value="masterCard">&nbsp;
                         <b>Master Card</b>
                       </div>
+                      <span class="erreur">${erreur}</span>
                     </form>
                     <p class="text-justify text-muted"></p>
                   </div>
