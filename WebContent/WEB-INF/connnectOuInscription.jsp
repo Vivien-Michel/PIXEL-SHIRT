@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,60 +13,66 @@
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<script src="bs_leftnavi.js"></script>
-<link href="${pageContext.request.contextPath}/designCreateA.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
-        <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+<script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
+<link href="${pageContext.request.contextPath}/designCreateA.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/button.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/form.css"
+	rel="stylesheet" type="text/css">
 <title>Connexion ou Inscription</title>
 </head>
 <body>
 
 	<%@ include file="menu.jsp"%>
-	<div class="section"> </div>
+	<div class="section"></div>
 	<div class="section">
 		<div class="col-md-12">
 			<h1 class="text-center">Connexion</h1>
 		</div>
 	</div>
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="section">
-						<div class="container">
-							<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-		
-		
-		
-		<form style="margin: 0px" accept-charset="UTF-8"
-			action="${pageContext.request.contextPath}/ConnnexionOrInscription" method="post">
-			
-			<fieldset class="textbox" style="padding: 10px">
-				<input style="margin-top: 8px" type="email" placeholder="Mail"
-					id="email" name="email" value="<c:out value="${param.email}"/>" />
-				<span class="erreur">${form.erreurs['email']}</span> <input
-					type="password" style="margin-top: 8px" id="motdepasse"
-					name="motdepasse" value="" size="20" maxlength="20"
-					placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
 
-				<input class="btn-primary" name="commit" type="submit" value="Connexion">
-			</fieldset>
-		</form>
-		
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+
+
+
+								<form style="margin: 0px" accept-charset="UTF-8"
+									action="${pageContext.request.contextPath}/ConnnexionOrInscription"
+									method="post">
+
+									<fieldset class="textbox" style="padding: 10px">
+										<input style="margin-top: 8px" type="email" placeholder="Mail"
+											id="email" name="email"
+											value="<c:out value="${param.email}"/>" /> <span
+											class="erreur">${form.erreurs['email']}</span> <input
+											type="password" style="margin-top: 8px" id="motdepasse"
+											name="motdepasse" value="" size="20" maxlength="20"
+											placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
+
+										<input class="btn-primary" name="commit" type="submit"
+											value="Connexion">
+									</fieldset>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	<div class="section">
 		<div class="container">
@@ -82,12 +88,15 @@
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3">
 									<!--                                         <form role="form" method="POST"> -->
-									<form method="post" action="${pageContext.request.contextPath}/ConnnexionOrInscription">
+									<form method="post"
+										action="${pageContext.request.contextPath}/ConnnexionOrInscription">
 										<div class="form-group">
 											<label class="control-label">Civilité</label> <select
 												class="form-control" name="civilite">
-												<option value="M" ${"M" == utilisateur.civilite ? 'selected="selected"' : ''}>M</option>
-                              						 <option value="Mme" ${"Mme" == utilisateur.civilite ? 'selected="selected"' : ''}>Mme</option>
+												<option value="M"
+													${"M" == utilisateur.civilite ? 'selected="selected"' : ''}>M</option>
+												<option value="Mme"
+													${"Mme" == utilisateur.civilite ? 'selected="selected"' : ''}>Mme</option>
 											</select>
 										</div>
 										<div class="form-group has-feedback">
@@ -303,9 +312,6 @@
 											<input class="form-control" type="password"
 												placeholder="Mot de passe" id="motdepasse" name="motdepasse"
 												value=""> <span class="erreur">${form.erreurs['motdepasse']}</span>
-
-
-
 										</div>
 										<div class="form-group has-feedback">
 											<input class="form-control" type="password"
@@ -314,8 +320,17 @@
 												class="fa fa-check form-control-feedback"></span> <span
 												class="erreur">${form.erreurs['confirmation']}</span>
 										</div>
-										 <button type="submit" class="pull-right transparent-button"><i class="fa fa-5x fa-check-circle fa-fw text-success"></i></button>
+										<button type="submit" class="pull-right transparent-button">
+											<i class="fa fa-5x fa-check-circle fa-fw text-success"></i>
+										</button>
 									</form>
+									<p class="text-justify text-muted">Conformément à la loi
+										informatique et libertés du 6 janvier 1978 telle que modifiée
+										par la Loi n°2004-801 du 6 août 2004, le client dispose d'un
+										droit d'opposition au traitement par Pixel-Shirt de ses
+										données personnelles, d'un droit d'accès, de modification, de
+										rectification et de suppression des données personnelles le
+										concernant.</p>
 								</div>
 							</div>
 						</div>
@@ -324,8 +339,5 @@
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>
