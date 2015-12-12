@@ -76,7 +76,8 @@ public class TransactionServlet extends HttpServlet {
 					Commande commande = new Commande();
 					commande.setDate(new DateTime());
 					commande.setValide(false);
-					panier.getPanier().setCommande(commande);		
+					panier.getPanier().setCommande(commande);
+					panier.update();
 				}
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
