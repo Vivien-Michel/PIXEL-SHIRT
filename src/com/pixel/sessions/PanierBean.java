@@ -90,7 +90,11 @@ public class PanierBean implements Serializable{
     }
     
     public int getSize(){
-    	return panier.getCommande().getArticles().size();
+    	int size=0;
+    	for(Entry<Article, Integer> map : panier.getCommande().getArticles().entrySet()){
+    		size+=map.getValue();
+    	}
+    	return size;
     }
 
     @Remove
