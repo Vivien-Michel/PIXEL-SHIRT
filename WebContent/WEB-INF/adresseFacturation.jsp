@@ -83,7 +83,7 @@
                   <div class="row text-center">
                   <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/Gestion">
                   </form>
-                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Panier</a></button>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit">Retour Panier</button>
                     <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                   <p class="text-justify text-muted">Conformément à la loi informatique et libertés du 6 janvier 1978 telle

@@ -44,7 +44,7 @@ public class MailGenerator {
 			String mail=panier.getClient().getMail();
 			switch(type){
 			case Inscription:			
-				subject = "Bienvenu sur Pixel Shirt " + panier.getClient().getPrenom() + " " + panier.getClient().getNom();
+				subject = "Bienvenue sur Pixel Shirt " + panier.getClient().getPrenom() + " " + panier.getClient().getNom();
 	        	body = "Nous avons le plaisir de vous confirmer l'inscription sur le site Pixel Shirt " 
 	        	+ panier.getClient().getCivilite() + " "+ panier.getClient().getPrenom() + " " + panier.getClient().getNom() + "\n" 
 	        	+ "Votre identifiant de connexion est " + panier.getClient().getMail()
@@ -53,8 +53,8 @@ public class MailGenerator {
 				messageProducer = session.createProducer(inscriptionQueue);
 				break;
 			case Confirmation:
-				subject = "Confirmation commande n "  + panier.getPanier().getCommande().getId_commande();
-				body = "Nous avons le plaisir de vous confirmer la validation de la commande " + panier.getPanier().getCommande().getId_commande() + "sur le site Pixel Shirt " 
+				subject = "Confirmation de la commande n°"  + panier.getPanier().getCommande().getId_commande();
+				body = "Nous avons le plaisir de vous confirmer la validation de la commande " + panier.getPanier().getCommande().getId_commande() + " sur le site Pixel Shirt.\n" 
 				    	+ "Recapitulatif:\n"    			
 				    	+panier.getClient().getCivilite() +" "+ panier.getClient().getPrenom() + " " + panier.getClient().getNom()
 				    	+"\n"
@@ -65,7 +65,7 @@ public class MailGenerator {
 				    	+"Téléphone: "+panier.getClient().getTelephone()
 				    	+"\n"
 				    	+"Mode de Paiement: " + panier.getPaiement()
-				    	+"\n\n A bientôt sur notre site !"
+				    	+"\n\n A bientôt sur notre site !\n"
 				    	+ "Ceci est un mail automatique, merci de ne pas répondre à cette adresse";
 				messageProducer = session.createProducer(confirmationQueue);
 				break;
