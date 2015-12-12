@@ -1,13 +1,5 @@
 package com.pixel.tools;
 
-import javax.ejb.Stateful;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-
-import com.pixel.servlets.AccueilServlet;
-
 public class Banque {
 	
 	// Solde

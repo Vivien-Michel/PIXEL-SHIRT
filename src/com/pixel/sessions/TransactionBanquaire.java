@@ -1,26 +1,13 @@
 package com.pixel.sessions;
 
 import javax.annotation.Resource;
-import javax.ejb.AfterBegin;
-import javax.ejb.AfterCompletion;
-import javax.ejb.BeforeCompletion;
-import javax.ejb.EJBContext;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import com.pixel.entities.Utilisateur;
 import com.pixel.exceptions.InsufficientFundException;
 import com.pixel.exceptions.PaymentException;
-import com.pixel.servlets.AccueilServlet;
 import com.pixel.tools.Banque;
 
 /**

@@ -1,5 +1,4 @@
 package com.pixel.servlets;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -7,18 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.pixel.sessions.PanierBean;
 
 /**
  * Servlet implementation class Livraison
  */
-@WebServlet("/Panier/ModeLivraison")
-public class LivraisonServlet extends HttpServlet {
+@WebServlet("/Panier/ModePaiement")
+public class ModePaiementServlet extends HttpServlet{
+	
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/livraison.jsp";
+	private static final String VUE = "/WEB-INF/modePaiement.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LivraisonServlet() {
+    public ModePaiementServlet() {
         super();
     }
 
@@ -33,11 +36,17 @@ public class LivraisonServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 if (request.getParameter("commander") != null) {
-				System.out.println("hello");
-		    }
-		 getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		 String paiement = request.getParameter("cb");
+		if(paiement !=  null){
+			HttpSession session = request.getSession();
+			PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+			panier.setModePaiement(paiement);
+			response.sendRedirect("/Pixel_Shirt/Panier/Recapitulatif");
+		}else{
+			String erreur = "Veuillez choisir un mode de paiement";
+			request.setAttribute("erreur", erreur);
+			getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}
 	}
 
 }

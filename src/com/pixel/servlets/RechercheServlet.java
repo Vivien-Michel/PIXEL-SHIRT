@@ -20,7 +20,7 @@ import com.pixel.sessions.ArticleDAO;
 @WebServlet("/Recherche")
 public class RechercheServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/recherche.jsp";
+	private static final String VUE = "/WEB-INF/accueil.jsp";
 	private static final String ATT_ART= "listeArticles";
 	
 	@EJB
@@ -45,13 +45,18 @@ public class RechercheServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RechercheForm form = new RechercheForm();
+
 		List<String> tags = form.getSearch(request);
 		List<Article> listArticle = null;
 		if(form.getErreurs().isEmpty()){
 			listArticle=articleDao.findByTag(tags);
+			request.setAttribute( ATT_ART, listArticle );
+			getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}else{
+			response.sendRedirect("Accueil");
 		}
-		request.setAttribute( ATT_ART, listArticle );
-		getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		
+		
 	}
 
 }

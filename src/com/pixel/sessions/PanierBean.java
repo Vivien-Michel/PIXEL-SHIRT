@@ -1,6 +1,7 @@
 package com.pixel.sessions;
 
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +23,9 @@ import com.pixel.exceptions.DAOException;
  * Session Bean implementation class Panier
  */
 @Stateful
-public class PanierBean{
+public class PanierBean implements Serializable{
 	
+	private static final long serialVersionUID = 5589167259637992966L;
 	private Panier panier;
 	private float total=0;
 	private Map<Article,Integer> articles = new HashMap<Article,Integer>();
@@ -31,6 +33,8 @@ public class PanierBean{
 	
 	@PersistenceContext(unitName= "bdd_pixel_shirt")
 	private EntityManager em;
+	private float fraisLivraison=0;
+	private String paiement="";
 	
 	public Panier getPanier() {
 		return panier;
@@ -148,4 +152,34 @@ public class PanierBean{
 		panier.getCommande().setArticles(articles);
 		this.panier = panier;
 	}
+
+
+	public void setFraisLivraison(float frais) {
+		this.fraisLivraison=frais;
+		total+=frais;
+		
+	}
+
+
+	public String getFraisLivraison() {
+		DecimalFormat df = new DecimalFormat("#,##0.00");
+    	return df.format(fraisLivraison);
+	}
+
+
+	public void rollBackFrais() {
+		total-=fraisLivraison;
+		fraisLivraison=0;
+	}
+
+
+	public void setModePaiement(String paiement) {
+		this.paiement=paiement;
+		
+	}
+
+	public String getPaiement() {
+		return paiement;
+	}
+
 }

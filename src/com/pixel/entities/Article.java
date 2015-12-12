@@ -61,6 +61,7 @@ public class Article implements Serializable{
 	public byte[] getImage() {
 		return image;
 	}
+	
 	public void setImage(BufferedImage bufferedimage){
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {

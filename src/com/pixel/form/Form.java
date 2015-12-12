@@ -38,6 +38,10 @@ public class Form {
     protected static final String CHAMP_TAGS = "tags";
     protected static final String CHAMP_IMAGE = "image";
     protected static final String CHAMP_ART_ID = "article_id";
+    protected static final String CHAMP_CIV="civilite";
+    //MODIF
+    protected static final String CHAMP_VILLE = "ville";
+    //FIN MODIF
     
     protected void setErreur(String champ, String message) {
 		erreurs.put( champ, message );
@@ -66,6 +70,8 @@ public class Form {
     protected void validationNom(String nom) throws FormValidationException {
 		if ( nom != null && nom.length() < 3 ) {
 	        throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+	    }else if(nom == null){
+	    	throw new FormValidationException( "Veuillez remplir ce champ" );
 	    }
 	}
     
@@ -117,6 +123,31 @@ public class Form {
 			try{
 				int quantitei = Integer.parseInt(quantite);
 				article.setQuantite(quantitei);
+			}catch(NumberFormatException e){
+				throw new FormValidationException("Ceci n'est pas un nombre valide");
+			}
+		}else{
+			throw new FormValidationException("Veuillez renseigner ce champ");
+		}
+	}
+    
+    
+    protected void validationVille(String ville) throws FormValidationException {
+		if ( ville != null && ville.length() < 2) {
+	        throw new FormValidationException( "Veuillez renseigner ce champ" );
+	    }
+	}
+    
+    protected void validationAdresse(String adresse) throws FormValidationException {
+		if ( adresse != null && adresse.length() < 2) {
+	        throw new FormValidationException( "Veuillez renseigner ce champ" );
+	    }
+	}
+    
+    protected void validationCodePostal(String codePostal) throws FormValidationException {
+    	if(codePostal != null){
+			try{
+				Integer.parseInt(codePostal);
 			}catch(NumberFormatException e){
 				throw new FormValidationException("Ceci n'est pas un nombre valide");
 			}

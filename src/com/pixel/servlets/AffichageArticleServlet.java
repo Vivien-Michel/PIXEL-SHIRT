@@ -1,7 +1,6 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.pixel.entities.Article;
+import com.pixel.form.PanierForm;
 import com.pixel.sessions.ArticleDAO;
 import com.pixel.sessions.PanierBean;
 
@@ -21,8 +20,7 @@ import com.pixel.sessions.PanierBean;
 @WebServlet("/Articles")
 public class AffichageArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/afficherArticles.jsp";  
-	private static final String ATT_ART= "listeArticles";
+	private static final String VUE = "/WEB-INF/accueil.jsp";  
 	
 	@EJB
 	private ArticleDAO articleDao;
@@ -37,8 +35,6 @@ public class AffichageArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
@@ -48,23 +44,9 @@ public class AffichageArticleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
-		
-		//TODO Verification des valeurs recupérées et levé d'exception en cas d'erreur
-		String quantites = (String) request.getParameter("quantite");
-		int quantite = Integer.parseInt(quantites);
-		
-		String articleid = request.getParameter("article_id");
-		Article article = articleDao.findById(articleid);
-		
-		if(article.getQuantite()-quantite>=0){
-			article.setQuantite(article.getQuantite()-quantite);
-			articleDao.update(article);
-			panier.addArticle(article, quantite);
-		}
-		
-		List<?> articles = articleDao.findAll();
-		request.setAttribute( ATT_ART, articles );
-		getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		PanierForm form = new PanierForm(articleDao);
+		form.addArticle(request, panier);
+		response.sendRedirect("Accueil");
 	}
 
 }

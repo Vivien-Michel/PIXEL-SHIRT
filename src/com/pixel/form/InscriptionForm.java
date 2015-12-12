@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 import org.joda.time.DateTime;
 
+import com.pixel.entities.Administrateur;
 import com.pixel.entities.Utilisateur;
 import com.pixel.entities.Client;
 import com.pixel.exceptions.FormValidationException;
+import com.pixel.filtres.AdminFilter;
 import com.pixel.sessions.ClientDAO;
 import com.pixel.sessions.PanierBean;
 
@@ -19,12 +21,18 @@ public class InscriptionForm extends Form{
 	}
 
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBean panier) {
-		 	String email = getValeurChamp( request, CHAMP_EMAIL );
+		 	
+			String civilite = getValeurChamp(request, CHAMP_CIV);
+			String email = getValeurChamp( request, CHAMP_EMAIL );
 		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
 		    String prenom = getValeurChamp(request, CHAMP_PRENOM);
-		    
+//		    //MODIF
+		    String adresse = getValeurChamp(request, CHAMP_ADRESSE);		 
+		    String codePostal = getValeurChamp(request, CHAMP_CODE_POSTAL);
+		    String ville = getValeurChamp(request, CHAMP_VILLE);
+//		    //FIN MODIF
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
@@ -44,6 +52,28 @@ public class InscriptionForm extends Form{
 		        setErreur( CHAMP_PRENOM, e.getMessage() );
 		    }
 		    utilisateur.setPrenom(prenom);
+		    
+		    try {
+		        validationVille( ville );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_VILLE, e.getMessage() );
+		    }
+		    utilisateur.setVille(ville);
+		    
+		    try {
+		        validationAdresse( adresse );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_ADRESSE, e.getMessage() );
+		    }
+		    utilisateur.setAdresse(adresse);
+		    
+		    try {
+		    	validationCodePostal( codePostal );
+		    	utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
+		    }
+		    utilisateur.setCivilite(civilite);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
 		    	panier.setFusion(true);
@@ -52,7 +82,42 @@ public class InscriptionForm extends Form{
 		    } else {
 		        resultat = "Échec de l'inscription.";
 		    }
+
 		    return utilisateur;
+		    
+	}
+	
+	public Utilisateur inscrireAdmin(HttpServletRequest request){
+			Administrateur admin = new Administrateur();
+			String email = getValeurChamp( request, CHAMP_EMAIL );
+		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
+		    String confirmation = getValeurChamp( request, CHAMP_CONF );
+		    String nom = getValeurChamp( request, CHAMP_NOM );
+		    String prenom = getValeurChamp(request, CHAMP_PRENOM);
+			
+		    traiterEmail(email, admin);
+		    traiterMotsDePasse(motDePasse, confirmation, admin);
+		    try {
+		        validationNom( nom );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_NOM, e.getMessage() );
+		    }
+		    admin.setNom(nom);
+		    try {
+		        validationNom( prenom );
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_PRENOM, e.getMessage() );
+		    }
+		    admin.setPrenom(prenom);
+		    if ( erreurs.isEmpty() ) {
+		    	user.creer(admin);
+		    	request.getSession().setAttribute(AdminFilter.ATT_SESSION_USER, admin);
+		        resultat = "Succès de l'inscription.";
+		    } else {
+		        resultat = "Échec de l'inscription.";
+		    }
+		    
+			return admin; 
 	}
 	
 	private void traiterMotsDePasse( String motDePasse, String confirmation, Utilisateur utilisateur ) {

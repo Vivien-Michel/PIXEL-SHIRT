@@ -5,67 +5,106 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="/Pixel_Shirt/tab.css" />
+<!-- <link type="text/css" rel="stylesheet" href="/Pixel_Shirt/tab.css" />  -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dropit.js"></script>
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="dropit.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
+<link href="${pageContext.request.contextPath}/designArticle.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Gestion Panier</title>
+
 </head>
 <body>
+
 <%@ include file="menu.jsp" %>
-<p>Recapitulatif des articles dans le panier + possibilité de valider</p>
-<p>Bonjour ${sessionScope.panier.client.nom} ${sessionScope.panier.client.prenom} voici le panier</p>
-<table class="Tableau">
+<div class="section"></div>
+ <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+<table class="table">
 		 <tr class="legende">
-	      <td><c:out value="Id" /></td>
-	      <td><c:out value="Couleur" /></td>
-	      <td><c:out value="Taille" /></td>
-	      <td><c:out value="Modele" /></td>
-	      <td><c:out value="Prix" /></td>
-	      <td><c:out value="QuantiteTest" /></td>
-	      <td><c:out value="Quantite" /></td>
-	      <td><c:out value="Bouton" /></td>	      
+	     <!--   <th><c:out value="Id" /></th>-->
+	     <th></th>
+	      <th><c:out value="Couleur" /></th>
+	      <th><c:out value="Taille" /></th>
+	      <th><c:out value="Modele" /></th>
+	      <th><c:out value="Prix" /></th>
+	     <!-- <th><c:out value="QuantiteTest" /></th> -->
+	      <th><c:out value="Quantite" /></th>
+	      <th><c:out value="Suppression" /></th>	      
 	   	</tr>
 	   <c:forEach var="article" items="${sessionScope.panier.articles}">
 	    <tr>
-	      <td><c:out value="${article.key.id_article}" /></td>
+	      <!--<td><c:out value="${article.key.id_article}" /></td> -->
+	      <td><a href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img src="${pageContext.request.contextPath}/images/${article.key.id_article}"style="width:100px;"/></a></td>
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
 	      <td><c:out value="${article.key.prix} €" /></td>
-	      <td><c:out value="${article.value}" /></td>
+	     <!--  <td><c:out value="${article.value}" /></td> -->
 	      <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
-		      	<input type="hidden" name="article_id" value="${article.key.id_article}">
-		      	<input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">
-		      	<input type="submit" id="quantite2" name="quantite2" value="ok" />
+		      	<input type="hidden" name="article_id" value="${article.key.id_article}"> 
+		      	<!-- <input type="number" id="quantite" min="1" name="quantite" size="5" value="${article.value}">-->
+		      	<select class="dropdown" id="quantite" name="quantite" onchange="this.form.submit()">
+<!--                   <option value="0" class="label">0</option> -->
+                  <option value="1" ${"1"== article.value ? 'selected="selected"' : ''}>1</option>
+                  <option value="2" ${"2"== article.value ? 'selected="selected"' : ''}>2</option>
+                  <option value="3" ${"3"== article.value ? 'selected="selected"' : ''}>3</option>
+                  <option value="4" ${"4"== article.value ? 'selected="selected"' : ''}>4</option>
+                  <option value="5" ${"5"== article.value ? 'selected="selected"' : ''}>5</option>
+                  <option value="6" ${"6"== article.value ? 'selected="selected"' : ''}>6</option>
+                  <option value="7" ${"7"== article.value ? 'selected="selected"' : ''}>7</option>
+                  <option value="8" ${"8"== article.value ? 'selected="selected"' : ''}>8</option>
+                  <option value="9" ${"9"== article.value ? 'selected="selected"' : ''}>9</option>
+                  <option value="10" ${"10"== article.value ? 'selected="selected"' : ''}>10</option>
+                </select>
+		      	<!-- <input type="submit" id="quantite2" name="quantite2" value="ok" /> -->
 		    </form>
 	      </td>
 	      <td>
 	      	<form name="supprimerarticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
 		      	<input type="hidden" name="article_id" value="${article.key.id_article}">
-		      	<input type="submit" id="supprimer" name="supprimer" value="Supprimer" class="sansLabel" />
+		      	<button type="submit" id="supprimer" name="supprimer" value="Supprimer" class="transparent-button fa fa-2x fa-fw fa-remove pull-left text-danger"></button>
 		    </form>
 	      </td>
 	   </tr>
 	  </c:forEach>
 	</table>
-<p>Total : ${total} €</p>
-<form name="commanderarticleform" method="POST" action="Commander" id="form">
-<p>Total : ${sessionScope.panier.total} €</p> <span>
-							<c:choose>
-								<c:when test="${not empty sessionScope.panier.client}">
-								<form name="supprimercompteform" method="POST" action="Gestion" id="formSupprCompte">
-								<input type="submit" id="supprimerCompte" name="supprimerCompte" value="Supprimer son Compte" class="sansLabel" />
-								</form>
-								<form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
-								<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
-								</form>
-								</c:when>
-							</c:choose>
-						</span>
-<form name="commanderarticleform" method="POST" action="/Pixel_Shirt/Connexion" id="formCommander">
-	<input type="submit" id="commander" name="commander" value="Commander" class="sansLabel" />
+	</div>
+    </div>
+    
+     <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-right">TOTAL :</h1>
+            <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
+            <a href="${pageContext.request.contextPath}/Accueil"><i class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"></i></a>
+          </div>
+        </div>
+      </div>
+    
+    
+    </div>
+						<!-- c:otherwhise -->
+<form name="commanderarticleform" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation" id="formCommander">
+	<button type="submit" class="btn btn-lg btn-success">Commander</button>
 </form>
-<form name="transactinoarticleform" method="POST" action="/Pixel_Shirt/Transaction" id="form">
-	<input type="submit" id="transaction" name="transaction" value="Transaction" class="sansLabel" />
-</form>
+<c:choose>
+			<c:when test="${not empty sessionScope.panier.client}">
+				<form name="supprimercompteform" method="POST" action="Gestion" id="formSupprCompte">
+					<input type="submit" id="supprimerCompte" name="supprimerCompte" value="Supprimer son Compte" class="sansLabel" />
+				</form>
+				<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
+					<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
+				</form>-->
+			</c:when>								
+		</c:choose>
+
+<%@ include file="footer.jsp"%>
 </body>
 </html>

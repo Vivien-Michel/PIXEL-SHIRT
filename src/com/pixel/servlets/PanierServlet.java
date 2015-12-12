@@ -37,6 +37,9 @@ public class PanierServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+		panier.rollBackFrais();
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 
@@ -52,8 +55,12 @@ public class PanierServlet extends HttpServlet {
 		
 		if(form.supprimerCompte()){
 			session.invalidate();
-	    	response.sendRedirect("/Pixel_Shirt/Articles");
-	    }else{
+			response.sendRedirect("/Pixel_Shirt/Accueil");
+	    }
+		else if (request.getParameter("deconnexion") != null){
+			response.sendRedirect("/Pixel_Shirt/Accueil");			
+		}
+		else{
 	    	getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		}
 		
