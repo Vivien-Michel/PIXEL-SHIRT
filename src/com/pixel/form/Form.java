@@ -39,6 +39,7 @@ public class Form {
     protected static final String CHAMP_IMAGE = "image";
     protected static final String CHAMP_ART_ID = "article_id";
     protected static final String CHAMP_CIV="civilite";
+    protected static final String CHAMP_AGE="age";
     //MODIF
     protected static final String CHAMP_VILLE = "ville";
     //FIN MODIF
