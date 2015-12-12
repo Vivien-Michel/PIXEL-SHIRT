@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
+
+import com.pixel.entities.Commande;
+import com.pixel.entities.Historique;
 import com.pixel.sessions.MailGenerator;
 import com.pixel.sessions.PanierBean;
 import com.pixel.sessions.TransactionBanquaire;
@@ -54,8 +58,26 @@ public class TransactionServlet extends HttpServlet {
 		if (request.getParameter(ATT_TRANSACTION) != null) {
 			Banque client = new Banque(panier.getClient().getNom(),panier.getClient().getPrenom());
 			try {
-				transaction.transaction(client,Float.parseFloat(panier.getTotal().replaceAll(",", ".")),AccueilServlet.entreprise);
-				mailGenerator.sendMail(panier, TypeMail.Confirmation);
+				if(transaction.transaction(client,Float.parseFloat(panier.getTotal().replaceAll(",", ".")),AccueilServlet.entreprise)){
+					mailGenerator.sendMail(panier, TypeMail.Confirmation);
+					//Création historique
+					Historique historique = new Historique();
+					//Validation de la commande
+					panier.getPanier().getCommande().setDate(new DateTime());
+					panier.getPanier().getCommande().setValide(true);
+					//Information de l'historique
+					historique.setCommande(panier.getPanier().getCommande());
+					historique.setClient(panier.getClient());
+					//La commande connait l'historique dans lequel elle est référencée
+					panier.getPanier().getCommande().setHistorique(historique);
+					//Ajoput à l'historique client
+					panier.getClient().getHistoriques().add(historique);
+					//Création d'une nouvelle commande
+					Commande commande = new Commande();
+					commande.setDate(new DateTime());
+					commande.setValide(false);
+					panier.getPanier().setCommande(commande);		
+				}
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			} catch (Exception e) {

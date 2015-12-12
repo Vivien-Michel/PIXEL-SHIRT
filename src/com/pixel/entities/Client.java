@@ -37,15 +37,13 @@ public class Client extends Utilisateur implements Serializable{
 	private Panier panier;
 	
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="client")
-	private List<Historique> historiques;
+	private List<Historique> historiques=new ArrayList<>();
 	
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="client")
-	private List<Commentaire> commentaires;
+	private List<Commentaire> commentaires=new ArrayList<>();
 	
 	
 	public Client(){
-		historiques = new ArrayList<>();
-		commentaires = new ArrayList<>();
 	}
 	
 	public String getTelephone() {
