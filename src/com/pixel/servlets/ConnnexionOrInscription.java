@@ -55,7 +55,8 @@ public class ConnnexionOrInscription extends HttpServlet{
 	        Utilisateur utilisateur = form.inscrireUtilisateur( request, panier);
 	        /* Stockage du formulaire et du bean dans l'objet request */
 	        if(form.getErreurs().isEmpty()){
-	        	response.sendRedirect("/Pixel_Shirt/Panier/AdresseFacturation");
+	        	String referer = request.getHeader("Referer");
+	        	response.sendRedirect(referer);
 	        }else{
 	        	request.setAttribute( ATT_FORM, form );
 	        	request.setAttribute( ATT_USER, utilisateur );
@@ -67,7 +68,8 @@ public class ConnnexionOrInscription extends HttpServlet{
 			
 	        if(connexion.getErreurs().isEmpty()){
 	        	panier.fusion(((Client) utilisateur).getPanier());
-	        	response.sendRedirect("/Pixel_Shirt/Panier/AdresseFacturation");
+	        	String referer = request.getHeader("Referer");
+	        	response.sendRedirect(referer);
 	        }else{
 	        	request.setAttribute( ATT_FORM, connexion );
 	            request.setAttribute( ATT_USER, utilisateur );
