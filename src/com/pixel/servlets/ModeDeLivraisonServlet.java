@@ -43,7 +43,7 @@ public class ModeDeLivraisonServlet  extends HttpServlet{
 		
 		if(request.getParameter("livraison") !=null){
 			panier.setFraisLivraison(Float.parseFloat(frais));
-			response.sendRedirect("/Pixel_Shirt/Panier/ModePaiement");
+			response.sendRedirect(request.getContextPath() + "/Panier/ModePaiement");
 		}else{
 			String erreur = "Veuillez choisir un mode de livraison";
 			request.setAttribute("erreur", erreur);

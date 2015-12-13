@@ -58,7 +58,7 @@ public class ConnexionServlet extends HttpServlet {
         	HttpSession session = request.getSession(true);
     		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
         	panier.fusion(((Client) utilisateur).getPanier());
-        	response.sendRedirect("Accueil");
+        	response.sendRedirect(request.getContextPath() + "/Accueil");
         }else{
         	request.setAttribute( ATT_FORM, connexion );
             request.setAttribute( ATT_USER, utilisateur );

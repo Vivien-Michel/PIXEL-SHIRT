@@ -50,10 +50,10 @@ public class DetailArticleServlet extends HttpServlet{
 				request.setAttribute("article", article);
 				this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 			}else{
-				response.sendRedirect("Accueil");
+				response.sendRedirect(request.getContextPath() + "/Accueil");
 			}
 		}else{
-			response.sendRedirect("Accueil");
+			response.sendRedirect(request.getContextPath() + "/Accueil");
 		}
 	}
 

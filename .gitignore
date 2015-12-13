@@ -5,3 +5,6 @@ login.properties
 .classpath~
 .settings/org.eclipse.wst.common.project.facet.core.xml
 .settings/org.eclipse.wst.ws.service.policy.prefs
+.settings/org.eclipse.jpt.core.prefs
+.settings/org.eclipse.wst.common.component
+WebContent/WEB-INF/web.xml
