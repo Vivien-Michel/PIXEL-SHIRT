@@ -7,4 +7,7 @@ login.properties
 .settings/org.eclipse.wst.ws.service.policy.prefs
 .settings/org.eclipse.jpt.core.prefs
 .settings/org.eclipse.wst.common.component
+.settings/org.eclipse.jdt.core.prefs
+.settings/org.eclipse.ltk.core.refactoring.prefs
+WebContent/META-INF/persistence.xml
 WebContent/WEB-INF/web.xml
