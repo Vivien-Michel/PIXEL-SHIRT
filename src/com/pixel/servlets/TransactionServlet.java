@@ -1,6 +1,7 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
+import java.util.Map.Entry;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
 
+import com.pixel.entities.Article;
 import com.pixel.entities.Commande;
 import com.pixel.entities.Historique;
+import com.pixel.sessions.ArticleDAO;
 import com.pixel.sessions.MailGenerator;
 import com.pixel.sessions.PanierBean;
 import com.pixel.sessions.TransactionBanquaire;
@@ -34,6 +37,9 @@ public class TransactionServlet extends HttpServlet {
 	
 	@EJB
 	private MailGenerator mailGenerator;
+	
+	@EJB
+	private ArticleDAO articleDao;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -62,9 +68,20 @@ public class TransactionServlet extends HttpServlet {
 					mailGenerator.sendMail(panier, TypeMail.Confirmation);
 					//Création historique
 					Historique historique = new Historique();
+					
+					for(Entry<Article, Integer> map : panier.getPanier().getCommande().getArticles().entrySet()){
+						Article article = map.getKey();
+						Integer quantite = map.getValue();
+						article.setQuantite(article.getQuantite()-quantite);
+						articleDao.update(article);	
+						if(article.getQuantite()-quantite<=0){
+							mailGenerator.sendMail(panier, TypeMail.Admin);
+						}
+			    	}
 					//Validation de la commande
 					panier.getPanier().getCommande().setDate(new DateTime());
 					panier.getPanier().getCommande().setValide(true);
+						
 					//Information de l'historique
 					historique.setCommande(panier.getPanier().getCommande());
 					historique.setClient(panier.getClient());

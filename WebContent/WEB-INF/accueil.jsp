@@ -155,7 +155,7 @@
                 	-->
 								</div>
 								<form name="addarticleform${article.id_article}" method="POST"
-									action="Articles" id="form${article.id_article}">
+									action="${pageContext.request.contextPath}/Articles" id="form${article.id_article}">
 									<input type="hidden" id="quantite" name="quantite"
 										form="form${article.id_article}" value="1" />
 									</td>

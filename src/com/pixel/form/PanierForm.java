@@ -59,11 +59,7 @@ public class PanierForm extends Form {
 		String articleid = request.getParameter(CHAMP_ART_ID);
 		Article article = articleDao.findById(articleid);
 		
-		if(article.getQuantite()-quantite>=0){
-			article.setQuantite(article.getQuantite()-quantite);
-			articleDao.update(article);
-			panier.addArticle(article, quantite);
-		}
+		panier.addArticle(article, quantite);
 	}
 
 	public boolean supprimerCompte(){
