@@ -53,7 +53,6 @@ public class PanierBean implements Serializable{
     
     public void addArticle(Article article, int quantite){
     		boolean contains =false;
-    		System.out.println(article);
     			for(Entry<Article, Integer> map : articles.entrySet()){
     				Article art = map.getKey();
     				Integer quant = map.getValue();
