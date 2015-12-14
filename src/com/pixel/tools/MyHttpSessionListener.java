@@ -17,7 +17,7 @@ public class MyHttpSessionListener implements HttpSessionListener{
 	public void sessionCreated(HttpSessionEvent event) {
 		HttpSession session =event.getSession();
 		try {
-			PanierBean panier = (PanierBean) new InitialContext().lookup("java:global/Pixel_Shirt/PanierBean");
+			PanierBean panier = (PanierBean) new InitialContext().lookup("java:global"+event.getSession().getServletContext().getContextPath()+"/PanierBean");
 			session.setAttribute(AccueilServlet.KEY_SESSION_BEAN, panier);
 		} catch (NamingException e) {
 			e.printStackTrace();

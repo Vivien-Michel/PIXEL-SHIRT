@@ -53,7 +53,7 @@ public class RechercheServlet extends HttpServlet {
 			request.setAttribute( ATT_ART, listArticle );
 			getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		}else{
-			response.sendRedirect("Accueil");
+			response.sendRedirect(request.getContextPath() + "/Accueil");
 		}
 		
 		

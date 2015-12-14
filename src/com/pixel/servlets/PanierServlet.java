@@ -55,10 +55,10 @@ public class PanierServlet extends HttpServlet {
 		
 		if(form.supprimerCompte()){
 			session.invalidate();
-			response.sendRedirect("/Pixel_Shirt/Accueil");
+			response.sendRedirect(request.getContextPath() + "/Accueil");
 	    }
 		else if (request.getParameter("deconnexion") != null){
-			response.sendRedirect("/Pixel_Shirt/Accueil");			
+			response.sendRedirect(request.getContextPath() + "/Accueil");			
 		}
 		else{
 	    	getServletContext().getRequestDispatcher(VUE).forward(request, response);

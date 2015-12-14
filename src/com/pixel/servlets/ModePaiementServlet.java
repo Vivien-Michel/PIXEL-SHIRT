@@ -41,7 +41,7 @@ public class ModePaiementServlet extends HttpServlet{
 			HttpSession session = request.getSession();
 			PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 			panier.setModePaiement(paiement);
-			response.sendRedirect("/Pixel_Shirt/Panier/Recapitulatif");
+			response.sendRedirect(request.getContextPath() + "/Panier/Recapitulatif");
 		}else{
 			String erreur = "Veuillez choisir un mode de paiement";
 			request.setAttribute("erreur", erreur);

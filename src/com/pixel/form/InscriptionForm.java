@@ -33,6 +33,7 @@ public class InscriptionForm extends Form{
 		    String codePostal = getValeurChamp(request, CHAMP_CODE_POSTAL);
 		    String ville = getValeurChamp(request, CHAMP_VILLE);
 //		    //FIN MODIF
+		    String age = getValeurChamp(request, CHAMP_AGE);
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
@@ -70,6 +71,13 @@ public class InscriptionForm extends Form{
 		    try {
 		    	validationCodePostal( codePostal );
 		    	utilisateur.setCodePostal(Integer.parseInt(codePostal));
+		    } catch ( FormValidationException e ) {
+		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
+		    }
+		    //Validation de l'age en utilisant une validation d'entier contenu dans validation codePostal
+		    try {
+		    	validationCodePostal( age );
+		    	utilisateur.setAge(Integer.parseInt(age));
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
 		    }

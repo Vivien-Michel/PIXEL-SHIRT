@@ -80,7 +80,7 @@
                   <div class="row text-center">
                   <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
                   </form>
-                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Facturation</a></button>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit">Retour Info. Facturation</button>
                     <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>

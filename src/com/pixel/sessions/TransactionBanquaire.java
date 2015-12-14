@@ -24,11 +24,11 @@ public class TransactionBanquaire  {
 	@Resource
     private UserTransaction userTransaction;
 	
-	public void transaction(Banque client, float somme, Banque entreprise) throws Exception {
+	public boolean transaction(Banque client, float somme, Banque entreprise) throws Exception {
 		System.out.println("MONTANT :"+somme);
 		System.out.println("Client début :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
 		System.out.println("Entreprise début :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
-		
+		boolean valid=false;
 		 try{
 	         userTransaction.begin();
 	         System.out.println("a");
@@ -36,6 +36,7 @@ public class TransactionBanquaire  {
 	         System.out.println("b");
 	         depositAmount(entreprise,somme);
 	         System.out.println("c");
+	         valid=true;
 	         userTransaction.commit();
 	         System.out.println("MONTANT :"+somme);
 	 		 System.out.println("Client fin after commit :"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
@@ -52,6 +53,7 @@ public class TransactionBanquaire  {
 	 		System.out.println("Client fin payment:"+ client.getNom()+" "+client.getPrenom()+" "+client.getSolde() );
 	 		System.out.println("Entreprise fin payement :"+ entreprise.getNom()+" "+entreprise.getPrenom()+" "+entreprise.getSolde() );
 	      }
+		 return valid;
    }
 
    private void withdrawAmount(Banque b, float somme) throws InsufficientFundException, PaymentException {
