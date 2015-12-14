@@ -49,45 +49,44 @@
 				</div>
 			</div>
 
+				<div class="col-md-4">
+					<!--BARRE NAVIGATION RIGHT -->
+					<ul
+						class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
+						<c:choose>
+							<c:when test="${not empty sessionScope.panier.client}">
+								<li class="active"><a href="#">
+										<div style="text-align: center;">
+											<font face="FontAwesome"><span
+												style="line-height: 21px;">${sessionScope.panier.client.nom}
+													${sessionScope.panier.client.prenom}</span></font>
+										</div>
+								</a></li>
+								<li class="dropdown" id="menu1"><a href="#menu1"
+									class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
+										class="caret"></b></a>
+									<div class="dropdown-menu">
+										<form name="deconnexionform" method="POST"
+											action="${pageContext.request.contextPath}/Panier/Gestion"
+											id="formdeconnexion" style="margin: 0px"
+											accept-charset="UTF-8">
+											<!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
+											<!-- 										value="Déconnexion" class="sansLabel" /> -->
+											<button class="btn-add" name="deconnexion" type="submit">Déconnexion</button>
+										</form>
 
-			<div class="col-md-4 navbar-right">
-				<!--BARRE NAVIGATION RIGHT -->
-				<ul
-					class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
-					<c:choose>
-						<c:when test="${not empty sessionScope.panier.client}">
-							<li class="active"><a href="#">
-									<div style="text-align: center;">
-										<font face="FontAwesome"><span
-											style="line-height: 21px;">${sessionScope.panier.client.nom}
-												${sessionScope.panier.client.prenom}</span></font>
-									</div>
-							</a></li>
-							<li class="dropdown" id="menu1"><a href="#menu1"
-								class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
-									class="caret"></b></a>
-								<div class="dropdown-menu">
-									<form name="deconnexionform" method="POST"
-										action="${pageContext.request.contextPath}/Panier/Gestion"
-										id="formdeconnexion" style="margin: 0px"
-										accept-charset="UTF-8">
-										<!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
-										<!-- 										value="Déconnexion" class="sansLabel" /> -->
-										<button class="btn-add" name="deconnexion" type="submit">Déconnexion</button>
-									</form>
-
-									<div style="background: #880000">
-										<c:choose>
-											<c:when test="${not empty sessionScope.panier.client}">
-												<form name="supprimercompteform" method="POST"
-													action="${pageContext.request.contextPath}/Panier/Gestion"
-													id="formSupprCompte">
-													<button class="transparent-button" type="submit"
-														id="supprimerCompte" name="supprimerCompte">
-														<b>Supprimer compte</b>
-													</button>
-												</form>
-												<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
+										<div style="background: #880000">
+											<c:choose>
+												<c:when test="${not empty sessionScope.panier.client}">
+													<form name="supprimercompteform" method="POST"
+														action="${pageContext.request.contextPath}/Panier/Gestion"
+														id="formSupprCompte">
+														<button class="transparent-button" type="submit"
+															id="supprimerCompte" name="supprimerCompte">
+															<b>Supprimer compte</b>
+														</button>
+													</form>
+													<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
 												<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
 											</form>-->
 											</c:when>
@@ -121,15 +120,15 @@
 										<c:choose>
 											<c:when test="${empty sessionScope.panier.client}">
 
-												<fieldset class="textbox" style="padding: 10px">
-													<input style="margin-top: 8px" type="email"
-														placeholder="Mail" id="email" name="email"
-														value="<c:out value="${param.email}"/>" /> <span
-														class="erreur">${form.erreurs['email']}</span> <input
-														type="password" style="margin-top: 8px" id="motdepasse"
-														name="motdepasse" value="" size="20" maxlength="20"
-														placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
-
+													<fieldset class="textbox" style="padding: 10px">
+														<input style="margin-top: 8px" type="email"
+															placeholder="Votre Email" id="email" name="email"
+															value="<c:out value="${param.email}"/>" /> <span
+															class="erreur">${form.erreurs['email']}</span> <input
+															type="password" style="margin-top: 8px" id="motdepasse"
+															name="motdepasse" value="" size="20" maxlength="20"
+															placeholder="Votre mot de passe" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
+															
 													<input class="btn-primary" name="commit" type="submit"
 														value="Se Connecter"> <a
 														href="${pageContext.request.contextPath}/Inscription">Créer</a>
@@ -168,6 +167,7 @@
 
 	</div>
 	</div>
+	<!--  Normal que se soit en double pas sur la même page et donc la même div  -->
 	<c:choose>
 	<c:when test="${not empty addcard}">
 		<script type="text/javascript">
@@ -176,7 +176,21 @@
 							function(sc) {
 								$(
 										'<div class="alert-box success" >Vous avez ajouté un article au panier</div>')
-										.prependTo('.container.success').delay(2000).fadeOut(
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty addcarddetail}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success">Vous avez ajouté un article au panier</div>')
+										.prependTo('.section.success').delay(2000).fadeOut(
 												1000, function() {
 													$('.alert-box').remove();
 												});
@@ -190,7 +204,7 @@
 							function(sc) {
 								$(
 										'<div class="alert-box fail">Email ou mot de passe invalide</div>')
-										.prependTo('.container.success').delay(2000).fadeOut(
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
 												1000, function() {
 													$('.alert-box').remove();
 												});

@@ -20,7 +20,7 @@
 
 <%@ include file="menu.jsp"%>
     <div class="section"></div>
-    <div class="section">
+    <div class="section success">
       <div class="container">
         <div class="row">
           <div class="col-md-6">

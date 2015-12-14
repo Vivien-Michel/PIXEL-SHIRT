@@ -66,7 +66,7 @@
 												value="${article.key.id_article}"> <input
 												type="number" id="quantite" min="1" name="quantite" size="5"
 												value="${article.value}">
-											<button onclick="Gestion">Valider</button>
+											<button class="btn btn-xs btn-success"  style:"line-height:0.5;"onclick="Gestion">Valider</button>
 										</form>
 
 									</td>
@@ -95,7 +95,7 @@
 
 						<div class="row">
 							<div style="font-size: 26px;">
-								<b> Sous-total :</b>
+								<b> Total :</b>
 							</div>
 							<div style="font-size: 14px;">
 								<b>(${sessionScope.panier.size} articles)</b>

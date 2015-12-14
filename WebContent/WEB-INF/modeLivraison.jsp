@@ -42,6 +42,9 @@
                       </form>
                       <p class="text-justify text-muted"></p>
                   </div>
+                  
+                  </br></br>
+                  
                   <div class="row text-center">
                   <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseLivraison">
                   </form>
@@ -55,6 +58,8 @@
         </div>
       </div>
     </div>
+    
+    </br></br></br>
     <%@ include file="footer.jsp"%>
 
 </body>

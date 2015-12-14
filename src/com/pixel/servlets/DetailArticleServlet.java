@@ -80,6 +80,7 @@ public class DetailArticleServlet extends HttpServlet{
 			form.addArticle(request, panier);
 			String id = request.getParameter("article_id");
 			Article article = articleDao.findById(id);
+			request.setAttribute("addcarddetail", "addcarddetail");
 			request.setAttribute("article", article);
 		}
 		
