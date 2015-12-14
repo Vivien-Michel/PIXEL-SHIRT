@@ -83,7 +83,7 @@
 												</li>
 											</ul></li>
 										<li class="init-arrow-down"><a href="javascript:void(0)">
-												<span class="gw-menu-text">Modele</span> <b></b>
+												<span class="gw-menu-text">Modèle</span> <b></b>
 										</a>
 											<ul class="gw-submenu">
 												<li>
@@ -110,29 +110,7 @@
 
 
 				<!-- Separation du menu lateral et menu horizontal -->
-
-				<div class="col-md-9">
-					<div class="row">
-						<div class="col-md-offset-3 col-md-6">
-							<form role="form" method="post" action="Recherche">
-								<div class="form-group">
-									<div class="input-group">
-
-										<input type="text" class="form-control" placeholder="Search"
-											id="tags" name="tags"> <span class="input-group-btn">
-											<input type="submit" value="Go" class="btn btn-success" />
-										</span>
-
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-					<ul class="breadcrumb text-left">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Library</a></li>
-						<li class="active">Data</li>
-					</ul>
+					
 					<div class="row">
 
 						<c:forEach var="article" items="${listeArticles}">
@@ -179,13 +157,13 @@
 					</div>
 					<div class="col-md-12 text-center">
 						<ul class="pagination pagination-lg">
-							<li><a href="#">Prev</a></li>
+							<li><a href="#">Précédent</a></li>
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#">Next</a></li>
+							<li><a href="#">Suivant</a></li>
 						</ul>
 					</div>
 				</div>
