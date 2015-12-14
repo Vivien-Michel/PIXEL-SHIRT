@@ -29,7 +29,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group has-feedback">
-                            <label class="control-label" for="exampleInputEmail1">Civilité*:</label>
+                            <label class="control-label" for="exampleInputEmail1">Civilité* :</label>
                            <select class="form-control">
                                <option value="M" ${"M"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>M</option>
                                <option value="Mme" ${"Mme"== sessionScope.panier.client.civilite ? 'selected="selected"' : ''}>Mme</option>
@@ -38,11 +38,11 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Nom*:</label>
+                            <label class="control-label" for="exampleInputPassword1">Nom* :</label>
                             <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.nom}"/>">
                           </div>
                           <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Prénom*:</label>
+                            <label class="control-label" for="exampleInputPassword1">Prénom* :</label>
                             <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.prenom}"/>">
                           </div>
                         </div>
@@ -59,13 +59,13 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label" for="exampleInputEmail1">Code Postal*:</label>
+                            <label class="control-label" for="exampleInputEmail1">Code postal* :</label>
                             <input class="form-control" id="exampleInputEmail1" type="text" value="<c:out value="${sessionScope.panier.client.codePostal}"/>">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label" for="exampleInputPassword1">Ville*:</label>
+                            <label class="control-label" for="exampleInputPassword1">Ville* :</label>
                             <input class="form-control" id="exampleInputPassword1" type="text" value="<c:out value="${sessionScope.panier.client.ville}"/>">
                           </div>
                         </div>

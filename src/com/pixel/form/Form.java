@@ -60,17 +60,17 @@ public class Form {
     protected void validationEmail(String email) throws FormValidationException {
 		if ( email != null ) {
 	        if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-	            throw new FormValidationException( "Merci de saisir une adresse mail valide." );
+	            throw new FormValidationException( "Merci de saisir une adresse mail valide" );
 	        }
 	    } else {
-	        throw new FormValidationException( "Merci de saisir une adresse mail." );
+	        throw new FormValidationException( "Merci de saisir une adresse mail" );
 	    }
 		
 	}
     
     protected void validationNom(String nom) throws FormValidationException {
 		if ( nom != null && nom.length() < 3 ) {
-	        throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+	        throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères" );
 	    }else if(nom == null){
 	    	throw new FormValidationException( "Veuillez remplir ce champ" );
 	    }
@@ -93,12 +93,12 @@ public class Form {
     protected void validationMotsDePasse(String motDePasse, String confirmation) throws FormValidationException {
 		if ( motDePasse != null && confirmation != null ) {
 	        if ( !motDePasse.equals( confirmation ) ) {
-	            throw new FormValidationException( "Les mots de passe entrés sont différents, merci de les saisir à nouveau." );
+	            throw new FormValidationException( "Les mots de passe entrés sont différents, merci de les saisir à nouveau" );
 	        } else if ( motDePasse.length() < TAILLE_MIN_MDP ) {
-	            throw new FormValidationException( "Les mots de passe doivent contenir au moins" + TAILLE_MIN_MDP + "caractères." );
+	            throw new FormValidationException( "Les mots de passe doivent contenir au moins" + TAILLE_MIN_MDP + "caractères" );
 	        }
 	    } else {
-	        throw new FormValidationException( "Merci de saisir et confirmer votre mot de passe." );
+	        throw new FormValidationException( "Merci de saisir et confirmer votre mot de passe" );
 	    }
 	}
     
@@ -135,12 +135,16 @@ public class Form {
     
     protected void validationVille(String ville) throws FormValidationException {
 		if ( ville != null && ville.length() < 2) {
+	        throw new FormValidationException( "Le nom de la ville est invalide" );
+	    }else if(ville == null){
 	        throw new FormValidationException( "Veuillez renseigner ce champ" );
 	    }
 	}
     
     protected void validationAdresse(String adresse) throws FormValidationException {
-		if ( adresse != null && adresse.length() < 2) {
+		if ( adresse != null && adresse.length() < 5) {
+	        throw new FormValidationException( "L'adresse rentrée est invalide" );
+	    }else if(adresse == null){
 	        throw new FormValidationException( "Veuillez renseigner ce champ" );
 	    }
 	}
@@ -148,9 +152,12 @@ public class Form {
     protected void validationCodePostal(String codePostal) throws FormValidationException {
     	if(codePostal != null){
 			try{
-				Integer.parseInt(codePostal);
+				if(codePostal.length() != 5){
+					throw new FormValidationException("Veulliez saisir un code postal valide");
+				}
+				Integer.parseInt(codePostal);	
 			}catch(NumberFormatException e){
-				throw new FormValidationException("Ceci n'est pas un nombre valide");
+				throw new FormValidationException("Veulliez saisir un code postal valide");
 			}
 		}else{
 			throw new FormValidationException("Veuillez renseigner ce champ");

@@ -33,7 +33,6 @@ public class InscriptionForm extends Form{
 		    String codePostal = getValeurChamp(request, CHAMP_CODE_POSTAL);
 		    String ville = getValeurChamp(request, CHAMP_VILLE);
 //		    //FIN MODIF
-		    String age = getValeurChamp(request, CHAMP_AGE);
 		    Client utilisateur = new Client();
 		    
 		    utilisateur.setPanier(panier.getPanier());
@@ -74,13 +73,7 @@ public class InscriptionForm extends Form{
 		    } catch ( FormValidationException e ) {
 		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
 		    }
-		    //Validation de l'age en utilisant une validation d'entier contenu dans validation codePostal
-		    try {
-		    	validationCodePostal( age );
-		    	utilisateur.setAge(Integer.parseInt(age));
-		    } catch ( FormValidationException e ) {
-		        setErreur( CHAMP_CODE_POSTAL, e.getMessage() );
-		    }
+		   
 		    utilisateur.setCivilite(civilite);
 		    if ( erreurs.isEmpty() ) {
 		    	panier.getPanier().setClient(utilisateur);
@@ -165,12 +158,12 @@ public class InscriptionForm extends Form{
 	protected void validationEmail(String email) throws FormValidationException {
 		if ( email != null ) {
 	        if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-	            throw new FormValidationException( "Merci de saisir une adresse mail valide." );
+	            throw new FormValidationException( "Merci de saisir une adresse mail valide" );
 	        } else if ( user.trouver( email ) != null) {
-	            throw new FormValidationException( "Cette adresse email est déjà utilisée, merci d'en choisir une autre." );
+	            throw new FormValidationException( "Cette adresse email est déjà utilisée, merci d'en choisir une autre" );
 	        }
 	    } else {
-	        throw new FormValidationException( "Merci de saisir une adresse mail." );
+	        throw new FormValidationException( "Merci de saisir une adresse mail" );
 	    }
 		
 	}

@@ -15,7 +15,8 @@
         <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
         <title>Inscription</title>
-    </head><body>
+    </head>
+<body>
     
     	<%@ include file="menu.jsp"%>
     
@@ -131,55 +132,59 @@
                                         <form role="form" method="POST" action="Inscription">
 
                                             <div class="form-group">
-                                                <label class="control-label">Civilité</label>
+                                                <label class="control-label">Civilité* :</label>
                                                 <select class="form-control" name="civilite">
                                                     <option value="M" ${"M" == utilisateur.civilite ? 'selected="selected"' : ''}>M</option>
                               						 <option value="Mme" ${"Mme" == utilisateur.civilite ? 'selected="selected"' : ''}>Mme</option>
                                                 </select>
                                             </div>
 
-                                             <div class="form-group has-feedback">                                             	 
-                                                <input class="form-control" type="text" placeholder="Nom" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
+                                             <div class="form-group has-feedback">
+                                             	<label class="control-label">Nom* :</label>                                             	 
+                                                <input class="form-control" type="text" placeholder="Votre nom de famille" value="<c:out value="${utilisateur.nom}"/>" id="nom" name="nom">
                                                 <span class="erreur">${form.erreurs['nom']}</span>
-<!--                                                 <span class="fa fa-check form-control-feedback"></span>                                                -->
+                                            	
                                                 
                                             </div>
                                             <div class="form-group has-feedback">
-                                                <input class="form-control" type="text" placeholder="Prénom" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>">
+                                            	<label class="control-label">Prénom* :</label>
+                                                <input class="form-control" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>">
 <!--                                                  <span class="fa fa-check form-control-feedback"></span>                         -->
                                                 <span class="erreur">${form.erreurs['prenom']}</span>
                                                 
                                             </div>
                                             <div class="form-group has-feedback">
-                                                <input class="form-control" placeholder="Email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" >
+                                            	<label class="control-label">Email* :</label>
+                                                <input class="form-control" placeholder="Votre email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>" >
                                                 <span class="erreur">${form.erreurs['email']}</span>
                                             </div>
                                             
-                                            <div class="form-group has-feedback">
-                                            	<input class="form-control" placeholder="Age" type="number" min=18 id="age" name="age" value="<c:out value="${utilisateur.age}"/>" maxlength="3" />
-								            </div>
-
-                                            <div class="form-group has-feedback">
-                                            	<input class="form-control" type="text" placeholder="Adresse" value="<c:out value="${utilisateur.adresse}"/>" id="adresse" name="adresse">
+                                           <div class="form-group has-feedback">
+                                            	<label class="control-label">Adresse* :</label>
+                                            	<input class="form-control" type="text" placeholder="Votre adresse" value="<c:out value="${utilisateur.adresse}"/>" id="adresse" name="adresse">
 													<span class="erreur">${form.erreurs['adresse']}</span>
 														
                                             </div>
                                             <div class="form-group has-feedback">
-                                            	<input class="form-control" type="text" placeholder="Code Postal" value="<c:out value="${utilisateur.codePostal}"/>" id="codePostal" name="codePostal">
+                                            	<label class="control-label">Code postal* :</label>
+                                            	<input class="form-control" type="text" placeholder="Votre code postal" value="<c:out value="${utilisateur.codePostal}"/>" id="codePostal" name="codePostal">
 													  <span class="erreur">${form.erreurs['codePostal']}</span>
                                             </div>
                                             <div class="form-group has-feedback">
-                                            	<input class="form-control" type="text" placeholder="Ville" value="<c:out value="${utilisateur.ville}"/>" id="ville" name="ville">
+                                            	<label class="control-label">Ville* :</label>
+                                            	<input class="form-control" type="text" placeholder="Votre ville" value="<c:out value="${utilisateur.ville}"/>" id="ville" name="ville">
 													<span class="erreur">${form.erreurs['ville']}</span>
                                             </div>                                            
                                             <div class="form-group has-feedback">
-                                                <input class="form-control" type="password" placeholder="Mot de passe" id="motdepasse" name="motdepasse" value="">
+                                            	<label class="control-label">Mot de passe* :</label>
+                                                <input class="form-control" type="password" placeholder="Votre mot de passe" id="motdepasse" name="motdepasse" value="">
 <!--                                                  <span class="fa fa-check form-control-feedback"></span>  -->
                                                                                         
 												<span class="erreur">${form.erreurs['motdepasse']}</span>
                                             </div>
                                             <div class="form-group has-feedback">
-                                                <input class="form-control" type="password" placeholder="Confirmation Mot de passe" id="confirmation" name="confirmation" value="">
+                                            	<label class="control-label">Confirmation mot de passe* :</label>
+                                                <input class="form-control" type="password" placeholder="Confirmation de votre mot de passe" id="confirmation" name="confirmation" value="">
                                                 <span class="fa fa-check form-control-feedback"></span>
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
@@ -195,6 +200,13 @@
             </div>
         </div>
 
+		<p class="text-justify text-muted">Conformément à la loi
+		informatique et libertés du 6 janvier 1978 telle que modifiée par la
+		Loi n°2004-801 du 6 août 2004, le client dispose d'un droit
+		d'opposition au traitement par Pixel-Shirt de ses données
+		personnelles, d'un droit d'accès, de modification, de rectification et
+		de suppression des données personnelles le concernant.</p>
+		
         <%@ include file="footer.jsp" %>
     
 
