@@ -22,22 +22,6 @@
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 
 				<!--BARRE DE RECHERCHE -->
-				<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav" style="display: inline-block;
-    text-align:center;width:50%;">
-					<form role="form" method="post" action="Recherche">
-						<div class="form-group">
-							<div class="input-group" style = "top:10px;">
-
-								<input type="text" class="form-control" placeholder="Rechercher"
-									id="tags" name="tags"> <span class="input-group-btn">
-									<button type="submit" class="btn btn-success">
-										<i class="fa fa-2x fa-search"></i>
-									</button>
-								</span>
-							</div>
-						</div>
-					</form>
-				</ul>
 
 				<!--BARRE NAVIGATION RIGHT -->
 				<ul	class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
@@ -149,7 +133,21 @@
 					</a></li>
 
 				</ul>
+				<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right" style="display: inline-block;text-align:center;width:50%;">
+					<form role="form" method="post" action="${pageContext.request.contextPath}/Recherche">
+						<div class="form-group">
+							<div class="input-group" style = "top:6px;">
 
+								<input type="text" class="form-control" placeholder="Rechercher"
+									id="tags" name="tags"> <span class="input-group-btn">
+									<button type="submit" class="btn btn-success">
+										<i class="fa fa-2x fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</ul>
 			</div>
 		</div>
 	</div>
