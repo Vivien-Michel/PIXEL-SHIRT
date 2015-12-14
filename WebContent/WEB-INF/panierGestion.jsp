@@ -25,107 +25,117 @@
 
 </head>
 <body>
-	<div>
-		<div><%@ include file="menu.jsp"%></div>
 
-		<div>
-			<div class="section"></div>
-			<div class="section">
-				<div class="container">
-					<div class="row">
+	<%@ include file="menu.jsp"%>
 
-						<div class="col-md-9">
-							<table class="table">
-								<tr class="legende">
-									<!--   <th><c:out value="Id" /></th>-->
-									<th></th>
-									<th><c:out value="Couleur" /></th>
-									<th><c:out value="Taille" /></th>
-									<th><c:out value="Modèle" /></th>
-									<th><c:out value="Prix" /></th>
-									<!-- <th><c:out value="QuantiteTest" /></th> -->
-									<th><c:out value="Quantité" /></th>
-									<th><c:out value="Suppression" /></th>
-								</tr>
-								<c:forEach var="article" items="${sessionScope.panier.articles}">
-									<tr>
-										<!--<td><c:out value="${article.key.id_article}" /></td> -->
-										<td><a
-											href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img
-												src="${pageContext.request.contextPath}/images/${article.key.id_article}"
-												style="width: 100px;" /></a></td>
-										<td><c:out value="${article.key.couleur}" /></td>
-										<td><c:out value="${article.key.taille}" /></td>
-										<td><c:out value="${article.key.modele}" /></td>
-										<td><c:out value="${article.key.prix} €" /></td>
-										<!--  <td><c:out value="${article.value}" /></td> -->
-										<td>
-											<form name="quantitearticleform${article.key.id_article}"
-												method="POST" action="Gestion"
-												id="form${article.key.id_article}">
-												<input type="hidden" name="article_id"
-													value="${article.key.id_article}"> <input
-													type="number" id="quantite" min="1" name="quantite"
-													size="5" value="${article.value}">
-											<button onclick="Gestion">Valider</button>
-											</form>
-											
-										</td>
-										<td>
-											<form name="supprimerarticleform${article.key.id_article}"
-												method="POST" action="Gestion"
-												id="form${article.key.id_article}">
-												<input type="hidden" name="article_id"
-													value="${article.key.id_article}">
-												<button type="submit" id="supprimer" name="supprimer"
-													value="Supprimer"
-													class="transparent-button fa fa-2x fa-fw fa-remove pull-left text-danger"></button>
-											</form>
-										</td>
-									</tr>
-								</c:forEach>
-							</table>
-						</div>
-
-						<div class="col-md-1"></div>
-
-						
-
-						<div class="col-md-2" style="border-width:1px;border-style:solid;border-color:#C0C0C0">
-														
-							<div class="row">
-								<div style="font-size:26px;"><b> Sous-total :</b></div>
-								<div style="font-size:14px;"><b>(${sessionScope.panier.size} articles)</b></div></br>
-								<div class="text-right" style="font-size:26px;color:#D9534F;"><b>${sessionScope.panier.total} €</b></div>
-							</div>
-							
-							</br></br>
-													
-							<div class="row">	
-									<div align="center">
-										<!-- c:otherwhise -->
-										<form name="commanderarticleform" method="GET"
-											action="${pageContext.request.contextPath}/Panier/AdresseFacturation"
-											id="formCommander">
-											<button type="submit" class="btn btn-lg btn-success">Commander</button>
-										</form>
-									</div>
-							</div>
-							
-							</br>
-						</div>					
-				</div>
-				
+		<div class="section"></div>
+		<div class="section">
+			<div class="container">
 				<div class="row">
-						<div class="col-md-2">
-							<a href="${pageContext.request.contextPath}/Accueil"><i class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"><div>retour</div></i></a>
+
+					<div class="col-md-9">
+						<table class="table">
+							<tr class="legende">
+								<!--   <th><c:out value="Id" /></th>-->
+								<th></th>
+								<th><c:out value="Couleur" /></th>
+								<th><c:out value="Taille" /></th>
+								<th><c:out value="Modèle" /></th>
+								<th><c:out value="Prix" /></th>
+								<!-- <th><c:out value="QuantiteTest" /></th> -->
+								<th><c:out value="Quantité" /></th>
+								<th><c:out value="Suppression" /></th>
+							</tr>
+							<c:forEach var="article" items="${sessionScope.panier.articles}">
+								<tr>
+									<!--<td><c:out value="${article.key.id_article}" /></td> -->
+									<td><a
+										href="${pageContext.request.contextPath}/Detail?id=${article.key.id_article}"><img
+											src="${pageContext.request.contextPath}/images/${article.key.id_article}"
+											style="width: 100px;" /></a></td>
+									<td><c:out value="${article.key.couleur}" /></td>
+									<td><c:out value="${article.key.taille}" /></td>
+									<td><c:out value="${article.key.modele}" /></td>
+									<td><c:out value="${article.key.prix} €" /></td>
+									<!--  <td><c:out value="${article.value}" /></td> -->
+									<td>
+										<form name="quantitearticleform${article.key.id_article}"
+											method="POST" action="Gestion"
+											id="form${article.key.id_article}">
+											<input type="hidden" name="article_id"
+												value="${article.key.id_article}"> <input
+												type="number" id="quantite" min="1" name="quantite" size="5"
+												value="${article.value}">
+											<button onclick="Gestion">Valider</button>
+										</form>
+
+									</td>
+									<td>
+										<form name="supprimerarticleform${article.key.id_article}"
+											method="POST" action="Gestion"
+											id="form${article.key.id_article}">
+											<input type="hidden" name="article_id"
+												value="${article.key.id_article}">
+											<button type="submit" id="supprimer" name="supprimer"
+												value="Supprimer"
+												class="transparent-button fa fa-2x fa-fw fa-remove pull-left text-danger"></button>
+										</form>
+									</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+
+					<div class="col-md-1"></div>
+
+
+
+					<div class="col-md-2"
+						style="border-width: 1px; border-style: solid; border-color: #C0C0C0">
+
+						<div class="row">
+							<div style="font-size: 26px;">
+								<b> Sous-total :</b>
+							</div>
+							<div style="font-size: 14px;">
+								<b>(${sessionScope.panier.size} articles)</b>
+							</div>
+							</br>
+							<div class="text-right" style="font-size: 26px; color: #D9534F;">
+								<b>${sessionScope.panier.total} €</b>
+							</div>
 						</div>
+
+						</br>
+						</br>
+
+						<div class="row">
+							<div align="center">
+								<!-- c:otherwhise -->
+								<form name="commanderarticleform" method="GET"
+									action="${pageContext.request.contextPath}/Panier/AdresseFacturation"
+									id="formCommander">
+									<button type="submit" class="btn btn-lg btn-success">Commander</button>
+								</form>
+							</div>
+						</div>
+
+						</br>
+					</div>
 				</div>
-				
+
+				<div class="row">
+					<div class="col-md-2">
+						<a href="${pageContext.request.contextPath}/Accueil"><i
+							class="fa fa-3x fa-angle-double-left fa-fw pull-left text-primary"><div>retour</div></i></a>
+					</div>
+				</div>
+
 			</div>
 		</div>
+		
+		</br></br>
 
-		<dir id=footer><%@ include file="footer.jsp"%></dir>
-	</div>
+		<%@ include file="footer.jsp"%>
 </body>
 </html>
