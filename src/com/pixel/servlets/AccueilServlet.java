@@ -37,10 +37,16 @@ public class AccueilServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("add")!=null){
 			request.setAttribute("addcard", "addcard");
+		}else if(session.getAttribute("transaction_success")!=null){
+			request.setAttribute("transaction_success", "transaction_success");
+		}else if(session.getAttribute("transaction_failed")!=null){
+			request.setAttribute("transaction_failed", "transaction_failed");
 		}
 		List<?> articles = articleDao.findAll();
 		request.setAttribute( ATT_ART, articles );
 		session.setAttribute("add", null);
+		session.setAttribute("transaction_success", null);
+		session.setAttribute("transaction_failed", null);
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 	

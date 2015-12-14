@@ -38,11 +38,11 @@
 			
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<form method="POST" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
+					<form method="POST" action="${pageContext.request.contextPath}/ConnnexionOrInscription">
 																		
 						<div class="form-group has-feedback">												
 					        <label class="control-label">Email* :</label>
-					        <input class="form-control" placeholder="Votre email" type="email" id="email name="email" value="<c:out value="${utilisateur.mail}"/>">
+					        <input class="form-control" placeholder="Votre email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>">
 					        <span class="erreur">${form.erreurs['email']}</span>
 					    </div>
 							

@@ -211,6 +211,34 @@
 							});
 		</script>
 	</c:when>
+	<c:when test="${not empty transaction_success}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success">Transaction éffectuée avec succès</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty transaction_failed}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box fail">La transaction a échoué</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
 </c:choose>
 </body>
 </html>

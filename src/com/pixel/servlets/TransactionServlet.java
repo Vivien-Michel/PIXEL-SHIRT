@@ -29,7 +29,7 @@ import com.pixel.tools.TypeMail;
 @WebServlet("/Transaction")
 public class TransactionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VUE = "/WEB-INF/transaction.jsp";
+	private static final String VUE = "/WEB-INF/accueil.jsp";
 	private static final String ATT_TRANSACTION = "transaction";
     
 	@EJB
@@ -95,6 +95,9 @@ public class TransactionServlet extends HttpServlet {
 					commande.setValide(false);
 					panier.getPanier().setCommande(commande);
 					panier.update();
+					session.setAttribute("transaction_success", "transaction_success");
+				}else{
+					session.setAttribute("transaction_failed", "transaction_failed");
 				}
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
@@ -102,7 +105,7 @@ public class TransactionServlet extends HttpServlet {
 				e.printStackTrace();
 			}	
 		}		
-		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+		response.sendRedirect(request.getContextPath()+"/Accueil");
 	}
 
 }
