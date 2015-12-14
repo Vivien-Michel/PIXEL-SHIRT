@@ -63,7 +63,7 @@ public class ConnnexionOrInscription extends HttpServlet{
 	        	this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	        }
 		} else{
-			System.out.println("connexion");
+			
 			ConnexionForm connexion = new ConnexionForm(user);
 			Utilisateur utilisateur = connexion.connexionUtilisateur(request);
 			

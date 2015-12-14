@@ -190,7 +190,7 @@
 							function(sc) {
 								$(
 										'<div class="alert-box success">Vous avez ajouté un article au panier</div>')
-										.prependTo('.section.success').delay(2000).fadeOut(
+										.prependTo('.container.success').delay(2000).fadeOut(
 												1000, function() {
 													$('.alert-box').remove();
 												});

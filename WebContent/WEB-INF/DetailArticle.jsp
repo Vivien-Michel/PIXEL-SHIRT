@@ -20,8 +20,8 @@
 
 <%@ include file="menu.jsp"%>
     <div class="section"></div>
-    <div class="section success">
-      <div class="container">
+    <div class="section">
+      <div class="container success">
         <div class="row">
           <div class="col-md-6">
             <h1 class="text-danger">${article.prix}€</h1>
