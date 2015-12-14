@@ -28,7 +28,7 @@
 						<div class="form-group">
 							<div class="input-group" style = "top:10px;">
 
-								<input type="text" class="form-control" placeholder="Rechercher"
+								<input type="text" class="form-control" style="height:42px;" placeholder="Rechercher"
 									id="tags" name="tags"> <span class="input-group-btn">
 									<button type="submit" class="btn btn-success">
 										<i class="fa fa-2x fa-search"></i>
