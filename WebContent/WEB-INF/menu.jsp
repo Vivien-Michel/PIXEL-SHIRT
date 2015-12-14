@@ -47,7 +47,7 @@
 			</div>
 			
 
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<!--BARRE NAVIGATION RIGHT -->
 					<ul
 						class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
@@ -120,12 +120,12 @@
 
 													<fieldset class="textbox" style="padding: 10px">
 														<input style="margin-top: 8px" type="email"
-															placeholder="Mail" id="email" name="email"
+															placeholder="Votre Email" id="email" name="email"
 															value="<c:out value="${param.email}"/>" /> <span
 															class="erreur">${form.erreurs['email']}</span> <input
 															type="password" style="margin-top: 8px" id="motdepasse"
 															name="motdepasse" value="" size="20" maxlength="20"
-															placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
+															placeholder="Votre mot de passe" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
 
 														<input class="btn-primary" name="commit" type="submit"
 															value="Se Connecter"> <a

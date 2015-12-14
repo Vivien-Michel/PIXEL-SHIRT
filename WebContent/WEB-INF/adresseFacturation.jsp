@@ -80,17 +80,17 @@
                         <input type="radio" name="livraison" value="differente">&nbsp; Livrer à une adresse différente</div>
                     </form>
                   </div>
+                  
+                  </br></br>
+                  
                   <div class="row text-center">
                   <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/Gestion">
                   </form>
-                    <button form="retour" class="btn btn-danger btn-lg" type="submit">Retour Panier</button>
+                  	<button form="retour" class="btn btn-danger btn-lg" type="submit">Retour Panier</button>
                     <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
-                  <p class="text-justify text-muted">Conformément à la loi informatique et libertés du 6 janvier 1978 telle
-                    que modifiée par la Loi n°2004-801 du 6 août 2004, le client dispose d'un
-                    droit d'opposition au traitement par Pixel-Shirt de ses données personnelles,
-                    d'un droit d'accès, de modification, de rectification et de suppression
-                    des données personnelles le concernant.</p>
+                  
+                  
                 </div>
               </div>
             </div>
@@ -98,6 +98,13 @@
         </div>
       </div>
     </div>
+    
+    </br>                  
+                  <p class="text-justify text-muted">Conformément à la loi informatique et libertés du 6 janvier 1978 telle
+                    que modifiée par la Loi n°2004-801 du 6 août 2004, le client dispose d'un
+                    droit d'opposition au traitement par Pixel-Shirt de ses données personnelles,
+                    d'un droit d'accès, de modification, de rectification et de suppression
+                    des données personnelles le concernant.</p>
  <%@ include file="footer.jsp" %>
 </body>
 </html>

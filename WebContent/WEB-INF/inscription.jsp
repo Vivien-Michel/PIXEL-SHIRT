@@ -185,7 +185,7 @@
                                             <div class="form-group has-feedback">
                                             	<label class="control-label">Confirmation mot de passe* :</label>
                                                 <input class="form-control" type="password" placeholder="Confirmation de votre mot de passe" id="confirmation" name="confirmation" value="">
-                                                <span class="fa fa-check form-control-feedback"></span>
+                                                <!--  <span class="fa fa-check form-control-feedback"></span> -->
                                                 <span class="erreur">${form.erreurs['confirmation']}</span>
                                             </div>
 <!--                                              <input type="submit" value="" class="myButtonForm pull-right"/>   -->
