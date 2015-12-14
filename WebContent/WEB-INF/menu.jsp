@@ -22,18 +22,18 @@
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 
 				<!--BARRE DE RECHERCHE -->
-				<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-center">
+				<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav" style="display: inline-block;
+    text-align:center;width:50%;">
 					<form role="form" method="post" action="Recherche">
 						<div class="form-group">
-							<div class="input-group">
+							<div class="input-group" style = "top:10px;">
 
 								<input type="text" class="form-control" placeholder="Rechercher"
 									id="tags" name="tags"> <span class="input-group-btn">
 									<button type="submit" class="btn btn-success">
-										<i class="fa fa-search"></i>
+										<i class="fa fa-2x fa-search"></i>
 									</button>
 								</span>
-
 							</div>
 						</div>
 					</form>
