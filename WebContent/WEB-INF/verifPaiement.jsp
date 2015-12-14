@@ -36,6 +36,7 @@
 						      <th><c:out value="Couleur" /></th>
 						      <th><c:out value="Taille" /></th>
 						      <th><c:out value="Modele" /></th>
+						      <th><c:out value="Quantité" /></th>
 						      <th><c:out value="Prix" /></th>
 						     <!-- <th><c:out value="QuantiteTest" /></th> 
 						      <th><c:out value="Quantite" /></th>
@@ -51,6 +52,7 @@
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
+	      <td><c:out value="${article.value}"/></td>
 	      <td><c:out value="${article.key.prix} €" /></td>
 	     <!--   <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
@@ -84,6 +86,7 @@
 	  </c:forEach>
 	  <tr>
 	  	<td>Frais de port</td>
+	  	<td></td>
 	  	<td></td>
 	  	<td></td>
 	  	<td></td>

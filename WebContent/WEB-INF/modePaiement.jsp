@@ -12,6 +12,7 @@
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Choix du Paiement</title>
 </head>
 <body>
