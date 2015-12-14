@@ -23,8 +23,8 @@
 <body>
 
 	<%@ include file="menu.jsp"%>
-	<div class="section"></div>
-	<div class="section">
+
+	<div class="section" style="top:40px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
@@ -107,74 +107,71 @@
 					</div>
 				</div>
 
-
-
 				<!-- Separation du menu lateral et menu horizontal -->
-					
-					<div class="row">
+				<div class="col-md-9">
+					<c:forEach var="article" items="${listeArticles}">
 
-						<c:forEach var="article" items="${listeArticles}">
-
-							<div class="col-md-3">
-								<div id="carousel-example" data-interval="false"
-									class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<a
-												href="${pageContext.request.contextPath}/Detail?id=${article.id_article}"><img
-												src="${pageContext.request.contextPath}/images/${article.id_article}"></a>
-											<a href="${pageContext.request.contextPath}/Detail?id=${article.id_article}">
-												<div class="carousel-caption" >
-													<h2>${article.taille}${article.couleur}</h2>
-												</div>
-											</a>
-										</div>
+						<div class="col-md-3">
+							<div id="carousel-example" data-interval="false"
+								class="carousel slide" data-ride="carousel">
+								<div class="carousel-inner">
+									<div class="item active">
+										<a
+											href="${pageContext.request.contextPath}/Detail?id=${article.id_article}"><img
+											src="${pageContext.request.contextPath}/images/${article.id_article}"></a>
+										<a
+											href="${pageContext.request.contextPath}/Detail?id=${article.id_article}">
+											<div class="carousel-caption">
+												<h2>${article.taille}${article.couleur}</h2>
+											</div>
+										</a>
 									</div>
-									<!--  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+								</div>
+								<!--  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
                   <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
                 	-->
-								</div>
-								<form name="addarticleform${article.id_article}" method="POST"
-									action="${pageContext.request.contextPath}/Articles" id="form${article.id_article}">
-									<input type="hidden" id="quantite" name="quantite"
-										form="form${article.id_article}" value="1" />
-									</td>
-								</form>
-								<button class="btn-add" form="form${article.id_article}"
-									name="article_id" value="${article.id_article}">
-									<i class="fa fa-2x fa-fw fa-plus"></i>
-								</button>
-								<a
-									href="${pageContext.request.contextPath}/Personnalisation?id=${article.id_article}"><i
-									class="fa fa-2x fa-fw fa-edit"></i></a> <i
-									class="fa fa-3x pull-right text-danger"><c:out
-										value="${article.prix} €" /></i>
-								<h2>
-									<c:out value="${article.modele}" />
-								</h2>
 							</div>
-						</c:forEach>
-
-
-					</div>
-					<div class="col-md-12 text-center">
-						<ul class="pagination pagination-lg">
-							<li><a href="#">Précédent</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">Suivant</a></li>
-						</ul>
-					</div>
-				</div>
+							<form name="addarticleform${article.id_article}" method="POST"
+								action="${pageContext.request.contextPath}/Articles"
+								id="form${article.id_article}">
+								<input type="hidden" id="quantite" name="quantite"
+									form="form${article.id_article}" value="1" />
+								</td>
+							</form>
+							<button class="btn-add" form="form${article.id_article}"
+								name="article_id" value="${article.id_article}">
+								<i class="fa fa-2x fa-fw fa-plus"></i>
+							</button>
+							<a
+								href="${pageContext.request.contextPath}/Personnalisation?id=${article.id_article}"><i
+								class="fa fa-2x fa-fw fa-edit"></i></a> <i
+								class="fa fa-3x pull-right text-danger"><c:out
+									value="${article.prix} €" /></i>
+							<h2>
+								<c:out value="${article.modele}" />
+							</h2>
+						</div>
+					</c:forEach>
 			</div>
 		</div>
+
+		<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="pagination pagination-lg">
+						<li><a href="#">Précédent</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">Suivant</a></li>
+					</ul>
+				</div>
+		</div>
 	</div>
+</div>
 
-
-	<%@ include file="footer.jsp"%>
+<%@ include file="footer.jsp"%>
 
 
 </body>

@@ -23,7 +23,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<!--BARRE DE RECHERCHE -->
 					<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav"
