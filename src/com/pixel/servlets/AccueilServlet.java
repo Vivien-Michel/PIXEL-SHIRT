@@ -9,9 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.pixel.tools.Banque;
-
 import com.pixel.sessions.ArticleDAO;
 
 @WebServlet(urlPatterns = { "/Accueil" })
@@ -34,8 +34,13 @@ public class AccueilServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		if(session.getAttribute("add")!=null){
+			request.setAttribute("addcard", "addcard");
+		}
 		List<?> articles = articleDao.findAll();
 		request.setAttribute( ATT_ART, articles );
+		session.setAttribute("add", null);
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 	

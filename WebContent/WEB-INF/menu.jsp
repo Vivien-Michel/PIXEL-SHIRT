@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="${pageContext.request.contextPath}/notification.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery.js"></script>
 </head>
 <body>
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -27,7 +30,7 @@
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<!--BARRE DE RECHERCHE -->
 					<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav"
-						style="display: inline-block;width: 100%;">
+						style="display: inline-block; width: 100%;">
 						<form role="form" method="post" action="Recherche">
 							<div class="form-group">
 								<div class="input-group" style="top: 10px;">
@@ -45,126 +48,155 @@
 					</ul>
 				</div>
 			</div>
-			
 
-				<div class="col-md-4 navbar-right">
-					<!--BARRE NAVIGATION RIGHT -->
-					<ul
-						class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
-						<c:choose>
-							<c:when test="${not empty sessionScope.panier.client}">
-								<li class="active"><a href="#">
-										<div style="text-align: center;">
-											<font face="FontAwesome"><span
-												style="line-height: 21px;">${sessionScope.panier.client.nom}
-													${sessionScope.panier.client.prenom}</span></font>
-										</div>
-								</a></li>
-								<li class="dropdown" id="menu1"><a href="#menu1"
-									class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
-										class="caret"></b></a>
-									<div class="dropdown-menu">
-										<form name="deconnexionform" method="POST"
-											action="${pageContext.request.contextPath}/Panier/Gestion"
-											id="formdeconnexion" style="margin: 0px"
-											accept-charset="UTF-8">
-											<!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
-											<!-- 										value="Déconnexion" class="sansLabel" /> -->
-											<button class="btn-add" name="deconnexion" type="submit">Déconnexion</button>
-										</form>
 
-										<div style="background: #880000">
-											<c:choose>
-												<c:when test="${not empty sessionScope.panier.client}">
-													<form name="supprimercompteform" method="POST"
-														action="${pageContext.request.contextPath}/Panier/Gestion"
-														id="formSupprCompte">
-														<button class="transparent-button" type="submit"
-															id="supprimerCompte" name="supprimerCompte">
-															<b>Supprimer compte</b>
-														</button>
-													</form>
-													<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
+			<div class="col-md-4 navbar-right">
+				<!--BARRE NAVIGATION RIGHT -->
+				<ul
+					class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
+					<c:choose>
+						<c:when test="${not empty sessionScope.panier.client}">
+							<li class="active"><a href="#">
+									<div style="text-align: center;">
+										<font face="FontAwesome"><span
+											style="line-height: 21px;">${sessionScope.panier.client.nom}
+												${sessionScope.panier.client.prenom}</span></font>
+									</div>
+							</a></li>
+							<li class="dropdown" id="menu1"><a href="#menu1"
+								class="dropdown-toggle" data-toggle="dropdown">Déconnexion<b
+									class="caret"></b></a>
+								<div class="dropdown-menu">
+									<form name="deconnexionform" method="POST"
+										action="${pageContext.request.contextPath}/Panier/Gestion"
+										id="formdeconnexion" style="margin: 0px"
+										accept-charset="UTF-8">
+										<!-- 									<input type="submit" id="deconnexion" name="deconnexion" -->
+										<!-- 										value="Déconnexion" class="sansLabel" /> -->
+										<button class="btn-add" name="deconnexion" type="submit">Déconnexion</button>
+									</form>
+
+									<div style="background: #880000">
+										<c:choose>
+											<c:when test="${not empty sessionScope.panier.client}">
+												<form name="supprimercompteform" method="POST"
+													action="${pageContext.request.contextPath}/Panier/Gestion"
+													id="formSupprCompte">
+													<button class="transparent-button" type="submit"
+														id="supprimerCompte" name="supprimerCompte">
+														<b>Supprimer compte</b>
+													</button>
+												</form>
+												<!--  <form name="deconnexionform" method="POST" action="Gestion" id="formdeconnexion">
 												<input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="sansLabel" />
 											</form>-->
-												</c:when>
-											</c:choose>
+											</c:when>
+										</c:choose>
+									</div>
+								</div></li>
+						</c:when>
+					</c:choose>
+
+
+
+
+
+
+					<c:choose>
+						<c:when test="${empty sessionScope.panier.client}">
+							<li class="dropdown" id="menu1"><a href="#menu1"
+								class="dropdown-toggle" data-toggle="dropdown">Connexion<b
+									class="caret"></b></a>
+								<div class="dropdown-menu">
+									<form style="margin: 0px" accept-charset="UTF-8"
+										action="${pageContext.request.contextPath}/Connexion"
+										method="post">
+										<div style="margin: 0; padding: 0; display: inline">
+											<input name="utf8" type="hidden" value="✓"> <input
+												name="authenticity_token" type="hidden" value="">
 										</div>
-									</div></li>
-							</c:when>
-						</c:choose>
 
 
 
+										<c:choose>
+											<c:when test="${empty sessionScope.panier.client}">
+
+												<fieldset class="textbox" style="padding: 10px">
+													<input style="margin-top: 8px" type="email"
+														placeholder="Mail" id="email" name="email"
+														value="<c:out value="${param.email}"/>" /> <span
+														class="erreur">${form.erreurs['email']}</span> <input
+														type="password" style="margin-top: 8px" id="motdepasse"
+														name="motdepasse" value="" size="20" maxlength="20"
+														placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
+
+													<input class="btn-primary" name="commit" type="submit"
+														value="Se Connecter"> <a
+														href="${pageContext.request.contextPath}/Inscription">Créer</a>
 
 
+												</fieldset>
+											</c:when>
 
-						<c:choose>
-							<c:when test="${empty sessionScope.panier.client}">
-								<li class="dropdown" id="menu1"><a href="#menu1"
-									class="dropdown-toggle" data-toggle="dropdown">Connexion<b
-										class="caret"></b></a>
-									<div class="dropdown-menu">
-										<form style="margin: 0px" accept-charset="UTF-8"
-											action="${pageContext.request.contextPath}/Connexion"
-											method="post">
-											<div style="margin: 0; padding: 0; display: inline">
-												<input name="utf8" type="hidden" value="✓"> <input
-													name="authenticity_token" type="hidden" value="">
-											</div>
+											<c:otherwise>
+
+											</c:otherwise>
 
 
+										</c:choose>
 
-											<c:choose>
-												<c:when test="${empty sessionScope.panier.client}">
+									</form>
+								</div></li>
 
-													<fieldset class="textbox" style="padding: 10px">
-														<input style="margin-top: 8px" type="email"
-															placeholder="Mail" id="email" name="email"
-															value="<c:out value="${param.email}"/>" /> <span
-															class="erreur">${form.erreurs['email']}</span> <input
-															type="password" style="margin-top: 8px" id="motdepasse"
-															name="motdepasse" value="" size="20" maxlength="20"
-															placeholder="Passsword" /> <span class="erreur">${form.erreurs['motdepasse']}</span>
-
-														<input class="btn-primary" name="commit" type="submit"
-															value="Se Connecter"> <a
-															href="${pageContext.request.contextPath}/Inscription">Créer</a>
+						</c:when>
+					</c:choose>
 
 
-													</fieldset>
-												</c:when>
+					<li class="active"><a
+						href="${pageContext.request.contextPath}/Panier/Gestion">
+							<div style="text-align: center;">
+								<font face="FontAwesome"
+									style="line-height: 21px; display: inline !important;">Panier
+									: </font><span class="badge">${sessionScope.panier.size}</span>
+							</div>
+					</a></li>
 
-												<c:otherwise>
+				</ul>
 
-												</c:otherwise>
-
-
-											</c:choose>
-
-										</form>
-									</div></li>
-
-							</c:when>
-						</c:choose>
-
-
-						<li class="active"><a
-							href="${pageContext.request.contextPath}/Panier/Gestion">
-								<div style="text-align: center;">
-									<font face="FontAwesome"
-										style="line-height: 21px; display: inline !important;">Panier
-										: </font><span class="badge">${sessionScope.panier.size}</span>
-								</div>
-						</a></li>
-
-					</ul>
-
-				</div>
 			</div>
-
 		</div>
-	</div>
 
+	</div>
+	</div>
+	<c:choose>
+	<c:when test="${not empty addcard}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success" >Vous avez ajouté un article au panier</div>')
+										.prependTo('.container.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty form.erreurs['email']}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box fail">Email ou mot de passe invalide</div>')
+										.prependTo('.container.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+</c:choose>
 </body>
 </html>

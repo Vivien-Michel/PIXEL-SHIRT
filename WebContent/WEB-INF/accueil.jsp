@@ -25,7 +25,7 @@
 	<%@ include file="menu.jsp"%>
 	<div class="section"></div>
 	<div class="section">
-		<div class="container">
+		<div class="container success">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="gw-sidebar">
