@@ -123,9 +123,11 @@
 											<a
 												href="${pageContext.request.contextPath}/Detail?id=${article.id_article}"><img
 												src="${pageContext.request.contextPath}/images/${article.id_article}"></a>
-											<div class="carousel-caption">
-												<h2>${article.taille}${article.couleur}</h2>
-											</div>
+											<a href="${pageContext.request.contextPath}/Detail?id=${article.id_article}">
+												<div class="carousel-caption" >
+													<h2>${article.taille}${article.couleur}</h2>
+												</div>
+											</a>
 										</div>
 									</div>
 									<!--  <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
