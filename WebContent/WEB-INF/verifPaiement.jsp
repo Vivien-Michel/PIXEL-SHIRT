@@ -35,7 +35,7 @@
 						     <th></th>
 						      <th><c:out value="Couleur" /></th>
 						      <th><c:out value="Taille" /></th>
-						      <th><c:out value="Modele" /></th>
+						      <th><c:out value="Modèle" /></th>
 						      <th><c:out value="Prix" /></th>
 						     <!-- <th><c:out value="QuantiteTest" /></th> 
 						      <th><c:out value="Quantite" /></th>
@@ -96,6 +96,7 @@
                   </div>
                   <div class="col-md-12 text-right">
                     <h1 class="text-right">TOTAL :</h1>
+                    <div>(${sessionScope.panier.size} articles)</div>
                     <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
                   </div>
                   <div class="row text-center">

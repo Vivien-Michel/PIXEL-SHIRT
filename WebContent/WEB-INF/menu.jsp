@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
-		<div class="container">
+	<div class="contain">
 
 			<div class="col-md-2">
 				<div class="navbar-header">
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<!--BARRE DE RECHERCHE -->
 					<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav"
@@ -47,7 +47,7 @@
 			</div>
 			
 
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<!--BARRE NAVIGATION RIGHT -->
 					<ul
 						class="hidden-md hidden-sm hidden-xs nav navbar-nav navbar-right">
@@ -164,7 +164,5 @@
 			</div>
 
 		</div>
-	</div>
-
 </body>
 </html>

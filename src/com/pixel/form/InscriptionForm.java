@@ -14,8 +14,8 @@ import com.pixel.sessions.ClientDAO;
 import com.pixel.sessions.PanierBean;
 
 public class InscriptionForm extends Form{
-	
-    
+
+
 	public InscriptionForm(ClientDAO user) {
 		this.user=user;
 	}
@@ -23,8 +23,8 @@ public class InscriptionForm extends Form{
 	public Utilisateur inscrireUtilisateur(HttpServletRequest request, PanierBean panier) {
 		 	
 			String civilite = getValeurChamp(request, CHAMP_CIV);
-			String email = getValeurChamp( request, CHAMP_EMAIL );
-		    String motDePasse = getValeurChamp( request, CHAMP_PASS );
+			String email = getValeurChamp( request, CHAMP_EMAIL);
+		    String motDePasse = getValeurChamp( request, CHAMP_PASS);
 		    String confirmation = getValeurChamp( request, CHAMP_CONF );
 		    String nom = getValeurChamp( request, CHAMP_NOM );
 		    String prenom = getValeurChamp(request, CHAMP_PRENOM);

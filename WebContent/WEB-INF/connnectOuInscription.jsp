@@ -42,7 +42,7 @@
 																		
 						<div class="form-group has-feedback">												
 					        <label class="control-label">Email* :</label>
-					        <input class="form-control" placeholder="Votre email" type="email" id="email name="email" value="<c:out value="${utilisateur.mail}"/>">
+					        <input class="form-control" placeholder="Votre email" type="email" id="email" name="email" value="<c:out value="${utilisateur.mail}"/>">
 					        <span class="erreur">${form.erreurs['email']}</span>
 					    </div>
 							
