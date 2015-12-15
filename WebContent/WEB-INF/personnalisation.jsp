@@ -110,15 +110,15 @@ function init(){
 	
 	<div class="container">
 		<div class="row">
+		<div id="colorholder" class="col-sm-1" style="top:60px;width:22px;height:22px;margin:1px;"><h1 class="text-danger">WORK IN PROGRESS</h1></div>
 			<div class="col-sm-8" style="top:60px;">
-				<canvas typ="bakground-image:${pageContext.request.contextPath}/images/${article.id_article}" class="slideright" id="drawing-canvas" style="top:30px;" width="700px" height="500px" >
+				<canvas class="slideright" id="drawing-canvas" style="top:30px;bakground-image:${pageContext.request.contextPath}/images/${article.id_article};" width="700px" height="500px" >
 					<img src="${pageContext.request.contextPath}/images/${article.id_article}" class="center-block img-responsive img-thumbnail">
 				</canvas>
 				
 					
 			</div>
 			
-			<div id="colorholder" class="col-sm-1" styla="top:60px;width:22px;height:22px;margin:1px;border:3px solid black;">bla</div>
 
 			<div class="col-sm-3" style="top:60px;">
             <h1>Tee-Shirt</h1>
