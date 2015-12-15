@@ -1,6 +1,8 @@
 package com.pixel.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,9 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.pixel.entities.Article;
+import com.pixel.form.PanierForm;
 import com.pixel.sessions.ArticleDAO;
+import com.pixel.sessions.PanierBean;
 
 /**
  * Servlet implementation class PersonnalisationServlet
@@ -58,6 +63,29 @@ public class PersonnalisationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String modele = request.getParameter("modele");
+		
+		if(modele!=null){
+			List<String> tags= new ArrayList<>();
+			tags.add(request.getParameter("modele"));
+			tags.add(request.getParameter("couleur"));
+			tags.add(request.getParameter("taille"));
+			List<Article> listArticle = null;
+			listArticle=articleDao.findByTag(tags);
+			Article article = listArticle.get(0);
+			request.setAttribute( ATT_ART, article );
+		}else{
+			HttpSession session = request.getSession();
+			PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
+			
+			PanierForm form = new PanierForm(articleDao);
+			form.addArticle(request, panier);
+			String id = request.getParameter("article_id");
+			Article article = articleDao.findById(id);
+			request.setAttribute("addcarddetail", "addcarddetail");
+			request.setAttribute("article", article);
+		}
+		
 		getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
