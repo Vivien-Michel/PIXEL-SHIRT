@@ -99,7 +99,7 @@
                   </div>
                   <div class="col-md-12 text-right">
                     <h1 class="text-right">TOTAL :</h1>
-                    <div>(${sessionScope.panier.size} articles)</div>
+                    <div>(${sessionScope.panier.size} article(s))</div>
                     <h1 class="text-danger text-right">${sessionScope.panier.total} €</h1>
                   </div>
                   <div class="row text-center">

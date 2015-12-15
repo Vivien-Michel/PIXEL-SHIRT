@@ -130,13 +130,6 @@
                   <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
                 	-->
 							</div>
-							<form name="addarticleform${article.id_article}" method="POST"
-								action="${pageContext.request.contextPath}/Articles"
-								id="form${article.id_article}">
-								<input type="hidden" id="quantite" name="quantite"
-									form="form${article.id_article}" value="1" />
-								</td>
-							</form>
 							<button class="btn-add" form="form${article.id_article}"
 								name="article_id" value="${article.id_article}">
 								<i class="fa fa-2x fa-fw fa-plus"></i>
@@ -152,6 +145,13 @@
 						<form name="persoform${article.id_article}" method="GET"
 								action="${pageContext.request.contextPath}/Personnalisation"
 								id="persoform${article.id_article}"><input type="hidden" name="id" value="${article.id_article}"/></form>
+								<form name="addarticleform${article.id_article}" method="POST"
+								action="${pageContext.request.contextPath}/Articles"
+								id="form${article.id_article}">
+								<input type="hidden" id="quantite" name="quantite"
+									form="form${article.id_article}" value="1" />
+								</td>
+							</form>
 					</c:forEach>
 			</div>
 		</div>

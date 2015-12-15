@@ -39,12 +39,12 @@
                 </div>
                 <div class="col-sm-10">
                   <select class="dropdown" id="taille" name="taille" onchange="this.form.submit()">
-                    <option value="xl">XS</option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
-                    <option value="xxl">XXL</option>
+                    <option ${"XS"== article.taille ? 'selected="selected"' : ''} value="xs">XS</option>
+                    <option ${"S"== article.taille ? 'selected="selected"' : ''} value="s">S</option>
+                    <option ${"M"== article.taille ? 'selected="selected"' : ''}value="m">M</option>
+                    <option ${"L"== article.taille ? 'selected="selected"' : ''}value="l">L</option>
+                    <option ${"XL"== article.taille ? 'selected="selected"' : ''}value="xl">XL</option>
+                    <option ${"XXL"== article.taille ? 'selected="selected"' : ''} value="xxl">XXL</option>
                   </select>
                 </div>
               </div>
@@ -54,9 +54,9 @@
                 </div>
                 <div class="col-sm-10">
                   <select class="dropdown" id="modele" name="modele" onchange="this.form.submit()">
-                    <option value="homme">Simple</option>
-                    <option value="femme">Col rond</option>
-                    <option value="enfant">Col V</option>
+                    <option ${"Homme"== article.modele ? 'selected="selected"' : ''} value="homme">Homme</option>
+                    <option ${"Femme"== article.modele ? 'selected="selected"' : ''} value="femme">Femme</option>
+                    <option ${"Enfant"== article.modele ? 'selected="selected"' : ''} value="enfant">Enfant</option>
                   </select>
                 </div>
               </div>

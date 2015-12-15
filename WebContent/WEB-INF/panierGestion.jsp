@@ -98,7 +98,7 @@
 								<b> Total :</b>
 							</div>
 							<div style="font-size: 14px;">
-								<b>(${sessionScope.panier.size} articles)</b>
+								<b>(${sessionScope.panier.size} article(s))</b>
 							</div>
 							</br>
 							<div class="text-right" style="font-size: 26px; color: #D9534F;">
