@@ -31,7 +31,7 @@
 					<!--BARRE DE RECHERCHE -->
 					<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav"
 						style="display: inline-block;width:100%;">
-						<form role="form" method="post" action="Recherche">
+						<form role="form" method="post" action="${pageContext.request.contextPath}/Recherche">
 							<div class="form-group">
 								<div class="input-group" style="top: 10px;">
 
