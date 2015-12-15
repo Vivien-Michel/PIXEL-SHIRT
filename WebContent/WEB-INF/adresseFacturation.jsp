@@ -11,6 +11,8 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Adresse de facturation</title>
 </head>
 <body>
@@ -78,6 +80,7 @@
                         <input type="radio" name="livraison" value="meme">&nbsp; Livrer à cette adresse
                         <br>
                         <input type="radio" name="livraison" value="differente">&nbsp; Livrer à une adresse différente</div>
+                        <span class="erreur">${erreur}</span>
                     </form>
                   </div>
                   

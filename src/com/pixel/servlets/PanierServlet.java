@@ -58,7 +58,8 @@ public class PanierServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/Accueil");
 	    }
 		else if (request.getParameter("deconnexion") != null){
-			response.sendRedirect(request.getContextPath() + "/Accueil");			
+			String referer = request.getHeader("Referer");
+        	response.sendRedirect(referer);			
 		}
 		else{
 	    	getServletContext().getRequestDispatcher(VUE).forward(request, response);

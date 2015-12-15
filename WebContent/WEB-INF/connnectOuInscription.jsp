@@ -38,7 +38,7 @@
 			
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<form method="POST" action="${pageContext.request.contextPath}/Panier/AdresseFacturation">
+					<form method="POST" action="${pageContext.request.contextPath}/ConnnexionOrInscription">
 																		
 						<div class="form-group has-feedback">												
 					        <label class="control-label">Email* :</label>

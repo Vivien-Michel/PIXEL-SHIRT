@@ -41,6 +41,7 @@ public class AdresseFacturationServlet extends HttpServlet{
 		}else if(radioButton !=null && radioButton.equals("differente")){
 			response.sendRedirect(request.getContextPath() + "/Panier/AdresseLivraison");
 		} else{
+			request.setAttribute("erreur", "Veuillez choisir une option");
 			getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		}
 

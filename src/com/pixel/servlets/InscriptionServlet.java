@@ -64,7 +64,7 @@ public class InscriptionServlet extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         if(form.getErreurs().isEmpty()){
         	mailGenerator.sendMail(panier, TypeMail.Inscription);
-        	response.sendRedirect("Accueil");
+        	response.sendRedirect(request.getContextPath()+"/Accueil");
         }else{
         	request.setAttribute( ATT_FORM, form );
         	request.setAttribute( ATT_USER, utilisateur );

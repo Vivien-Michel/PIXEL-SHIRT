@@ -12,6 +12,7 @@
     <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
     <link href="${pageContext.request.contextPath}/design.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/form.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/button.css" rel="stylesheet" type="text/css">
 <title>Mode de Livraison</title>
 </head>
 <body>
@@ -48,7 +49,7 @@
                   <div class="row text-center">
                   <form id="retour" method="GET" action="${pageContext.request.contextPath}/Panier/AdresseLivraison">
                   </form>
-                    <button form="retour" class="btn btn-danger btn-lg" type="submit"><a href="#" style="color:#FFF">Retour Info. Livraison</a></button>
+                    <button form="retour" class="btn btn-danger btn-lg" type="submit">Retour Info. Livraison</button>
                     <button type="submit" class="btn btn-lg btn-success" form="factform">Suivant</button>
                   </div>
                 </div>

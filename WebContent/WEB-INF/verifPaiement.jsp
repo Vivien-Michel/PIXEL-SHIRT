@@ -51,6 +51,7 @@
 	      <td><c:out value="${article.key.couleur}" /></td>
 	      <td><c:out value="${article.key.taille}" /></td>
 	      <td><c:out value="${article.key.modele}" /></td>
+	      <td><c:out value="${article.value}"/></td>
 	      <td><c:out value="${article.key.prix} €" /></td>
 	     <!--   <td>
 	      	<form name="quantitearticleform${article.key.id_article}" method="POST" action="Gestion" id="form${article.key.id_article}">
@@ -84,6 +85,7 @@
 	  </c:forEach>
 	  <tr>
 	  	<td>Frais de port</td>
+	  	<td></td>
 	  	<td></td>
 	  	<td></td>
 	  	<td></td>

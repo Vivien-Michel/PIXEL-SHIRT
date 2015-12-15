@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="${pageContext.request.contextPath}/notification.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery.js"></script>
 </head>
 <body>
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -27,7 +30,7 @@
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<!--BARRE DE RECHERCHE -->
 					<ul class="hidden-md hidden-sm hidden-xs nav navbar-nav"
-						style="display: inline-block;width: 100%;">
+						style="display: inline-block;width:100%;">
 						<form role="form" method="post" action="Recherche">
 							<div class="form-group">
 								<div class="input-group" style="top: 10px;">
@@ -164,5 +167,81 @@
 			</div>
 
 		</div>
+
+	</div>
+	</div>
+	<!--  Normal que se soit en double pas sur la même page et donc la même div  -->
+	<c:choose>
+	<c:when test="${not empty addcard}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success" >Vous avez ajouté un article au panier</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty addcarddetail}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success">Vous avez ajouté un article au panier</div>')
+										.prependTo('.container.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty form.erreurs['email']}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box fail">Email ou mot de passe invalide</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty transaction_success}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box success">Transaction éffectuée avec succès</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+	<c:when test="${not empty transaction_failed}">
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function(sc) {
+								$(
+										'<div class="alert-box fail">La transaction a échoué</div>')
+										.prependTo('.col-md-9.success').delay(2000).fadeOut(
+												1000, function() {
+													$('.alert-box').remove();
+												});
+							});
+		</script>
+	</c:when>
+</c:choose>
 </body>
 </html>

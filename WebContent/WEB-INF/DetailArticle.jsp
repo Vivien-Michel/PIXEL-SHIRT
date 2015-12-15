@@ -13,6 +13,8 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/bs_leftnavi.js"></script>
 <link href="${pageContext.request.contextPath}/designArticle.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/button.css"
+	rel="stylesheet" type="text/css">
 <title>Detail Article</title>
 </head>
 <body>
@@ -21,7 +23,7 @@
 <%@ include file="menu.jsp"%>
     <div class="section"></div>
     <div class="section">
-      <div class="container">
+      <div class="container success">
         <div class="row">
           <div class="col-md-6">
             <h1 class="text-danger">${article.prix}€</h1>

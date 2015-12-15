@@ -46,6 +46,7 @@ public class AffichageArticleServlet extends HttpServlet {
 		PanierBean panier = (PanierBean) session.getAttribute(AccueilServlet.KEY_SESSION_BEAN);
 		PanierForm form = new PanierForm(articleDao);
 		form.addArticle(request, panier);
+		session.setAttribute("add", "add");
 		response.sendRedirect(request.getContextPath() + "/Accueil");
 	}
 

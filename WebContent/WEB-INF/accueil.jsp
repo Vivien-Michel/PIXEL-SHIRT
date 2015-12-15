@@ -23,7 +23,6 @@
 <body>
 
 	<%@ include file="menu.jsp"%>
-
 	<div class="section" style="top:40px;">
 		<div class="container">
 			<div class="row">
@@ -108,7 +107,7 @@
 				</div>
 
 				<!-- Separation du menu lateral et menu horizontal -->
-				<div class="col-md-9">
+				<div class="col-md-9  success">
 					<c:forEach var="article" items="${listeArticles}">
 
 						<div class="col-md-3">
