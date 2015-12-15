@@ -36,6 +36,7 @@
 						      <th><c:out value="Couleur" /></th>
 						      <th><c:out value="Taille" /></th>
 						      <th><c:out value="Modèle" /></th>
+						      <th><c:out value="Quantité" /></th>
 						      <th><c:out value="Prix" /></th>
 						     <!-- <th><c:out value="QuantiteTest" /></th> 
 						      <th><c:out value="Quantite" /></th>

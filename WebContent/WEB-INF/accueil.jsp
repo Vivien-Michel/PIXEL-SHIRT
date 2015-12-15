@@ -141,15 +141,17 @@
 								name="article_id" value="${article.id_article}">
 								<i class="fa fa-2x fa-fw fa-plus"></i>
 							</button>
-							<a
-								href="${pageContext.request.contextPath}/Personnalisation?id=${article.id_article}"><i
-								class="fa fa-2x fa-fw fa-edit"></i></a> <i
+							<button class="btn-add" form="persoform${article.id_article}"><i
+								class="fa fa-2x fa-fw fa-edit"></i></button> <i
 								class="fa fa-3x pull-right text-danger"><c:out
 									value="${article.prix} €" /></i>
 							<h2>
 								<c:out value="${article.modele}" />
 							</h2>
 						</div>
+						<form name="persoform${article.id_article}" method="GET"
+								action="${pageContext.request.contextPath}/Personnalisation"
+								id="persoform${article.id_article}"><input type="hidden" name="id" value="${article.id_article}"/></form>
 					</c:forEach>
 			</div>
 		</div>

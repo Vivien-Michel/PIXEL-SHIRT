@@ -49,7 +49,7 @@ public class PersonnalisationServlet extends HttpServlet {
 			Matcher matcher = intOnly.matcher(id);
 			if(matcher.find()){
 				Article article = articleDao.findById(id);
-				request.setAttribute("article", article);
+				request.setAttribute(ATT_ART, article);
 				this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 			}else{
 				response.sendRedirect(request.getContextPath() + "/Accueil");
